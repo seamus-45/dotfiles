@@ -1,0 +1,155 @@
+#!/usr/bin/env python
+#-*- coding: utf8 -*-
+
+# Copyright (c) 2010 Alexis Metaireau
+
+"""A simple utility command line to generate a XML file for dynamic gnome
+wallpapers"""
+
+import os
+from xml.dom.minidom import Document
+import argparse
+import datetime
+
+_SUPPORTED_FILES = ('jpg', 'jpeg', 'png')
+
+
+class DynamicWallpaperGenerator(object):
+
+    def __init__(self, **config):
+        for key, value in config:
+            setattr(self, key, value)
+
+    def get_pictures_list(self, path, authorized_extensions):
+        """Return the list of pictures in a specific directory."""
+        pictures_list = []
+        path = os.path.abspath(path)
+        for filename in os.listdir(path):
+            if filename.split('.')[-1] in authorized_extensions:
+                pictures_list.append(os.path.join(path, filename))
+        return pictures_list
+
+    def build_xml(self, pictures_list, display_time, transition_time):
+        """Build an XML file from the list of pictures."""
+
+        doc = Document()
+        background = doc.createElement('background')
+        doc.appendChild(background)
+
+        starttime = doc.createElement('starttime')
+        now = datetime.datetime.now()
+        year = doc.createElement('year')
+        year.appendChild(doc.createTextNode('%s' % now.year))
+        starttime.appendChild(year)
+        month = doc.createElement('month')
+        month.appendChild(doc.createTextNode('%s' % now.month))
+        starttime.appendChild(month)
+        day = doc.createElement('day')
+        day.appendChild(doc.createTextNode('%s' % now.day))
+        starttime.appendChild(day)
+        hour = doc.createElement('hour')
+        hour.appendChild(doc.createTextNode('%s' % now.hour))
+        starttime.appendChild(hour)
+        minute = doc.createElement('minute')
+        minute.appendChild(doc.createTextNode('%s' % now.minute))
+        starttime.appendChild(minute)
+        second = doc.createElement('second')
+        second.appendChild(doc.createTextNode('%s' % now.second))
+        starttime.appendChild(second)
+        background.appendChild(starttime)
+
+        for pic in pictures_list:
+            try:
+                next = pictures_list[pictures_list.index(pic) + 1]
+            except IndexError:
+                next = pictures_list[0]
+
+            static = doc.createElement('static')
+
+            duration = doc.createElement('duration')
+            duration.appendChild(doc.createTextNode("%s.0" % display_time))
+            static.appendChild(duration)
+
+            file = doc.createElement('file')
+            file.appendChild(doc.createTextNode(pic))
+            static.appendChild(file)
+
+            background.appendChild(static)
+
+            transition = doc.createElement('transition')
+
+            duration = doc.createElement('duration')
+            duration.appendChild(doc.createTextNode("%s.0" % transition_time))
+            transition.appendChild(duration)
+
+            fromel = doc.createElement('from')
+            fromel.appendChild(doc.createTextNode(pic))
+            transition.appendChild(fromel)
+
+            to = doc.createElement('to')
+            to.appendChild(doc.createTextNode(next))
+            transition.appendChild(to)
+
+            background.appendChild(transition)
+
+        return doc.toxml()
+
+
+if __name__ == "__main__":
+
+    # -- Command line params --------------------------------------------------
+    parser = argparse.ArgumentParser(description="""A simple command line tool
+    to generate an XML file to use for gnome wallpapers, to have dynamic
+    walls""")
+
+    parser.add_argument('-p', '--path', dest='path', default='.',
+        help="""Path to look for the pictures. If no output is specified, will 
+        be used too for outputing the dynamic-wallpaper.xml file. Default value
+        is the current directory (.)""")
+
+    parser.add_argument('-o', '--output', dest='output', default=None,
+        help="""Output filename. If no filename is specified, a
+        dynamic-wallpaper.xml file will be generated in the path containing the
+        pictures. You can also use "-" to display the xml in the stdout.""")
+
+    parser.add_argument('-t', '--transition-time', dest='transition_time',
+        default=2, help="""Time (in seconds) transitions must last
+        (default value is 2 seconds)""")
+
+    parser.add_argument('-d', '--display-time', dest='display_time',
+        default=900, help="""Time (in seconds) a picture must be displayed.
+        Default value is 900 (15mn)""")
+
+    parser.add_argument('-s', '--set-background', dest='set_background', 
+        action='store_true', help="""try to set the background using
+        gnome-appearance-properties""")
+
+    parser.add_argument('-b', '--debug', dest='debug', action='store_true')
+
+    args = parser.parse_args()
+
+    # -- Generate the XML file ------------------------------------------------
+
+    generator = DynamicWallpaperGenerator()
+    pictures = generator.get_pictures_list(args.path, _SUPPORTED_FILES)
+
+    if not pictures:
+        print 'Error: no pictures in the %s folder (looking for %s)' % (
+            args.path, ', '.join(_SUPPORTED_FILES))
+    else:
+        xml = generator.build_xml(pictures, args.display_time, 
+                                  args.transition_time)
+
+        if args.output == '-':
+            print xml
+        if not args.output:
+            args.output = os.path.join(args.path, 'dynamic-wallpaper.xml')
+
+        output = os.path.abspath(args.output)
+        with open(output, 'w') as f:
+            f.write(xml)
+            print "%s generated" % output
+
+        # try to set the background
+        if args.set_background:
+            os.system('gnome-appearance-properties %s' % output)

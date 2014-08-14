@@ -1,0 +1,1 @@
+../bundle/dbext.vim/doc/dbext.txt

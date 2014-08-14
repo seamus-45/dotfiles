@@ -1,0 +1,16 @@
+--- user-setup-apply	2013-10-16 23:50:03.000000000 +0600
++++ user-setup-apply-new	2013-12-16 17:32:59.919268565 +0600
+@@ -309,6 +309,13 @@
+ 			        	/etc/xdg/lubuntu/lxdm/lxdm.conf
+ 			fi
+ 
++			if $chroot $ROOT [ -f /etc/slim.conf ]; then
++				$log $chroot $ROOT sed -i$BACKUP \
++			        	-e "s/^\#\?\(default_user\).*$/\1\t$USER/" \
++			        	-e 's/^\#\?\(auto_login\).*$/\1\tyes/' \
++			        	/etc/slim.conf
++			fi
++
+ 			if $chroot $ROOT [ -d /etc/lightdm ]; then
+ 				# Configure LightDM autologin
+ 				LightDMCustomFile=$ROOT/etc/lightdm/lightdm.conf

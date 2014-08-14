@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/home/fedotov_sv/.irssi/themes'
+let g:netrw_dirhist_2='/home/fedotov_sv/.themes/Vi/gtk-2.0-key'
+let g:netrw_dirhist_3='/var/lib/layman/calculate/profiles/templates/3.1/2_ac_install_merge/media-libs/fontconfig'
+let g:netrw_dirhist_4='/var/lib/layman/calculate/profiles/templates/deprecated/3.1-beta/2_ac_install_merge/fontconfig'
+let g:netrw_dirhist_5='/home/fedotov_sv/.config/profanity/themes'

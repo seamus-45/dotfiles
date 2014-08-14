@@ -1,0 +1,7 @@
+set lines=40 columns=120
+set guifont=Droid\ Sans\ Mono\ Slashed\ 12
+"set guioptions-=m  "remove menu bar
+set guioptions-=T  "remove toolbar
+set guioptions-=r  "remove right-hand scroll bar
+set guioptions-=L  "remove left-hand scroll bar
+

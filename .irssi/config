@@ -1,0 +1,387 @@
+# vim:ft=config
+
+servers = (
+  {
+    address = "irc.freenode.net";
+    chatnet = "freenode";
+    port = "6667";
+    use_ssl = "no";
+    ssl_verify = "no";
+    autoconnect = "yes";
+  },
+  {
+    address = "localhost";
+    chatnet = "bitlbee";
+    port = "6667";
+    use_ssl = "no";
+    ssl_verify = "no";
+    autoconnect = "no";
+  },
+  {
+    address = "talk.google.com";
+    chatnet = "gtalk";
+    port = "5223";
+    use_ssl = "yes";
+    ssl_verify = "no";
+    autoconnect = "no";
+  },
+  {
+    address = "jabber.ru";
+    chatnet = "jru";
+    port = "5223";
+    use_ssl = "yes";
+    ssl_verify = "no";
+    autoconnect = "yes";
+  },
+  {
+    address = "im.taximaxim.ru";
+    chatnet = "office";
+    port = "5223";
+    use_ssl = "yes";
+    ssl_verify = "no";
+    autoconnect = "yes";
+  }
+);
+
+chatnets = {
+  freenode = {
+    type = "IRC";
+    nick = "seamuz";
+    autosendcmd = "/msg nickserv identify Infinity;wait 2000;/window goto nickserv;/wc";
+    max_kicks = "4";
+    max_msgs = "3";
+    max_whois = "30";
+  };
+  bitlbee = {
+    type = "IRC";
+    nick = "seamus";
+    autosendcmd = "/^msg -bitlbee &bitlbee identify ******; wait -bitlbee 2000";
+    max_kicks = "4";
+    max_msgs = "3";
+    max_whois = "30";
+  };
+  gtalk = { type = "XMPP"; nick = "sr.fido@gmail.com/irssi"; };
+  jru = { type = "XMPP"; nick = "mrfido@jabber.ru/irssi"; };
+  office = { type = "XMPP"; nick = "fedotov_sv@taximaxim.ru/irssi"; };
+};
+
+channels = (
+  { name = "#calculate-ru"; chatnet = "freenode"; autojoin = "yes"; },
+  {
+    name = "adm@conference.taximaxim.ru/seamus";
+    chatnet = "office";
+    autojoin = "yes";
+  }
+);
+
+statusbar = {
+  # formats:
+  # when using {templates}, the template is shown only if it's argument isn't
+  # empty unless no argument is given. for example {sb} is printed always,
+  # but {sb $T} is printed only if $T isn't empty.
+
+  items = {
+    # start/end text in statusbars
+    barstart = "{sbstart}";
+    barend = "{sbend}";
+
+    topicbarstart = "{topicsbstart}";
+    topicbarend = "{topicsbend}";
+
+    # treated "normally", you could change the time/user name to whatever
+    time = "{sb $Z}";
+    user = "{sb {sbnickmode $cumode}$N{sbmode $usermode}{sbaway $A}}";
+
+    # treated specially .. window is printed with non-empty windows,
+    # window_empty is printed with empty windows
+    window = "{sb $winref:$itemname{sbmode $M}}";
+    window_empty = "{sb $winref{sbservertag $tag}}";
+    prompt = "{prompt $[.15]itemname}";
+    prompt_empty = "{prompt $winname}";
+    topic = " $topic";
+    topic_empty = " Irssi v$J - http://irssi.org/help/";
+
+    lag = "{sb Lag: %m$0-%n}";
+    more = "%k%3-- more --%n";
+  };
+
+  # there's two type of statusbars. root statusbars are either at the top
+  # of the screen or at the bottom of the screen. window statusbars are at
+  # the top/bottom of each split window in screen.
+  default = {
+    # the "default statusbar" to be displayed at the bottom of the window.
+    # contains all the normal items.
+    window = {
+      disabled = "no";
+
+      # window, root
+      type = "window";
+      # top, bottom
+      placement = "bottom";
+      # number
+      position = "1";
+      # active, inactive, always
+      visible = "active";
+
+      # list of items in statusbar in the display order
+      items = {
+        barstart = { priority = "100"; };
+        time = { };
+        user = { };
+        window = { };
+        window_empty = { };
+        usercount = { };
+        lag = { priority = "-1"; };
+        act = { };
+        more = { priority = "-1"; alignment = "right"; };
+        barend = { priority = "100"; alignment = "right"; };
+      };
+    };
+
+    # statusbar to use in inactive split windows
+    window_inact = {
+      type = "window";
+      placement = "bottom";
+      position = "1";
+      visible = "inactive";
+      items = {
+        barstart = { priority = "100"; };
+        window = { };
+        window_empty = { };
+        more = { priority = "-1"; alignment = "right"; };
+        barend = { priority = "100"; alignment = "right"; };
+      };
+    };
+
+    # we treat input line as yet another statusbar :) It's possible to
+    # add other items before or after the input line item.
+
+    # topicbar
+    topic = {
+      type = "root";
+      placement = "top";
+      position = "1";
+      visible = "always";
+      items = {
+        topicbarstart = { priority = "100"; };
+        topic = { };
+        topic_empty = { };
+        topicbarend = { priority = "100"; alignment = "right"; };
+      };
+    };
+    prompt = {
+      items = {
+        uberprompt = { priority = "-1"; };
+        vim_mode = { };
+        input = { priority = "10"; };
+      };
+      position = "100";
+    };
+  };
+};
+settings = {
+  core = {
+    real_name = "Serge Fedotov";
+    user_name = "fedotov_sv";
+    nick = "seamus";
+    awaylog_file = "~/.irssi/logs/away.log";
+    recode_out_default_charset = "utf-8";
+    hostname = "";
+    settings_autosave = "no";
+    recode = "no";
+  };
+  "fe-common/core" = {
+    use_status_window = "yes";
+    theme = "themes/easyeye.theme";
+    hilight_color = "= %R";
+    autolog = "yes";
+    autolog_path = "~/.irssi/logs/$tag/${0}/${0}-%Y-%m-%d";
+    autolog_level = "MSGS PUBLIC ACTIONS";
+    reuse_unused_windows = "yes";
+    print_active_channel = "no";
+    use_msgs_window = "no";
+    windows_auto_renumber = "no";
+    show_nickmode_empty = "yes";
+    show_names_on_join = "no";
+    autocreate_query_level = "MSGS DCCMSGS";
+    show_nickmode = "yes";
+    hilight_nick_matches = "yes";
+    window_history = "yes";
+    bell_beeps = "yes";
+    autoclose_windows = "yes";
+    term_charset = "utf-8";
+    beep_msg_level = "NOTICES DCCMSGS DCC";
+    window_default_level = "MSGS PUBLICS NOTICES CTCPS ACTIONS JOINS PARTS QUITS KICKS MODES TOPICS NICKS CLIENTCRAP";
+    window_check_level_first = "yes";
+  };
+  "perl/core/scripts" = {
+    nicklist_height = "57";
+    nicklist_width = "20";
+    url_template_path = "~/.irssi";
+    url_file = "url.grab";
+    lastfm_user = "mrfido";
+    awl_viewer = "no";
+    awl_block = "20";
+    openurl_watch_mail = "no";
+    openurl_app_ftp = "/usr/bin/chromium $1 2>/dev/null >/dev/null";
+    openurl_app_http = "/usr/bin/chromium $1 2>/dev/null >/dev/null";
+    away_reason = "Временно отошел от компьютера";
+    autoaway = "180";
+    trackbar_string = "-";
+    trackbar_style = "%g";
+    awl_placement = "bottom";
+    awl_position = "0";
+    awl_mouse = "yes";
+    usercount_show_halfops = "no";
+    usercount_show_zero = "no";
+    uberprompt_load_hook = "/^vm_add";
+    uberprompt_unload_hook = "/^vm_del";
+    bitlbee_typing_allwin = "yes";
+    awl_prefer_name = "yes";
+    openurl_max_urls = "20";
+  };
+  "fe-text" = { actlist_sort = "refnum"; };
+  "irc/core" = { skip_motd = "yes"; };
+  "irc/dcc" = {
+    dcc_autoget = "yes";
+    dcc_mirc_ctcp = "yes";
+    dcc_autoaccept_lowports = "yes";
+    dcc_autorename = "yes";
+    dcc_send_replace_space_with_underscore = "yes";
+  };
+  "fe-common/xmpp" = {
+    xmpp_roster_show_offline = "no";
+    xmpp_status_window = "yes";
+  };
+  "xmpp/core" = { xmpp_set_nick_as_username = "yes"; };
+};
+
+ignores = ( { level = "JOINS PARTS QUITS MODES"; } );
+
+hilights = (
+  { text = "seamus"; nick = "yes"; word = "yes"; mask = "yes"; },
+  { text = "seamuz"; nick = "yes"; word = "yes"; mask = "yes"; },
+  { text = "sr.fido"; nick = "yes"; word = "yes"; mask = "yes"; },
+  { text = "fedotov_sv"; nick = "yes"; word = "yes"; mask = "yes"; },
+  { text = "mrfido"; nick = "yes"; word = "yes"; mask = "yes"; }
+);
+
+aliases = {
+  VM_ADD = "/^statusbar prompt add -before input -alignment left vim_mode";
+  VM_DEL = "/^statusbar prompt remove vim_mode";
+  AAWAY = "/foreach server /away -one afk";
+  # default aliases
+  J = "join";
+  WJOIN = "join -window";
+  WQUERY = "query -window";
+  LEAVE = "part";
+  BYE = "quit";
+  EXIT = "quit";
+  SIGNOFF = "quit";
+  DESCRIBE = "action";
+  DATE = "time";
+  HOST = "userhost";
+  LAST = "lastlog";
+  SAY = "msg *";
+  WI = "whois";
+  WII = "whois $0 $0";
+  WW = "whowas";
+  W = "who";
+  N = "names";
+  M = "msg";
+  T = "topic";
+  C = "clear";
+  CL = "clear";
+  K = "kick";
+  KB = "kickban";
+  KN = "knockout";
+  BANS = "ban";
+  B = "ban";
+  MUB = "unban *";
+  UB = "unban";
+  IG = "ignore";
+  UNIG = "unignore";
+  SB = "scrollback";
+  UMODE = "mode $N";
+  WC = "window close";
+  WN = "window new hide";
+  SV = "say Irssi $J ($V) - http://irssi.org/";
+  GOTO = "sb goto";
+  CHAT = "dcc chat";
+  RUN = "SCRIPT LOAD";
+  CALC = "exec - if command -v bc >/dev/null 2>&1\\; then printf '%s=' '$*'\\; echo '$*' | bc -l\\; else echo bc was not found\\; fi";
+  SBAR = "STATUSBAR";
+  INVITELIST = "mode $C +I";
+  Q = "QUERY";
+  EXEMPTLIST = "mode $C +e";
+  ATAG = "WINDOW SERVER";
+  UNSET = "set -clear";
+  RESET = "set -default";
+};
+
+logs = { };
+
+keyboard = (
+  { key = "meta-[M"; id = "command"; data = "mouse_xterm "; },
+  { key = "^[OA"; id = "command"; data = "nicklist scroll -10"; },
+  { key = "^[OB"; id = "command"; data = "nicklist scroll +10"; },
+  { key = "^[m"; id = "right_window"; data = ""; },
+  { key = "^[n"; id = "left_window"; data = ""; }
+);
+
+
+windows = {
+  1 = {
+    immortal = "yes";
+    name = "(status)";
+    servertag = "freenode";
+    level = "ALL";
+  };
+  2 = {
+    name = "#adm";
+    level = "MSGS PUBLICS NOTICES CTCPS ACTIONS KICKS MODES TOPICS NICKS CLIENTCRAP";
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "XMPP";
+        name = "adm@conference.taximaxim.ru";
+        tag = "office";
+      }
+    );
+  };
+  3 = {
+    level = "MSGS PUBLICS NOTICES CTCPS ACTIONS KICKS MODES TOPICS NICKS CLIENTCRAP";
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#calculate-ru";
+        tag = "freenode";
+      }
+    );
+  };
+  11 = {
+    name = "(office)";
+    servertag = "office";
+    level = "CRAP MSGS PUBLICS NOTICES SNOTES CTCPS ACTIONS JOINS PARTS QUITS KICKS MODES TOPICS NICKS DCC DCCMSGS CLIENTNOTICES CLIENTCRAP CLIENTERRORS";
+  };
+  12 = {
+    name = "(jru)";
+    servertag = "jru";
+    level = "CRAP MSGS PUBLICS NOTICES SNOTES CTCPS ACTIONS JOINS PARTS QUITS KICKS MODES TOPICS NICKS DCC DCCMSGS CLIENTNOTICES CLIENTCRAP CLIENTERRORS";
+  };
+  13 = {
+    name = "(gtalk)";
+    servertag = "gtalk";
+    level = "CRAP MSGS PUBLICS NOTICES SNOTES CTCPS ACTIONS JOINS PARTS QUITS KICKS MODES TOPICS NICKS DCC DCCMSGS CLIENTNOTICES CLIENTCRAP CLIENTERRORS";
+  };
+  99 = {
+    name = "hilight";
+    level = "MSGS PUBLICS NOTICES CTCPS ACTIONS JOINS PARTS QUITS KICKS MODES TOPICS NICKS CLIENTCRAP";
+    sticky = "yes";
+  };
+};
+mainwindows = {
+  1 = { first_line = "6"; lines = "47"; };
+  99 = { first_line = "1"; lines = "5"; };
+};
