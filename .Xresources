@@ -19,7 +19,7 @@ URxvt.pointerBlank: true
 URxvt.pointerBlankDelay: 3
 URxvt.cursorBlink: true
 URxvt.cursorUnderline: false
-URxvt.visualBell: false
+URxvt.visualBell: true
 URxvt.urgentOnBell: True
 
 URxvt.depth: 32
@@ -64,7 +64,7 @@ URxvt.underlineURLs: true
 URxvt.urlLauncher: /usr/bin/chromium-browser
 
 ! colors
-URxvt.intensityStyles: false
+URxvt.intensityStyles: true
 
 ! base16 theme (https://github.com/chriskempson/base16-xresources/blob/master/base16-default.dark.xresources)
 #define base00 #151515
