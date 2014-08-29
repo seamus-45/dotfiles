@@ -197,4 +197,4 @@ au BufRead,BufNewFile *.thtml set filetype=php
 let g:dbext_default_buffer_lines = 46
 
 " Макросы для dbext
-let @u = '0w"lyt 3f|w"cyt|4ggyyp3x:read !makepasswd --count=1 --minchars=10 --maxchars=10"pywdd5gg2f''h"cpx2f''h"pp2f''"lp'
+let @u = '0w"lyt 3f|w"cyt|4ggyyp3x:read !makepasswd --count=1 --minchars=10 --maxchars=10"pywdd5gg2t''"cpbeldt''2t''"pp2f''"lp'
