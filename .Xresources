@@ -19,7 +19,7 @@ URxvt.pointerBlank: true
 URxvt.pointerBlankDelay: 3
 URxvt.cursorBlink: true
 URxvt.cursorUnderline: false
-URxvt.visualBell: true
+URxvt.visualBell: false
 URxvt.urgentOnBell: True
 
 URxvt.depth: 32
