@@ -107,8 +107,9 @@ set sessionoptions=curdir,buffers,tabpages
 nmap <Space> <PageDown>
 
 " C-c and C-v - Copy/Paste в "глобальный клипборд"
-vmap <C-C> "+yi
-imap <C-V> <esc>"+gPi
+" conflict with ctrl-v for insert literal characters
+"vmap <C-C> "+yi
+"imap <C-V> <esc>"+gPi
 
 " Заставляем shift-insert работать как в Xterm
 map <S-Insert> <MiddleMouse>
