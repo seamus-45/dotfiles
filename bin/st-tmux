@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 DEFAULT="TRUE\nnew\nnew tmux session\n"
 SESSIONS=$(tmux list-sessions | sed 's@\([a-zA-Z]\+\):.*(\(created.*\))\s.*@FALSE\\n\1\\n\2\\n@' | tr -d '\n')
 LIST="${DEFAULT}${SESSIONS}"
@@ -16,7 +16,7 @@ if [ -n "$SELECT" ]; then
     new)
       SELECT=$(zenity --title 'new tmux session' --entry --text='name:' --entry-text='untitled')
       if [ -n "${SELECT}" ]; then
-        if [[ ! $( echo $SESSIONS | grep ${SELECT} ) ]]; then
+        if [ ! $( echo $SESSIONS | grep ${SELECT} ) ]; then
           tmux new-session -s ${SELECT}
         else
           tmux attach-session -t ${SELECT}
