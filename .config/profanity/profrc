@@ -26,3 +26,8 @@ sub=true
 
 [connection]
 account=work
+
+[presence]
+autoaway.mode=idle
+autoaway.time=5
+autoaway.message=Отошел от компьютера
