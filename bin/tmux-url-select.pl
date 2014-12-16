@@ -15,6 +15,8 @@ use constant YANK_COMMAND => 'echo %s | xclip -i';
 use constant SHOW_STATUS_BAR => 0;
 use constant VERBOSE_MESSAGES => 0;
 use constant TMUX_WINDOW_TITLE => 'Select URL';
+use constant TMUX_WINDOW_ID => 9999;
+use constant HIDE_WINDOW => 1;
 
 use constant PROMPT_COLOR => "\033[42;30m";
 use constant ACTIVE_LINK_HIGHLIGHT => "\033[49;31;4m";
@@ -30,7 +32,7 @@ use constant NORMAL_LINK_HIGHLIGHT => "\033[49;96;4m";
 # regex stolen from urxvtperls url-select.pl
 my $url_pattern = qr{(
     (?:https?://|ftp://|news://|git://|mailto:|file://|www\.)
-    [\w\-\@;\/?:&=%\$_.+!*\x27(),~#]+[\w\-\@;\/?&=%\$_+!*\x27()~]
+    [\w\-\@;\/?:&=%\$_.+!*\x27(),~#]+[\w\-\@;\/?&=%\$_+!*\x27(~]
 )}x;
 
 ### config end
@@ -51,7 +53,7 @@ sub clear {
 sub display_status_bar {
     my $is_first_line = shift;
     my $position = $is_first_line ? "2;2" : "1;2";
-    print sprintf("\033[%sH%s URL select: (%s/%s) [j/k/y/q/enter] \033[0m", $position, PROMPT_COLOR, $selection+1, $match_count);
+    print sprintf("\033[%sH%s URL select: (%s/%s) [j/k/y/o/q/enter] \033[0m", $position, PROMPT_COLOR, $selection+1, $match_count);
 }
 
 sub display_highlighted_buffer {
@@ -87,7 +89,7 @@ sub tmux_switch_to_last {
 }
 
 sub tmux_select_my_window {
-    system "tmux", "select-window", "-t", TMUX_WINDOW_TITLE;
+    system "tmux", "select-window", "-t", TMUX_WINDOW_ID;
 }
 
 sub tmux_capture_pane {
@@ -99,14 +101,16 @@ sub tmux_get_buffer {
 }
 
 sub tmux_open_inner_window {
-    system "tmux", "new-window", "-dn", TMUX_WINDOW_TITLE, "$0 inner";
+    system "tmux", "new-window", "-dn", "", "-t", TMUX_WINDOW_ID, "$0 inner";
+    system "tmux", "setw", "-qt", TMUX_WINDOW_ID, "window-status-format", "";
+    system "tmux", "setw", "-qt", TMUX_WINDOW_ID, "window-status-current-format", "";
 }
 
 # other shell helpers
 
 sub enable_canonical_mode {
     # "canonical mode" to read char by char, thanks roger.
-    system "stty", "-icanon";
+    system "stty", "-icanon", "cbreak", "min", "1", "-echo";
 }
 
 sub single_quote_escape {
@@ -124,7 +128,7 @@ sub fix_url {
 
 sub launch_url {
     my $url = fix_url(shift);
-    tmux_switch_to_last();
+    tmux_switch_to_last() if shift;
     system sprintf(COMMAND, single_quote_escape($url));
     tmux_display_message("Launched ". $url) if VERBOSE_MESSAGES;
 
@@ -136,7 +140,7 @@ sub launch_url {
 
 sub yank_url {
     my $url = fix_url(shift);
-    tmux_switch_to_last();
+    tmux_switch_to_last() if shift;
     system sprintf(YANK_COMMAND, single_quote_escape($url));
     tmux_display_message("Yanked ". $url) if VERBOSE_MESSAGES;
 }
@@ -145,6 +149,8 @@ sub yank_url {
 
 sub main_inner {
     $raw_buffer = tmux_get_buffer();
+    system "tmux delete-buffer";
+
     $buffer = $raw_buffer =~ s/\n$//r;
     $buffer_first_newline_position = index($raw_buffer, "\n");
 
@@ -167,9 +173,10 @@ sub main_inner {
         $selection-- if /k/;
         $selection = ($_-1) if /[0-9]/;
         $selection %= $match_count;
-        yank_url($matches[$selection]) if /y/;
-        return launch_url($matches[$selection]) if /\n/;
-        return if /q/;
+        my $do_return = /[qyo\n]/;
+        yank_url($matches[$selection], $do_return) if /yY/;
+        launch_url($matches[$selection], $do_return) if /[\noO]/;
+        return if $do_return;
         display_stuff();
     }
 }
