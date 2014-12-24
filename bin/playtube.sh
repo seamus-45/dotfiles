@@ -13,8 +13,8 @@ if [ $# -lt 1 ]; then
   echo 'Leave blank and press <enter> to quit.'
   while echo -ne ${ps}; read URI; do
     [[ -z ${URI} ]] && exit 0
-    mplayer -really-quiet -prefer-ipv4 $(quvi dump -p rfc2483 "${URI}" | grep -v \#)
+    mplayer -geometry 500x300+2800+700 -really-quiet -prefer-ipv4 $(quvi dump -p rfc2483 "${URI}" | grep -v \#)
   done
 else
-    mplayer -really-quiet -prefer-ipv4 $(quvi dump -p rfc2483 "${1}" | grep -v \#)
+    mplayer -geometry 500x300+2800+700 -really-quiet -prefer-ipv4 $(quvi dump -p rfc2483 "${1}" | grep -v \#)
 fi
