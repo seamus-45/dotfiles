@@ -10,7 +10,7 @@ use warnings;
 ### config
 
 use constant COMMAND => 'xdg-open %s';
-use constant YANK_COMMAND => 'echo %s | xclip -i';
+use constant YANK_COMMAND => '/bin/echo %s | xclip -selection clipboard';
 
 use constant SHOW_STATUS_BAR => 0;
 use constant VERBOSE_MESSAGES => 0;
@@ -173,8 +173,8 @@ sub main_inner {
         $selection-- if /k/;
         $selection = ($_-1) if /[0-9]/;
         $selection %= $match_count;
-        my $do_return = /[qyo\n]/;
-        yank_url($matches[$selection], $do_return) if /yY/;
+        my $do_return = /[qyYoO\n]/;
+        yank_url($matches[$selection], $do_return) if /[yY]/;
         launch_url($matches[$selection], $do_return) if /[\noO]/;
         return if $do_return;
         display_stuff();
