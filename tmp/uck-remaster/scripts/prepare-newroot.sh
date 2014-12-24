@@ -23,6 +23,7 @@ EOF
 
 # make clean environment
 [[ -d chroot ]] && rm -rf chroot
+[[ -d image ]] && rm -rf image
 mkdir -p chroot/var/cache/apt/archives/partial
 mount -v -o bind ../remaster-apt-cache/archives chroot/var/cache/apt/archives
 [[ $? -eq 0 ]] && echo '/var/apt/cache/archives bind successful.'
@@ -59,6 +60,7 @@ chroot chroot /bin/dbus-uuidgen > /var/lib/dbus/machine-id
 chroot chroot apt-get install --yes ubuntu-standard casper lupin-casper
 chroot chroot apt-get install --yes discover laptop-detect os-prober
 chroot chroot apt-get install --yes linux-generic
+chroot chroot apt-get install --yes memtest86+
 
 # copy important binaries
 mkdir -p image/{casper,isolinux,install,.disk}

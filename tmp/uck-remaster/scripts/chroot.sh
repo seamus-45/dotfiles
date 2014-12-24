@@ -39,6 +39,7 @@ chroot chroot /usr/bin/dpkg-divert --rename --remove /sbin/initctl
 rm -vf chroot/root/initctl
 rm -vf chroot/root/.bash_history
 rm -vf chroot/var/lib/dbus/machine-id
+rm -vf chroot/var/log/apt/*
 
 #umount all
 umount -v -l chroot/dev

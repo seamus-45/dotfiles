@@ -1,5 +1,5 @@
 #!/bin/bash
-./tweaks.sh
+[[ -x ./tweaks.sh ]] && ./tweaks.sh
 
 #pack squashfs
-mksquashfs chroot image/casper/filesystem.squashfs -noappend | head -n3
+mksquashfs chroot image/casper/filesystem.squashfs -noappend 
