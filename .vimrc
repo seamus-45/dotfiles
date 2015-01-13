@@ -199,3 +199,4 @@ let g:dbext_default_buffer_lines = 46
 
 " Макросы для dbext
 let @u = '0w"lyt 3f|w"cyt|4ggyyp3x:read !makepasswd --count=1 --minchars=10 --maxchars=10"pywdd5gg2t''"cpbeldt''2t''"pp2f''"lp'
+let @n = '0"0y$10gg"14yy13gg"1p:14,17s/groupname/0/g:14,17s/-- //g:14,17DBExecVisualSQL:14,17d7ggyyp3x:DBExecSQLUnderCursordd5ggf%y$:"2ggvGk:s/$/,/g2ggvG:join!"0y$8gg"1yy"1p3xf''"0p:DBExecSQLUnderCursordd7ggyyp3x:DBExecSQLUnderCursordd6ggf%y$:"2ggvGk:s/$/,/g2ggvG:join!"0y$9gg"1yy"1p3xf''"0p:DBExecSQLUnderCursordd'
