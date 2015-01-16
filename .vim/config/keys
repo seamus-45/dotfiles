@@ -3,15 +3,6 @@
 " установим клавишу leader
 "let mapleader = "," 
 
-" for tmux support
-if &term =~ '^screen'
-    " tmux will send xterm-style keys when its xterm-keys option is on
-    execute "set <xUp>=\e[1;*A"
-    execute "set <xDown>=\e[1;*B"
-    execute "set <xRight>=\e[1;*C"
-    execute "set <xLeft>=\e[1;*D"
-endif
-
 " разрешаем использовать Backspace вместо x
 set backspace=indent,eol,start
 
@@ -19,13 +10,13 @@ set backspace=indent,eol,start
 nmap <leader>l :set list!<CR>
 
 " Работа буфферами
-" alt+left - предыдущая вкладка
-map <M-Left> :bp<cr>
-imap <M-Left> <esc>:bp<cr>i
+" предыдущая вкладка
+map <leader>- :bp<cr>
+imap <leader>- <esc>:bp<cr>i
 
-" alt+right - следующая вкладка
-map <M-Right> :bn<cr>
-imap <M-Right> <esc>:bn<cr>i
+" следующая вкладка
+map <leader>= :bn<cr>
+imap <leader>= <esc>:bn<cr>i
 
 " F2 - быстрое сохранение
 map <F2> :w<cr>
