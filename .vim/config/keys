@@ -22,6 +22,10 @@ imap <leader>= <esc>:bn<cr>i
 map <F2> :w<cr>
 imap <F2> <esc>:w<cr>i
 
+" перемещение по результатам автодополнения <c-j> и <c-k>
+inoremap <expr> <c-j> ("\<C-n>")
+inoremap <expr> <c-k> ("\<C-p>")
+
 " < & > - делаем отступы для блоков
 vmap < <gv
 vmap > >gv
