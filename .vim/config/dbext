@@ -1,7 +1,7 @@
 " vim: set filetype=vim:
 
 " Настройки для модуля dbext
-let g:dbext_default_buffer_lines = 46
+let g:dbext_default_buffer_lines = 40
 
 " Макросы для dbext
 let @u = '0w"lyt 3f|w"cyt|4ggyyp3x:read !makepasswd --count=1 --minchars=10 --maxchars=10"pywdd5gg2t''"cpbeldt''2t''"pp2f''"lp:1,$DBExecRangeSQL5ggdd'
