@@ -1,0 +1,61 @@
+" vim: set filetype=vim:
+
+" внешний вид
+if has('gui_running')
+  "set t_Co=16
+  "set t_Co=256
+  colorscheme molokai
+  set background=dark " Цвет фона темный или светлый
+  let g:airline_theme='luna'
+  let g:airline_powerline_fonts = 1
+else
+  " внешний вид для vim в терминале
+  "set t_Co=16
+  set t_Co=256
+  colorscheme 256-jungle
+  set background=dark
+  let g:airline_theme='luna'
+endif
+
+syntax on " включить подсветку кода
+set ttyfast " улучшенный вывод
+set ls=2 " всегда показываем статусбар
+set hlsearch " подсветка результатов поиска
+set incsearch " инкреминтируемый поиск
+set nu " показывать номера строк
+set scrolloff=7 " начинать прокручивать за указанное количество строк от края
+set ruler " показывать строку,позицию и %
+set completeopt-=preview " не показывать дополнительной инфы о выбранном варианте автодополнения
+
+"tab ball " включаем показ буферов через вкладки
+"set switchbuf=usetab " поведение при переключении между буферами. useopen-перейти к первому открытому окну что содержит указанный буфер. 
+
+set fillchars=stl:\ ,stlnc:\ ,vert:│ " вид вертикальной черты
+
+" внешний вид не отображаемых символов
+if has('multi_byte')
+  if version >= 700
+    " set listchars=tab:»\ ,trail:·,eol:¶,extends:→,precedes:←,nbsp:×
+    set listchars=tab:▸\ ,eol:¬ " TextMate
+  else
+    set listchars=tab:»\ ,trail:·,eol:¶,extends:>,precedes:<,nbsp:_
+  endif
+endif
+
+" раскомментируйте эти строки, если хотите, чтобы NERDTree/TagBar автоматически отображались при запуске vim
+" autocmd vimenter * TagbarToggle
+" " autocmd vimenter * NERDTree
+" " autocmd vimenter * if !argc() | NERDTree | endif
+
+" отключаем пищалку и мигание
+set visualbell t_vb= 
+set novisualbell    
+
+" настройки Vim-Airline
+set laststatus=2
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+
+" отключить выбор первой функции/метода при автодополнении в JediVim
+let g:jedi#popup_select_first = 0
+

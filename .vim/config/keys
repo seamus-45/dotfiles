@@ -1,0 +1,72 @@
+" vim: set filetype=vim:
+
+" установим клавишу leader
+"let mapleader = "," 
+
+" for tmux support
+if &term =~ '^screen'
+    " tmux will send xterm-style keys when its xterm-keys option is on
+    execute "set <xUp>=\e[1;*A"
+    execute "set <xDown>=\e[1;*B"
+    execute "set <xRight>=\e[1;*C"
+    execute "set <xLeft>=\e[1;*D"
+endif
+
+" разрешаем использовать Backspace вместо x
+set backspace=indent,eol,start
+
+" leader + l  отображение непечатаемых символов 
+nmap <leader>l :set list!<CR>
+
+" Работа буфферами
+" alt+left - предыдущая вкладка
+map <M-Left> :bp<cr>
+imap <M-Left> <esc>:bp<cr>i
+
+" alt+right - следующая вкладка
+map <M-Right> :bn<cr>
+imap <M-Right> <esc>:bn<cr>i
+
+" F2 - быстрое сохранение
+map <F2> :w<cr>
+imap <F2> <esc>:w<cr>i
+
+" < & > - делаем отступы для блоков
+vmap < <gv
+vmap > >gv
+
+" TaskList настройки
+" отобразить список тасков на F2
+map <F1> :TaskList<CR> 
+imap <F1> <esc>:TaskList<CR>i
+
+" NerdTree настройки
+" показать NERDTree на F3
+map <F3> :NERDTreeToggle<CR>
+imap <F3> <esc>:NERDTreeToggle<CR>
+"игноррируемые файлы с расширениями
+let NERDTreeIgnore=['\~$', '\.pyc$', '\.pyo$', '\.class$', 'pip-log\.txt$', '\.o$']  
+
+" F4 TagBar настройки
+map <F4> :TagbarToggle<CR>
+imap <F4> <esc>:TagbarToggle<CR>i
+let g:tagbar_autofocus = 0 " автофокус на Tagbar при открытии
+
+" ConqueTerm
+" запуск интерпретатора на F5
+nnoremap <F5> :ConqueTermSplit ipython<CR>
+
+" а debug-mode на <F6>
+nnoremap <F6> :exe "ConqueTermSplit ipython " . expand("%")<CR>
+let g:ConqueTerm_StartMessages = 0
+let g:ConqueTerm_CloseOnEnd = 0
+
+" проверка кода в соответствии с PEP8 через <leader>8
+autocmd FileType python map <buffer> <leader>8 :PymodeLint<CR>
+
+" переключение между синтаксисами
+nnoremap <leader>Th :set ft=htmljinja<CR>
+nnoremap <leader>Tp :set ft=python<CR>
+nnoremap <leader>Tj :set ft=javascript<CR>
+nnoremap <leader>Tc :set ft=css<CR>
+nnoremap <leader>Td :set ft=django<CR>

@@ -1,0 +1,43 @@
+" vim: set filetype=vim:
+
+set enc=utf-8 " utf-8 по дефолту в файлах
+
+" отключаем бэкапы и своп-файлы
+set nobackup " no backup files
+set nowritebackup " only in case you don't want a backup file while editing
+set noswapfile " no swap files
+
+" Преобразование Таба в пробелы
+set expandtab
+
+" Размер табулации по умолчанию
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
+
+" Фолдинг по отсупам
+set foldmethod=marker
+
+" Не выгружать буфер, когда переключаемся на другой
+" Это позволяет редактировать несколько файлов в один и тот же момент без необходимости сохранения каждый раз
+" когда переключаешься между ними
+set hidden
+
+" Включить автоотступы
+set autoindent
+
+" автокомплит
+set omnifunc=syntaxcomplete#Complete
+
+" при переходе за границу в 80 символов в Ruby/Python/js/C/C++ подсвечиваем на темном фоне текст
+augroup vimrc_autocmds
+    autocmd!
+    autocmd FileType ruby,python,javascript,c,cpp highlight Excess ctermbg=DarkGrey guibg=Black
+    autocmd FileType ruby,python,javascript,c,cpp match Excess /\%80v.*/
+    autocmd FileType ruby,python,javascript,c,cpp set nowrap
+augroup END
+
+" указываем каталог с настройками SnipMate
+let g:snippets_dir = "~/.vim/vim-snippets/snippets"
+
+
