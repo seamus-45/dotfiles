@@ -12,7 +12,10 @@ else
   " внешний вид для vim в терминале
   "set t_Co=16
   set t_Co=256
-  colorscheme 256-jungle
+"  colorscheme 256-jungle
+  colorscheme molokai
+  let g:molokai_original = 1
+  let g:rehash256 = 1
   set background=dark
   let g:airline_theme='luna'
 endif
@@ -50,6 +53,10 @@ endif
 " отключаем пищалку и мигание
 set visualbell t_vb= 
 set novisualbell    
+
+" дополнение имен файлов по TAB в командной строке VIM
+set wildmenu
+set wildmode=list:longest,full
 
 " настройки Vim-Airline
 set laststatus=2
