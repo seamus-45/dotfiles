@@ -61,6 +61,8 @@ set wildmode=list:longest,full
 " настройки Vim-Airline
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_buffers = 1
+let g:airline#extensions#tabline#show_tabs = 0
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 
 " отключить выбор первой функции/метода при автодополнении в JediVim

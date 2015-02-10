@@ -7,6 +7,12 @@ intype=true
 
 statuses.muc=none
 
+occupants=false
+statuses.chat=all
+statuses.console=none
+mouse=false
+vercheck=true
+
 [logging]
 chlog=true
 grlog=true
@@ -31,3 +37,6 @@ account=work
 autoaway.mode=idle
 autoaway.time=5
 autoaway.message=Отошел от компьютера
+
+[chatstates]
+enabled=true
