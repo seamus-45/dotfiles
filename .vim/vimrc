@@ -54,8 +54,3 @@ source ~/.vim/config/keys
 source ~/.vim/config/python-mode
 source ~/.vim/config/filetype
 source ~/.vim/config/dbext
-
-" temporary 
-set noexpandtab
-set softtabstop=0
-let @q='/^\s\+server_namefsw"syw:let @s=substitute(strtrans(@s),''\s\+$'','''',''g'')?^server {/^\s\+listenf: "pyw:let @p=substitute(strtrans(@p),''\s\+$'','''',''g'')?^server {vf{%$d:e s.p.confp:w:bd'
