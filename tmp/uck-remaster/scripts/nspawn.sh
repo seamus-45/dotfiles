@@ -1,15 +1,6 @@
 #!/bin/bash
 SOURCE=/home/fedotov_sv/tmp/uck-remaster/remaster-apt-cache/archives/
-DEST=/home/fedotov_sv/tmp/uck-remaster/ubuntu-1404-remix/chroot/var/cache/apt/archives/
-function chkdir {
-if [ ! -d ${1} ];
-then
-  echo "Directory ${1} does not exists!"
-  exit 1
-fi
-}
-chkdir ${SOURCE}
-chkdir ${DEST}
+DEST=/var/cache/apt/archives/
 
 # divert initctl (fix upstart bug)
 chroot chroot /usr/bin/dpkg-divert --local --rename --add /sbin/initctl
