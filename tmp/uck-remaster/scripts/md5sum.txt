@@ -1,9 +1,0 @@
-3b30897e9d2f415247363642c15d1f4c  ./pack.sh
-bc080e1f5bdf020c76d046cd05ee2199  ./mate-tweaks.sh
-a71e6f6774beab272468b536f5f6dcb6  ./prepare-newroot.sh
-71b61e87b9db3c8cce25e289f660f976  ./unpack-iso.sh
-311d4bb4bc4029a0329aadb99503304c  ./pack-rootfs.sh
-7e19da7e206eadf5fb010573bc4b2447  ./unpack-rootfs.sh
-3a204f28c68942bdee6ac4298de6b990  ./chroot.sh
-ef963bf8b9dd4a07fe5176fd27560d1e  ./pack-iso.sh
-b3b2c111105833c2e562df8ffa635a5d  ./kiosk-tweaks.sh
