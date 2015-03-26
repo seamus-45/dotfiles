@@ -27,6 +27,9 @@ Plugin 'davidhalter/jedi-vim' " автодополнение кода
 Plugin 'mitsuhiko/vim-jinja' " Поддержка синтаксиса шаблонов Jinja для vim
 Plugin 'mitsuhiko/vim-python-combined' " полезные фишки для Python 2/3
 
+" html
+Plugin 'alvan/vim-closetag' " закрытие тегов при помощи >
+
 " dbext
 Plugin 'vim-scripts/dbext.vim' " работа с базами данных (Oracle, Sybase, Microsoft, MySQL, DBI,..)
 
