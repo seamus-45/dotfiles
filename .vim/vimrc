@@ -11,6 +11,7 @@ call vundle#begin()
 " vunlde plugins
 " разрешим обновлять самого себя
 Plugin 'gmarik/Vundle.vim'
+
 " навигация по коду/проекту
 Plugin 'scrooloose/nerdtree' " навигация по файлам проекта
 Plugin 'majutsushi/tagbar' " навигация по классам/функциям/переменным
@@ -41,6 +42,7 @@ Plugin 'flazz/vim-colorschemes' " дополнительные цветовые 
 Plugin 'tpope/vim-surround' " инструмент для автозакрытия и быстрой замены тегов HML/XML и др.
 Plugin 'rosenfeld/conque-term' " вывод консоли в буффер vim
 Plugin 'fisadev/FixedTaskList.vim' " поиск в файле FIXME, TODO и т.п.
+Plugin 'danro/rename.vim' " Позволяет переименовывать файлы в буффере через команду rename
 
 " vundle required
 call vundle#end()

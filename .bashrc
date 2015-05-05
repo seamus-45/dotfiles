@@ -15,3 +15,4 @@ fi
 [ -f /etc/profile.d/bash-completion.sh ] && source /etc/profile.d/bash-completion.sh
 
 alias makepasswd="/usr/bin/makepasswd --count=10 $@"
+unset GREP_OPTIONS

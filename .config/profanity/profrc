@@ -1,6 +1,6 @@
 [ui]
 beep=true
-theme=batman-seamus
+theme=original
 flash=true
 history=true
 intype=true
@@ -12,6 +12,8 @@ statuses.chat=all
 statuses.console=none
 mouse=false
 vercheck=true
+
+roster=false
 
 [logging]
 chlog=true
