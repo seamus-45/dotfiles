@@ -1,0 +1,4 @@
+set draw_borders true
+set draw_borders false
+search lib
+search lay
