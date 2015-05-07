@@ -1,4 +1,9 @@
-set draw_borders true
-set draw_borders false
-search lib
-search lay
+cd  .config
+
+extracthere 
+cd .config
+search ranger
+comp
+eval fm.source(fm.confpath('rc.conf'))
+compres
+delete
