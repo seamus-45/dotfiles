@@ -6,6 +6,10 @@ DEST=/var/cache/apt/archives/
 chroot chroot /usr/bin/dpkg-divert --local --rename --add /sbin/initctl
 ln -sv /bin/true chroot/sbin/initctl
 
+# divert invoke-rc.d (fix apt-get bug with PI-scripts)
+chroot chroot /usr/bin/dpkg-divert --local --rename --add /usr/sbin/invoke-rc.d
+cp -v invoke-rc.d-421 chroot/usr/sbin/invoke-rc.d
+
 # divert resolv.conf (make internet)
 chroot chroot /usr/bin/dpkg-divert --local --rename --add /etc/resolv.conf
 cp -v /etc/resolv.conf chroot/etc
@@ -19,6 +23,9 @@ systemd-nspawn -D chroot --bind ${SOURCE}:${DEST} --setenv=LC_ALL=C /bin/bash
 # clean and restore
 rm -vf chroot/sbin/initctl
 chroot chroot /usr/bin/dpkg-divert --rename --remove /sbin/initctl
+
+rm -vf chroot/usr/sbin/invoke-rc.d
+chroot chroot /usr/bin/dpkg-divert --rename --remove /usr/sbin/invoke-rc.d
 
 rm -vf chroot/etc/resolv.conf
 chroot chroot /usr/bin/dpkg-divert --rename --remove /etc/resolv.conf
