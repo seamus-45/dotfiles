@@ -1,9 +1,12 @@
-cd  .config
 
 extracthere 
 cd .config
 search ranger
 comp
-eval fm.source(fm.confpath('rc.conf'))
 compres
+open_with 
+reload_cwd 
+eval fm.source(fm.confpath('rc.conf'))
+cd  .config
+search rang
 delete
