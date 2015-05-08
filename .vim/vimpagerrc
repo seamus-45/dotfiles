@@ -12,4 +12,4 @@ let vimpager_disable_x11 = 1
 let vimpager_scrolloff = 999
 
 " To disable the use of AnsiEsc.vim
-" let vimpager_disable_ansiesc = 1
+let vimpager_disable_ansiesc = 1
