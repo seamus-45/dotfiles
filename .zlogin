@@ -1,0 +1,1 @@
+/home/fedotov_sv/.zprezto/runcoms/zlogin
