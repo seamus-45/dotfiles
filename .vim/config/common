@@ -26,6 +26,9 @@ set hidden
 " Включить автоотступы
 set autoindent
 
+" Автоматическая рабочей смена директории на ту где открыт файл
+set autochdir
+
 " автокомплит
 set omnifunc=syntaxcomplete#Complete
 
