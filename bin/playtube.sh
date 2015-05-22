@@ -13,8 +13,14 @@ if [ $# -lt 1 ]; then
   echo 'Leave blank and press <enter> to quit.'
   while echo -ne ${ps}; read URI; do
     [[ -z ${URI} ]] && exit 0
-    mplayer -geometry 500x300+2850+680 -ontop -really-quiet -prefer-ipv4 $(quvi dump -p rfc2483 "${URI}" | grep -v \#)
+    mplayer -geometry 500x300+2850+680 -ontop -really-quiet -prefer-ipv4 $(quvi dump -p rfc2483 "${URI}" | grep -v \#) &
+    until WID=$(wmctrl -l | grep MPlayer); do sleep 1; done
+    echo "Found mplayer window $(echo $WID | awk '{print $1}'). Make it sticky."
+    wmctrl -r mplayer -b add,sticky
   done
 else
-    mplayer -geometry 500x300+2850+680 -ontop -really-quiet -prefer-ipv4 $(quvi dump -p rfc2483 "${1}" | grep -v \#)
+    mplayer -geometry 500x300+2850+680 -ontop -really-quiet -prefer-ipv4 $(quvi dump -p rfc2483 "${1}" | grep -v \#) &
+    until WID=$(wmctrl -l | grep MPlayer); do sleep 1; done
+    echo "Found mplayer window $(echo $WID | awk '{print $1}'). Make it sticky."
+    wmctrl -r mplayer -b add,sticky
 fi
