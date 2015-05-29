@@ -11,7 +11,7 @@ wmname LG3D
 # appearance
 xsetroot -cursor_name left_ptr &
 #hsetroot -tile $HOME/.config/bspwm/tinytile2.gif &
-hsetroot -tile $HOME/pictures/main/wallpaper-2723732.png &
+hsetroot -tile $HOME/pictures/main/wallhaven-51214-0-0.png &
 # save my eyes
 #redshift -l 49.26:-123.23 &
 

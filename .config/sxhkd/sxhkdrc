@@ -84,7 +84,7 @@ alt + F2
   gmrun
 
 Scroll_Lock
-  alock -auth pam -bg shade -cursor none  
+  alock -auth pam -bg shade:shade=40,color='#200000' 
 
 # Hangouts
 super + F1
