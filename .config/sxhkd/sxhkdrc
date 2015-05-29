@@ -43,9 +43,6 @@ super + {comma,period}
 super + bracket{left,right}
   bspc desktop -f {prev,next}
 
-super + {minus,equal}
-  bspc monitor -f {L,R}
-
 super + ctrl + {h,j,k,l}
   bspc window -p {left,down,up,right}
 
