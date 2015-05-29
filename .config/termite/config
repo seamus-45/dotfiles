@@ -44,7 +44,7 @@ geometry                = 535x290+900+600
 foreground             = #f8f8f2
 foreground_bold        = #f8f8f2
 background             = #272822
-cursor                 = #66d9ef
+cursor                 = #cb4b16
 
 color0                  = #272822
 color1                  = #f92672
