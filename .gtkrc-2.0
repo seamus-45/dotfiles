@@ -1,5 +1,6 @@
 # GTK2.0 Config
 gtk-theme-name="FlatStudioCustom"
+gtk-key-theme="Vi"
 gtk-icon-theme-name="Numix-uTouch"
 gtk-font-name="Droid Sans 10"
 gtk-xft-antialias=1
