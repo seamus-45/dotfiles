@@ -39,6 +39,7 @@ Plugin 'bling/vim-airline' " строка статуса/состояния
 Plugin 'flazz/vim-colorschemes' " дополнительные цветовые схемы
 
 " другое
+Plugin 'vim-scripts/HexHighlight.vim' " подсвечиват hex-коды в любых файлах по leader+F2 (gVim)
 Plugin 'tpope/vim-surround' " инструмент для автозакрытия и быстрой замены тегов HML/XML и др.
 Plugin 'rosenfeld/conque-term' " вывод консоли в буффер vim
 Plugin 'fisadev/FixedTaskList.vim' " поиск в файле FIXME, TODO и т.п.
