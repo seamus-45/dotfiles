@@ -24,6 +24,9 @@ xset s 180
 # bind side buttons
 imwheel -k -b 000089
 
+# start dunst notify daemon
+dunst &
+
 # run WM
 compton &
 sxhkd &

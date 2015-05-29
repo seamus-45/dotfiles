@@ -89,6 +89,10 @@ alt + F2
 Scroll_Lock
   alock -auth pam -bg shade -cursor none  
 
+# Hangouts
+super + F1
+  /usr/lib64/chromium-browser/chromium-launcher.sh --profile-directory=Default --app-id=knipolnnllmklapflnccelgolnpehhpl
+
 # make sxhkd reload its configuration files:
 super + Escape
   pkill -USR1 -x sxhkd
