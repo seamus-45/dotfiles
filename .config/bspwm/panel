@@ -1,0 +1,177 @@
+#!/bin/bash
+# vim:set foldmethod=marker:
+
+#{{{ Panel settings
+PANEL_FIFO="$HOME/.config/bspwm/fifo-panel"
+PANEL_HEIGHT="16"
+PANEL_FONT_FAMILY="-*-terminus-bold-r-normal-*-12-*-*-*-c-*-*-1"
+
+# Panel color theme
+COLOR_FOREGROUND='#eee8d5'
+COLOR_BACKGROUND='#002b36'
+COLOR_UNDERLINE='#dc322f'
+COLOR_ACTIVE_MONITOR_FG='#002b36'
+COLOR_ACTIVE_MONITOR_BG='#58c5f1'
+COLOR_INACTIVE_MONITOR_FG='#58c5f1'
+COLOR_INACTIVE_MONITOR_BG='#002b36'
+COLOR_FOCUSED_OCCUPIED_FG='#fdf6e3'
+COLOR_FOCUSED_OCCUPIED_BG='#657b83'
+COLOR_FOCUSED_FREE_FG='#fdf6e3'
+COLOR_FOCUSED_FREE_BG='#657b83'
+COLOR_FOCUSED_URGENT_FG='#002b36'
+COLOR_FOCUSED_URGENT_BG='#dc322f'
+COLOR_OCCUPIED_FG='#fdf6e3'
+COLOR_OCCUPIED_BG='#002b36'
+COLOR_FREE_FG='#586e75'
+COLOR_FREE_BG='#002b36'
+COLOR_URGENT_FG='#002b36'
+COLOR_URGENT_BG='#b58900'
+COLOR_LAYOUT_FG='#268bd2'
+COLOR_LAYOUT_BG='#002b36'
+COLOR_TITLE_FG='#58c5f1'
+COLOR_TITLE_BG='#002b36'
+COLOR_STATUS_FG='#eee8d5'
+COLOR_STATUS_BG='#002b36'
+#}}}
+
+#{{{ Kill any panel processes older than us
+while [ $(pgrep -cx panel) -gt 1 ] ; do
+	pkill -ox -9 panel
+done
+
+trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
+#}}}
+
+#{{{ Init FIFO
+[ -e "$PANEL_FIFO" ] && rm "$PANEL_FIFO"
+mkfifo "$PANEL_FIFO"
+
+bspc config top_padding $PANEL_HEIGHT
+bspc control --subscribe > "$PANEL_FIFO" &
+#}}}
+
+#{{{ External subprograms that add information to the status FIFO which are
+# interpreted by panel_bar, below. Each output is detected by its first
+# character, which is how the bspwm internal information is presented.
+# T - xtitle output
+# S - date output (same as example)
+
+clock -sf 'S%A %B %d, %H:%M' > "$PANEL_FIFO" &
+xtitle -sf 'T%s' > "$PANEL_FIFO" &
+#}}}
+
+#{{{ Screen autolocker sub program
+# Use xset s $time to control the timeout when this will run. 
+function autolocker() {
+  while true 
+  do 
+    if [ $(xssstate -s) != "disabled" ]; then 
+      tosleep=$(($(xssstate -t) / 1000)) 
+      if [ $tosleep -le 0 ]; then 
+        alock -auth pam -bg shade -cursor none   
+      else 
+        sleep $tosleep 
+      fi 
+    else 
+      sleep 10 
+    fi 
+  done 
+}
+
+if [[ -x `which xssstate` && -x `which alock` ]]; then
+  autolocker &
+fi
+#}}}
+
+#{{{ Main function for panel
+function fifo_handler {
+    num_mon=$(bspc query -M | wc -l)
+    wm_panels=("" "" "" "")
+    while read -r line ; do
+        case $line in
+            S*)
+                # clock output
+                wm_date="${line#?}"
+                ;;
+            T*)
+                # xtitle output
+                wm_title="%{F$COLOR_TITLE_FG}%{B$COLOR_TITLE_BG} ${line#?} %{B-}%{F-}"
+                ;;
+            W*)
+                # bspwm internal state
+                wm_info=""
+                cur_mon=-1
+
+                IFS=':'
+                set -- ${line#?}
+                while [ $# -gt 0 ] ; do
+                    item=$1
+                    name=${item#?}
+                    case $item in
+                        M*)
+                            # active monitor
+                            cur_mon=$((cur_mon + 1))
+                            wm_info=""
+                            if [ $num_mon -gt 1 ] ; then
+                                wm_info="$wm_info %{F$COLOR_ACTIVE_MONITOR_FG}%{B$COLOR_ACTIVE_MONITOR_BG} ${name} %{B-}%{F-}  "
+                            fi
+                            ;;
+                        m*)
+                            # inactive monitor
+                            cur_mon=$((cur_mon + 1))
+                            wm_info=""
+                            if [ $num_mon -gt 1 ] ; then
+                                wm_info="$wm_info %{F$COLOR_INACTIVE_MONITOR_FG}%{B$COLOR_INACTIVE_MONITOR_BG} ${name} %{B-}%{F-}  "
+                            fi
+                            ;;
+                        O*)
+                            # focused occupied desktop
+                            wm_info="$wm_info%{F$COLOR_FOCUSED_OCCUPIED_FG}%{B$COLOR_FOCUSED_OCCUPIED_BG}%{U$COLOR_UNDERLINE}%{+u} ${name} %{-u}%{B-}%{F-}"
+                            ;;
+                        F*)
+                            # focused free desktop
+                            wm_info="$wm_info%{F$COLOR_FOCUSED_FREE_FG}%{B$COLOR_FOCUSED_FREE_BG}%{U$COLOR_UNDERLINE}%{+u} ${name} %{-u}%{B-}%{F-}"
+                            ;;
+                        U*)
+                            # focused urgent desktop
+                            wm_info="$wm_info%{F$COLOR_FOCUSED_URGENT_FG} %{B$COLOR_FOCUSED_URGENT_BG}%{U$COLOR_FOREGROUND}%{+u} ${name} %{-u}%{B-}%{F-}"
+                            ;;
+                        o*)
+                            # occupied desktop
+                            wm_info="$wm_info%{F$COLOR_OCCUPIED_FG}%{B$COLOR_OCCUPIED_BG} ${name} %{B-}%{F-}"
+                            ;;
+                        f*)
+                            # free desktop
+                            wm_info="$wm_info%{F$COLOR_FREE_FG}%{B$COLOR_FREE_BG} ${name} %{B-}%{F-}"
+                            ;;
+                        u*)
+                            # urgent desktop
+                            wm_info="$wm_info%{F$COLOR_URGENT_FG}%{B$COLOR_URGENT_BG} ${name} %{B-}%{F-}"
+                            ;;
+                        L*)
+                            # layout
+                            wm_layout="%{F$COLOR_LAYOUT_FG}%{B$COLOR_LAYOUT_BG} ${name} %{B-}%{F-}"
+                            ;;
+                    esac
+                    shift
+                    wm_panels[cur_mon]="$wm_info"
+                done
+                ;;
+        esac
+
+        # Optimize panel for single/dual monitor setup
+        if [ $num_mon -lt 2 ]; then
+            output="%{l}${wm_panels[0]}%{c}${wm_title}%{r} ${wm_date}"
+        else
+            output="%{l}${wm_panels[0]}%{c}${wm_title}%{r} ${wm_date}%{S+}%{l}${wm_panels[1]}%{c}${wm_title}%{r} ${wm_date}"
+        fi
+
+        printf "%s\n" "$output"
+    done
+}
+#}}}
+
+# Actually invoking the panel and piping to bar
+
+cat $PANEL_FIFO | fifo_handler | lemonbar -g x$PANEL_HEIGHT -f "$PANEL_FONT_FAMILY" -F "$COLOR_FOREGROUND" -B "$COLOR_BACKGROUND" -u 2 &
+wait
