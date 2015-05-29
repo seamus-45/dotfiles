@@ -27,6 +27,9 @@ imwheel -k -b 000089
 # start dunst notify daemon
 dunst &
 
+# clipman
+parcellite &
+
 # run WM
 compton &
 sxhkd &
