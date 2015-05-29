@@ -1,4 +1,6 @@
 ".*"
-None, Thumb2, Super_L|Left,1
-None, Thumb1, Super_L|Right,1
+None, Thumb2, Super_L|bracketleft,1
+None, Thumb1, Super_L|bracketright,1
+#None, Thumb2, Super_L|Left,1
+#None, Thumb1, Super_L|Right,1
 # imwheel -k -b 000089
