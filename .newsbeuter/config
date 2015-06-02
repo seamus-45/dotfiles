@@ -1,0 +1,33 @@
+color background color230 color232
+color info color223 color234
+color article color230 color232
+color listnormal color188 color232
+color listfocus color226 color234
+color listnormal_unread color230 color232
+color listfocus_unread color226 color234
+
+highlight article "^(Feed|Title|Author|Links?|Date)" color153 color232 bold
+
+browser chromium
+
+always-display-description true
+auto-reload yes
+reload-time 30
+notify-program dunstify
+notify-always true
+refresh-on-startup yes
+confirm-exit yes
+
+unbind-key J
+unbind-key K
+unbind-key n
+unbind-key p
+bind-key j next feedlist
+bind-key j next articlelist
+bind-key j next-unread article
+bind-key k prev feedlist
+bind-key k prev articlelist
+bind-key k prev-unread article
+bind-key l open all
+bind-key h quit all
+bind-key q hard-quit
