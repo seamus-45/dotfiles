@@ -22,6 +22,10 @@ unbind-key J
 unbind-key K
 unbind-key n
 unbind-key p
+unbind-key Q
+unbind-key q
+unbind-key l
+
 bind-key j next feedlist
 bind-key j next articlelist
 bind-key j next-unread article
@@ -31,3 +35,4 @@ bind-key k prev-unread article
 bind-key l open all
 bind-key h quit all
 bind-key q hard-quit
+bind-key . toggle-show-read-feeds all
