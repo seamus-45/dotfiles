@@ -90,6 +90,20 @@ Scroll_Lock
 super + F1
   /usr/lib64/chromium-browser/chromium-launcher.sh --profile-directory=Default --app-id=knipolnnllmklapflnccelgolnpehhpl
 
+# litetran
+super + F2
+  litetran
+
+# MPD control
+super + KP_Multiply
+  mpc toggle
+
+super + KP_Add
+  mpc next
+
+super + KP_Subtract
+  mpc prev
+
 # make sxhkd reload its configuration files:
 super + Escape
   pkill -USR1 -x sxhkd
