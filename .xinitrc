@@ -18,7 +18,7 @@ hsetroot -tile $HOME/pictures/main/wallhaven-51214-0-0.png &
 # screen locker
 xset s 180
 
-# Auto mounts USB to /media/
+# auto mounts USB to /media/
 # udiskie &
 
 # bind side buttons
@@ -29,6 +29,12 @@ dunst &
 
 # clipman
 parcellite &
+
+# start music player daemon
+mpd &
+
+# polkit (for virt-manager gui)
+/usr/libexec/polkit-gnome-authentication-agent-1 &
 
 # run WM
 compton &
