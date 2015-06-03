@@ -4,7 +4,8 @@
 #{{{ Panel settings
 PANEL_FIFO="$HOME/.config/bspwm/fifo-panel"
 PANEL_HEIGHT="16"
-PANEL_FONT_FAMILY="-*-terminus-bold-r-normal-*-12-*-*-*-c-*-*-1"
+#PANEL_FONT_FAMILY="-*-terminus-bold-r-normal-*-12-*-*-*-c-*-*-1"
+PANEL_FONT_FAMILY="xft:Droid Sans Mono Slashed:pixelsize=12:style=Bold"
 
 # Panel color theme
 COLOR_FOREGROUND='#eee8d5'
