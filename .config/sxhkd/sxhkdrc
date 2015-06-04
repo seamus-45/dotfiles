@@ -98,11 +98,11 @@ super + F2
 super + KP_Multiply
   mpc toggle
 
-super + KP_Add
-  mpc next
+super + {KP_Add,KP_Subtract}
+  mpc {next,prev}
 
-super + KP_Subtract
-  mpc prev
+super + shift {KP_Add,KP_Subtract}
+  mpc {volume +5, volume -5}
 
 # make sxhkd reload its configuration files:
 super + Escape
