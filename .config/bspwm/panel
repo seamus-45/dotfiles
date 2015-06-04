@@ -4,8 +4,8 @@
 #{{{ Panel settings
 PANEL_FIFO="$HOME/.config/bspwm/fifo-panel"
 PANEL_HEIGHT="16"
-#PANEL_FONT_FAMILY="-*-terminus-bold-r-normal-*-12-*-*-*-c-*-*-1"
-PANEL_FONT_FAMILY="xft:Droid Sans Mono Slashed:pixelsize=12:style=Bold"
+#PANEL_FONT="-*-terminus-bold-r-normal-*-12-*-*-*-c-*-*-1"
+PANEL_FONT="xft:Droid Sans Mono Slashed:pixelsize=12:style=Bold"
 
 # Panel color theme
 COLOR_FOREGROUND='#eee8d5'
@@ -33,6 +33,8 @@ COLOR_TITLE_FG='#58c5f1'
 COLOR_TITLE_BG='#002b36'
 COLOR_STATUS_FG='#eee8d5'
 COLOR_STATUS_BG='#002b36'
+NO_MAIL_FG='#586e75'
+MAIL_FG='#268bd2'
 #}}}
 
 #{{{ Kill any panel processes older than us
@@ -56,9 +58,12 @@ bspc control --subscribe > "$PANEL_FIFO" &
 # character, which is how the bspwm internal information is presented.
 # T - xtitle output
 # S - date output (same as example)
+# MG - count of unread mail in gmail
+# MO: - count of unread mail in office
 
 clock -sf 'S%A %B %d, %H:%M' > "$PANEL_FIFO" &
 xtitle -sf 'T%s' > "$PANEL_FIFO" &
+$HOME/.config/bspwm/mailcheck.py > "$PANEL_FIFO" &
 #}}}
 
 #{{{ Screen autolocker sub program
@@ -68,13 +73,13 @@ function autolocker() {
   do 
     if [ $(xssstate -s) != "disabled" ]; then 
       tosleep=$(($(xssstate -t) / 1000)) 
-      if [ $tosleep -le 0 ]; then 
-        alock -auth pam -bg shade:shade=40,color='#200000'
+      if [[ $tosleep -le 0 && ! `pidof alock` ]]; then
+          alock -auth pam -bg shade:shade=40,color='#200000'
       else 
-        sleep $tosleep 
+        sleep 60
       fi 
     else 
-      sleep 10 
+      sleep 60 
     fi 
   done 
 }
@@ -90,6 +95,26 @@ function fifo_handler {
     wm_panels=("" "" "" "")
     while read -r line ; do
         case $line in
+            MG*)
+                # gmail mail
+                count="${line#??}"
+                if [ ${count} -gt 0 ];
+                  then
+                    gmail_unread="%{F$MAIL_FG}G%{F-}:${count}"
+                  else
+                    gmail_unread="%{F$NO_MAIL_FG}G%{F-}"
+                fi
+                ;;
+            MO*)
+                # office  mail
+                count="${line#??}"
+                if [ ${count} -gt 0 ];
+                  then
+                    office_unread="%{F$MAIL_FG}W%{F-}:${count}"
+                  else
+                    office_unread="%{F$NO_MAIL_FG}W%{F-}"
+                fi
+                ;;
             S*)
                 # clock output
                 wm_date="${line#?}"
@@ -162,9 +187,9 @@ function fifo_handler {
 
         # Optimize panel for single/dual monitor setup
         if [ $num_mon -lt 2 ]; then
-            output="%{l}${wm_panels[0]}%{c}${wm_title}%{r} ${wm_date}"
+            output="%{l}${wm_panels[0]}%{c}${wm_title}%{r}${gmail_unread} ${office_unread}  ${wm_date}"
         else
-            output="%{l}${wm_panels[0]}%{c}${wm_title}%{r} ${wm_date}%{S+}%{l}${wm_panels[1]}%{c}${wm_title}%{r} ${wm_date}"
+            output="%{l}${wm_panels[0]}%{c}${wm_title}%{r}${gmail_unread} ${office_unread}  ${wm_date}%{S+}%{l}${wm_panels[1]}%{c}${wm_title}%{r}${gmail_unread} ${office_unread}  ${wm_date}"
         fi
 
         printf "%s\n" "$output"
@@ -174,5 +199,5 @@ function fifo_handler {
 
 # Actually invoking the panel and piping to bar
 
-cat $PANEL_FIFO | fifo_handler | lemonbar -g x$PANEL_HEIGHT -f "$PANEL_FONT_FAMILY" -F "$COLOR_FOREGROUND" -B "$COLOR_BACKGROUND" -u 2 &
+cat $PANEL_FIFO | fifo_handler | lemonbar -g x$PANEL_HEIGHT -f "$PANEL_FONT" -F "$COLOR_FOREGROUND" -B "$COLOR_BACKGROUND" -u 2 &
 wait

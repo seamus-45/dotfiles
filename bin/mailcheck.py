@@ -1,5 +1,6 @@
 #!/usr/bin/python
 # chmod 600
+import os
 import sys
 import time
 import imaplib
@@ -7,14 +8,14 @@ import re
 
 # mail boxes
 boxes = {
-    'mail_work': {
+    'MO': {
         'login': '',
         'password': '',
         'server': '',
         'port': 143,
         'ssl': False
     },
-    'mail_gmail': {
+    'MG': {
         'login': '',
         'password': '',
         'server': '',
@@ -26,6 +27,8 @@ boxes = {
 # check mail for interval in seconds
 interval = 600
 
+# disable stdout buffering
+sys.stdout = os.fdopen(sys.stdout.fileno(), 'w', 0)
 
 # main loop
 while True:
@@ -43,6 +46,6 @@ while True:
 
         conn.select(readonly=True)
         count = re.search("UNSEEN (\d+)", conn.status("INBOX", "(UNSEEN)")[1][0]).group(1)
-        print name + ':' + count
+        print name + count
 
     time.sleep(interval)
