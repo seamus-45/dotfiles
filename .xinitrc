@@ -18,6 +18,9 @@ hsetroot -tile $HOME/pictures/main/wallhaven-51214-0-0.jpg &
 # screen locker
 xset s 180
 
+# turn on num lock
+numlockx
+
 # auto mounts USB to /media/
 # udiskie &
 

@@ -2,7 +2,8 @@
 # vim:set foldmethod=marker:
 
 #{{{ Panel settings
-PANEL_FIFO="$HOME/.config/bspwm/fifo-panel"
+BSPWM="$HOME/.config/bspwm"
+PANEL_FIFO="$BSPWM/fifo-panel"
 PANEL_HEIGHT="16"
 #PANEL_FONT="-*-terminus-bold-r-normal-*-12-*-*-*-c-*-*-1"
 PANEL_FONT="xft:Droid Sans Mono Slashed:pixelsize=12:style=Bold"
@@ -63,7 +64,7 @@ bspc control --subscribe > "$PANEL_FIFO" &
 
 clock -sf 'S%A %B %d, %H:%M' > "$PANEL_FIFO" &
 xtitle -sf 'T%s' > "$PANEL_FIFO" &
-$HOME/.config/bspwm/mailcheck.py > "$PANEL_FIFO" &
+$BSPWM/mailcheck.py > "$PANEL_FIFO" &
 #}}}
 
 #{{{ Screen autolocker sub program
