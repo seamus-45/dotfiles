@@ -91,7 +91,7 @@ Scroll_Lock
 
 # Screenshot and upload
 super + @Print
-  scrot -s '%Y%m%d-%T.png' -e 'mv $f ~/pictures/shots/' -e 'curl -s -i -X POST -F pewpew=@$f http://pic.taximaxim.ru/pic2.php' | tail -n1 | xargs xdg-open
+  cd ~/pictures/shots/; scrot -s '%Y%m%d-%T.png' -e 'curl -s -i -X POST -F pewpew=@$f http://pic.taximaxim.ru/pic2.php' | tail -n1 | xargs xdg-open
 
 # Hangouts
 super + F1
