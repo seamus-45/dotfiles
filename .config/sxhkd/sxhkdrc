@@ -77,14 +77,21 @@ super + @button{1-3}
 # wm independent hotkeys
 #
 
+# terminal
 super + Return
   termite 
 
+# run dialog
 alt + F2
   gmrun
 
+# screen locker
 Scroll_Lock
   alock -auth pam -bg shade:shade=40,color='#200000' 
+
+# Screenshot and upload
+super + @Print
+  scrot -s '%Y%m%d-%T.png' -e 'mv $f ~/pictures/shots/' -e 'curl -s -i -X POST -F pewpew=@$f http://pic.taximaxim.ru/pic2.php' | tail -n1 | xargs xdg-open
 
 # Hangouts
 super + F1
