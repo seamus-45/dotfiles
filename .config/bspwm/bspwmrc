@@ -39,7 +39,7 @@ bspc monitor R -d Q W E R
 # rules
 bspc rule -a Gimp desktop=^8 follow=on floating=on
 bspc rule -a Chromium desktop=^1
-bspc rule -a MPlayer floating=on sticky=on
+bspc rule -a MPlayer floating=on sticky=on desktop=^5
 bspc rule -a gmrun floating=on follow=on focus=true center=on 
-bspc rule -a crx_knipolnnllmklapflnccelgolnpehhpl desktop=\^4 floating=off follow=on sticky=false
+bspc rule -a crx_knipolnnllmklapflnccelgolnpehhpl desktop=^4 floating=off follow=on sticky=false
 bspc rule -a litetran desktop=^4
