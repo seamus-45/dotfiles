@@ -9,3 +9,9 @@ def_key "ctrl_p"
 
 def_key "ctrl_n"
  scroll_down
+
+def_key "l"
+ press_enter
+
+def_key "h"
+ jump_to_parent_directory
