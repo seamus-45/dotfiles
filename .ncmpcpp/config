@@ -26,7 +26,7 @@ alternative_header_second_line_format = "$7{%a} - $5{%b} $8{(%y)}"
 ##### various settings #####
 playlist_display_mode = "columns"
 incremental_seeking = "yes"
-seek_time = "1"
+seek_time = "10"
 autocenter_mode = "yes"
 default_place_to_search_in = "database"
 default_find_mode = "wrapped"
