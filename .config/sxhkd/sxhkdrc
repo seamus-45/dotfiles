@@ -18,9 +18,13 @@ super + v
 super + b
   bspc desktop -B
 
-# floating/fullscreen
-super + {s,f}
+# toggle floating/fullscreen
+super + {F,f}
   bspc window -t {floating,fullscreen}
+
+# toggle sticky
+super + s
+  bspc window -t sticky
 
 # focus last window/desktop
 super + {grave,Tab}
