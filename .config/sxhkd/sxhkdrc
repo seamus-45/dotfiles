@@ -2,68 +2,80 @@
 # bspwm hotkeys
 #
 
+# quit from bspwm
 super + alt + Escape
   pkill -x panel; bspc quit
 
+# close window
 super + c
   bspc window -c
 
+# tiled|monocle layouts
 super + v
   bspc desktop -l next
 
+# balance split ratios of the tree
 super + b
   bspc desktop -B
 
+# floating/fullscreen
 super + {s,f}
   bspc window -t {floating,fullscreen}
 
+# focus last window/desktop
 super + {grave,Tab}
   bspc {window,desktop} -f last
 
-super + apostrophe
-  bspc window -s last
-
+# cycle windows on all desktops
 super + {o,i}
   bspc control --record-history off; \
   bspc window {older,newer} -f; \
   bspc control --record-history on
 
-super + y
-  bspc window -w last.manual
-
+# swap the current window with the biggest
 super + m
   bspc window -s biggest
 
+# focus/swap window in given direction
 super + {_,shift + }{h,j,k,l}
   bspc window -{f,s} {left,down,up,right}
 
+# circulate the leaves of the tree of the selected desktop
 super + {comma,period}
   bspc desktop -C {backward,forward}
 
+# rotate the tree of the selected desktop
 super + slash
   bspc desktop -R 90
 
+# focus previous/next desktop
 super + bracket{left,right}
   bspc desktop -f {prev,next}
 
+# preselect the splitting area of the selected window
 super + ctrl + {h,j,k,l}
   bspc window -p {left,down,up,right}
 
+# cancel presel of window/all windows
 super + ctrl + {_,shift + }space
   bspc {window -p cancel,desktop -c}
 
+# set or change the splitting ratio of the edge located in the given direction in relation to the selected window
 super + alt + {h,j,k,l}
   bspc window -e {left -10,down +10,up -10,right +10}
 
 super + alt + shift + {h,j,k,l}
   bspc window -e {right -10,up +10,down -10,left +10}
 
+# set the splitting ratio of the selected window
 super + ctrl + {1-9}
   bspc window -r 0.{1-9}
 
+# focus/move window - to desktop
 super + {_,shift + }{1-4,q,w,e,r}
   bspc {desktop -f,window -d} ^{1-8}
 
+# mouse actions 
 ~button1
   bspc pointer -g focus
 
@@ -75,6 +87,7 @@ super + !button{1-3}
 
 super + @button{1-3}
   bspc pointer -u
+# end mouse actions
 
 #
 # wm independent hotkeys
