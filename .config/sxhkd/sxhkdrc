@@ -40,6 +40,9 @@ super + {_,shift + }{h,j,k,l}
 super + {comma,period}
   bspc desktop -C {backward,forward}
 
+super + slash
+  bspc desktop -R 90
+
 super + bracket{left,right}
   bspc desktop -f {prev,next}
 
