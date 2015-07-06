@@ -80,7 +80,7 @@ super + {_,shift + }{1-4,q,w,e,r}
   bspc {desktop -f,window -d} ^{1-8}
 
 # Fill window to both monitors
-super + shift + f
+super + alt + f
   bspc config -w focused border_width 0 && bspc window -t floating=on && xdotool getactivewindow windowsize 3360 1050 windowmove 0 0
 
 # mouse actions 
