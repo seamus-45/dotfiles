@@ -46,8 +46,8 @@ bspc rule -a gmrun floating=on follow=on focus=true center=on
 bspc rule -a Chromium desktop=^1
 bspc rule -a mpsyt desktop=^2
 bspc rule -a mpc desktop=^2
-bspc rule -a litetran desktop=^4
-bspc rule -a crx_knipolnnllmklapflnccelgolnpehhpl desktop=^4 floating=off follow=on sticky=false
+bspc rule -a litetran desktop=^6
+bspc rule -a crx_knipolnnllmklapflnccelgolnpehhpl desktop=^6 floating=off follow=on sticky=false
 bspc rule -a tmux desktop=^5
 bspc rule -a mpv floating=on desktop=^5
 bspc rule -a Gimp desktop=^8 follow=on floating=on

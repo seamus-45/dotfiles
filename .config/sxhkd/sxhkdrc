@@ -3,8 +3,16 @@
 #
 
 # quit from bspwm
-super + alt + Escape
+super + alt + BackSpace
   pkill -x panel; bspc quit
+
+# make sxhkd reload its configuration file
+super + Escape
+  pkill -USR1 -x sxhkd
+
+# make bspwm reload rules
+super + alt + Escape
+  bspc rule -l | while read line; do bspc rule -r head; done ; cat ~/.config/bspwm/bspwmrc | grep '^bspc rule' | sed 's/bspc//' | xargs -L 1 bspc
 
 # close window
 super + c
@@ -134,7 +142,3 @@ super + {KP_Add,KP_Subtract}
 
 super + shift {KP_Add,KP_Subtract}
   mpc {volume +5, volume -5}
-
-# make sxhkd reload its configuration files:
-super + Escape
-  pkill -USR1 -x sxhkd
