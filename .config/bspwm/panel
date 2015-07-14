@@ -54,8 +54,8 @@ bspc config top_padding $PANEL_HEIGHT
 bspc control --subscribe > "$PANEL_FIFO" &
 #}}}
 
-#{{{ External subprograms that add information to the status FIFO which are
-# interpreted by panel_bar, below. Each output is detected by its first
+#{{{ External subprograms that add information to the status FIFO
+# which are interpreted by panel_bar, below. Each output is detected by its first
 # character, which is how the bspwm internal information is presented.
 # T - xtitle output
 # S - date output (same as example)
@@ -65,6 +65,23 @@ bspc control --subscribe > "$PANEL_FIFO" &
 clock -sf 'S%A %B %d, %H:%M' > "$PANEL_FIFO" &
 xtitle -sf 'T%s' > "$PANEL_FIFO" &
 $BSPWM/mailcheck.py > "$PANEL_FIFO" &
+#}}}
+
+#{{{ Keyboard layout indicator sub program
+function kbd_layout() {
+  while true
+  do
+    case "$(xset -q | grep LED | awk '{ print $10 }')" in
+      "00000002") KBD="KBDus" ;;
+      "00001006") KBD="KBDru" ;;
+        *) KBD="KBDunknown" ;;
+    esac
+    echo ${KBD}
+    sleep 0.5
+  done
+}
+
+kbd_layout > "$PANEL_FIFO" &
 #}}}
 
 #{{{ Screen autolocker sub program
@@ -96,6 +113,10 @@ function fifo_handler {
     wm_panels=("" "" "" "")
     while read -r line ; do
         case $line in
+            KBD*)
+                # show kbd layout
+                current_layout="${line#???}"
+                ;;
             MG*)
                 # gmail mail
                 count="${line#??}"
@@ -188,9 +209,9 @@ function fifo_handler {
 
         # Optimize panel for single/dual monitor setup
         if [ $num_mon -lt 2 ]; then
-            output="%{l}${wm_panels[0]}%{c}${wm_title}%{r}${gmail_unread} ${office_unread}  ${wm_date}"
+            output="%{l}${wm_panels[0]}%{c}${wm_title}%{r}${gmail_unread} ${office_unread}  ${current_layout}  ${wm_date}"
         else
-            output="%{l}${wm_panels[0]}%{c}${wm_title}%{r}${gmail_unread} ${office_unread}  ${wm_date}%{S+}%{l}${wm_panels[1]}%{c}${wm_title}%{r}${gmail_unread} ${office_unread}  ${wm_date}"
+            output="%{l}${wm_panels[0]}%{c}${wm_title}%{r}${gmail_unread} ${office_unread}  ${current_layout}  ${wm_date}%{S+}%{l}${wm_panels[1]}%{c}${wm_title}%{r}${gmail_unread} ${office_unread}  ${current_layout}  ${wm_date}"
         fi
 
         printf "%s\n" "$output"
