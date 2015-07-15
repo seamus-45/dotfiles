@@ -3,13 +3,15 @@
 # copy ratings from clementine database to mpd sticker database.
 DB=~/.config/Clementine/clementine.db
 alias urldecode=''
-sqlite3 ${DB} "select filename,rating from songs where rating!=-1;" |\
+sqlite3 ${DB} "select filename,rating from songs where rating!=-1 and rating!=0;" |\
   xargs -0 -L 1 python -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])" |\
   while read line;
   do
     ff=$(echo ${line} | awk -F'|' '{print $1}' | sed 's;file:///home/fedotov_sv/music/;;')
-    rr=$(echo ${line} | awk -F'|' '{print $2}' | sed 's/0.//g')
-    echo ${rr} ::: ${ff}
+    rr=$(echo ${line} | awk -F'|' '{print $2}')
+    rr=$(echo ${rr}*10 | bc -l)
+    rr=${rr%.*}
+    echo "${rr} | ${ff}"
     mpc sticker "${ff}" set rating ${rr}
   done
 
