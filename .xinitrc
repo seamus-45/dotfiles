@@ -43,7 +43,7 @@ mpd &
 /usr/libexec/polkit-gnome-authentication-agent-1 &
 
 # run WM
-compton &
+#compton &
 sxhkd &
 
 exec bspwm
