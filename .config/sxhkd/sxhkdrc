@@ -133,6 +133,12 @@ super + F1
 super + F2
   litetran
 
+super + F9
+  eval $(grep mpv ~/.xinitrc)
+
+super + F10
+  pkill mpv
+
 # MPD control
 super + KP_Multiply
   mpc toggle
