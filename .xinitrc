@@ -44,5 +44,4 @@ mpd &
 
 # run WM
 #compton &
-sxhkd &
-exec dbus-launch --exit-with-session --sh-syntax bspwm
+exec dbus-launch --exit-with-session bspwm

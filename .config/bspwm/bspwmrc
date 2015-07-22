@@ -51,6 +51,7 @@ bspc rule -a Gimp desktop=^8 follow=on floating=on
 bspc rule -a Skype floating=on
 
 # spawn several programs
+sxhkd &
 geary &
 litetran &
 termite --class=tmux -e tmux &
