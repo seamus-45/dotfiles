@@ -38,7 +38,7 @@ bspc monitor R -d Q W E R
 
 # rules
 bspc rule -a gmrun floating=on focus=true center=on 
-bspc rule -a Chromium desktop=^1
+bspc rule -a Chromium-browser desktop=^1
 bspc rule -a mps desktop=^2
 bspc rule -a mpc desktop=^3
 bspc rule -a Geary desktop=^4
