@@ -37,18 +37,19 @@ bspc monitor L -d I II III IV
 bspc monitor R -d Q W E R
 
 # rules
-bspc rule -a gmrun floating=on follow=on focus=true center=on 
+bspc rule -a gmrun floating=on focus=true center=on 
 bspc rule -a Chromium desktop=^1
 bspc rule -a mpsyt desktop=^2
 bspc rule -a mpc desktop=^2
-bspc rule -a litetran desktop=^6
+bspc rule -a Geary desktop=^3
+bspc rule -a Litetran desktop=^6
 bspc rule -a crx_knipolnnllmklapflnccelgolnpehhpl desktop=^6 floating=off follow=on sticky=false
 bspc rule -a tmux desktop=^5
-bspc rule -a mpv floating=on desktop=^5 sticky=true
+bspc rule -a mpv floating=on desktop=^5
 bspc rule -a Gimp desktop=^8 follow=on floating=on
 bspc rule -a Skype floating=on
 
 # spawn several terminal programs
-termite -t tmux -e tmux &
-termite -t mpsyt -e mpsyt &
-termite -t mpc -e ncmpcpp &
+termite --class=tmux -e tmux &
+termite --class=mpsyt -e mpsyt &
+termite --class=mpc -e ncmpcpp &

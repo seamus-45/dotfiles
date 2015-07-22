@@ -16,3 +16,4 @@ fi
 
 alias makepasswd="/usr/bin/makepasswd --count=10 $@"
 unset GREP_OPTIONS
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

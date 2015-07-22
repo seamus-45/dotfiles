@@ -13,7 +13,7 @@ xsetroot -cursor_name left_ptr &
 #hsetroot -tile $HOME/.config/bspwm/tinytile2.gif &
 #hsetroot -tile $HOME/pictures/main/wallhaven-51214-0-0.jpg &
 # just for fun
-mpv -ao null --wid=0 --loop=inf ~/media/loops/AmazonSwamp.mov --panscan=0.6
+mpv -ao null --wid=0 --loop=inf ~/media/loops/AmazonSwamp.mov --panscan=0.6 &
 
 # save my eyes
 #redshift -l 49.26:-123.23 &
@@ -45,5 +45,4 @@ mpd &
 # run WM
 #compton &
 sxhkd &
-
-exec bspwm
+exec dbus-launch --exit-with-session --sh-syntax bspwm
