@@ -40,7 +40,7 @@ bspc monitor R -d Q W E R
 bspc rule -a gmrun floating=on focus=true center=on 
 bspc rule -a Chromium-browser desktop=^1
 bspc rule -a mps desktop=^2
-bspc rule -a mpc desktop=^3
+bspc rule -a mpc desktop=^2
 bspc rule -a Geary desktop=^4
 bspc rule -a LiteTran desktop=^6
 bspc rule -a glances desktop=^6
