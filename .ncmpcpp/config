@@ -2,7 +2,7 @@
 ##### connection settings #####
 mpd_host = "localhost"
 mpd_port = "6600"
-mpd_music_dir = "/Users/hinmanm/Music/iTunes/iTunes Media/Music"
+mpd_music_dir = "~/Music"
 mpd_connection_timeout = "5"
 mpd_crossfade_time = "5"
 
@@ -24,7 +24,7 @@ alternative_header_first_line_format = "{%t}"
 alternative_header_second_line_format = "$7{%a} - $5{%b} $8{(%y)}"
 
 ##### various settings #####
-playlist_display_mode = "columns"
+playlist_display_mode = "classic"
 incremental_seeking = "yes"
 seek_time = "10"
 autocenter_mode = "yes"
@@ -40,21 +40,21 @@ follow_now_playing_lyrics = "no"
 clock_display_seconds = "yes"
 enable_window_title = "yes"
 user_interface = "alternative"
-progressbar_look = "-)"
+progressbar_look = "░█"
 
 
 ##### colors definitions #####
 colors_enabled = "yes"
 empty_tag_color = "cyan"
 header_window_color = "default"
-volume_color = "default"
+volume_color = "yellow"
 state_line_color = "default"
 state_flags_color = "default"
 main_window_color = "cyan"
 color1 = "white"
 color2 = "green"
-main_window_highlight_color = "blue"
-progressbar_color = "default"
+main_window_highlight_color = "yellow"
+progressbar_color = "white"
 statusbar_color = "default"
 active_column_color = "red"
 window_border_color = "green"
