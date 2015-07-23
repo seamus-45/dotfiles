@@ -42,11 +42,13 @@ bspc rule -a Chromium-browser desktop=^1
 bspc rule -a mps desktop=^2
 bspc rule -a mpc desktop=^2
 bspc rule -a Geary desktop=^4
+bspc rule -a tmux desktop=^5
+bspc rule -a mpv floating=on desktop=^5
 bspc rule -a LiteTran desktop=^6
 bspc rule -a glances desktop=^6
 bspc rule -a crx_knipolnnllmklapflnccelgolnpehhpl desktop=^6 floating=off follow=on sticky=false
-bspc rule -a tmux desktop=^5
-bspc rule -a mpv floating=on desktop=^5
+bspc rule -a noc.taximaxim.ru__new desktop=^7
+bspc rule -a zabbix.taximaxim.ru__zabbix_history.php desktop=^7
 bspc rule -a Gimp desktop=^8 follow=on floating=on
 bspc rule -a Skype floating=on
 
@@ -60,4 +62,4 @@ termite --class=mps -e mps &
 termite --class=mpc -e ncmpcpp &
 termite --class=glances -e glances &
 /usr/lib64/chromium-browser/chromium-launcher.sh --profile-directory=Default --app-id=knipolnnllmklapflnccelgolnpehhpl &
-
+zabbix_mon.sh

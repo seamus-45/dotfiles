@@ -91,6 +91,10 @@ super + {_,shift + }{1-4,q,w,e,r}
 super + alt + f
   bspc config -w focused border_width 0 && bspc window -t floating=on && xdotool getactivewindow windowsize 3360 1050 windowmove 0 0
 
+# revert previous back
+super + alt + F
+  bspc config -w focused border_width 3 && bspc window -t floating=off
+
 # mouse actions 
 ~button1
   bspc pointer -g focus
