@@ -25,7 +25,7 @@
 @define-color selection_cryptgrey	#666666;
 /* Here you can set the color selection, I recommend one of the above,
    but you can put the one you like */
-@define-color theme_selected_bg_color 		#cb4b16;
+@define-color theme_selected_bg_color 		#268bd2;
 @define-color theme_selected_fg_color 		#e9e9e9;
 @define-color theme_selected_shadow_color 	alpha(#000, 0.12);
 /*******************************************************************/

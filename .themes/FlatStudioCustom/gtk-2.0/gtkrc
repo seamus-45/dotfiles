@@ -23,7 +23,7 @@ gtk-color-scheme = "selected_fg_color:#E9E9E9"
 #  selection_mono		#646464;
 ###################################################################
 #  should be the same color that you have set in the file gtk.css #
-gtk-color-scheme = "selected_bg_color:#cb4b16"
+gtk-color-scheme = "selected_bg_color:#268bd2"
 ###################################################################
 
 gtk-auto-mnemonics	= 1
