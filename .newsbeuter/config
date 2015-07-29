@@ -2,9 +2,9 @@ color background color230 color232
 color info color223 color234
 color article color230 color232
 color listnormal color188 color232
-color listfocus color226 color234
+color listfocus color231 color166
 color listnormal_unread color230 color232
-color listfocus_unread color226 color234
+color listfocus_unread color231 color166
 
 highlight article "^(Feed|Title|Author|Links?|Date)" color153 color232 bold
 
