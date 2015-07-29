@@ -145,10 +145,10 @@ super + F10
 
 # MPD control
 super + KP_Multiply
-  mpc toggle
+  mpc -h /home/fedotov_sv/.mpd/socket toggle
 
 super + {KP_Add,KP_Subtract}
-  mpc {next,prev}
+  mpc -h /home/fedotov_sv/.mpd/socket {next,prev}
 
 super + shift {KP_Add,KP_Subtract}
-  mpc {volume +5, volume -5}
+  mpc -h /home/fedotov_sv/.mpd/socket {volume +5, volume -5}
