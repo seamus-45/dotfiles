@@ -42,6 +42,7 @@ bspc rule -a Chromium-browser desktop=^1
 bspc rule -a mps desktop=^2
 bspc rule -a mpc desktop=^2
 bspc rule -a Geary desktop=^4
+bspc rule -a mail desktop=^4
 bspc rule -a tmux desktop=^5
 bspc rule -a mpv floating=on desktop=^5
 bspc rule -a LiteTran desktop=^6
@@ -54,12 +55,13 @@ bspc rule -a Skype floating=on
 
 # spawn several programs
 sxhkd &
-geary &
+#geary &
 litetran &
 termite --class=tmux -e tmux &
 termite --class=mps -e mpsyt &
 termite --class=mps -e mps &
 termite --class=mpc -e ncmpcpp &
 termite --class=glances -e glances &
+termite --class=mail -e vmail &
 /usr/lib64/chromium-browser/chromium-launcher.sh --profile-directory=Default --app-id=knipolnnllmklapflnccelgolnpehhpl &
 zabbix_mon.sh
