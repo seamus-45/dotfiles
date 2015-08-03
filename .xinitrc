@@ -16,7 +16,7 @@ xsetroot -cursor_name left_ptr &
 mpv -ao null --wid=0 --loop=inf ~/media/loops/AmazonSwamp.mov --panscan=0.6 &
 
 # save my eyes
-#redshift -l 49.26:-123.23 &
+#redshift -l 55.420898:65.273957 &
 
 # screen locker
 xset s 180

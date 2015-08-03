@@ -15,6 +15,10 @@ vercheck=true
 
 roster=false
 
+titlebar.show=true
+wins.autotidy=true
+wrap=true
+
 [logging]
 chlog=true
 grlog=true
