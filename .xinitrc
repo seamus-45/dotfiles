@@ -37,7 +37,7 @@ dunst &
 parcellite &
 
 # start music player daemon
-mpd &
+pgrep mpd >/dev/null || mpd &
 
 # polkit (for virt-manager gui)
 /usr/libexec/polkit-gnome-authentication-agent-1 &

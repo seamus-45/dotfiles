@@ -84,8 +84,8 @@ super + ctrl + {1-9}
   bspc window -r 0.{1-9}
 
 # focus/move window - to desktop
-super + {_,shift + }{1-4,q,w,e,r}
-  bspc {desktop -f,window -d} ^{1-8}
+super + {_,shift + }{1-6,q,w,e,r,t,y}
+  bspc {desktop -f,window -d} ^{1-6,7,8,9,10,11,12}
 
 # Fill window to both monitors
 super + alt + f
