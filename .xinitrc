@@ -11,9 +11,9 @@ wmname LG3D
 # appearance
 xsetroot -cursor_name left_ptr &
 #hsetroot -tile $HOME/.config/bspwm/tinytile2.gif &
-#hsetroot -tile $HOME/pictures/main/wallhaven-51214-0-0.jpg &
+hsetroot -tile $HOME/pictures/main/wallhaven-51214-0-0.jpg &
 # just for fun
-mpv -ao null --wid=0 --loop=inf ~/media/loops/AmazonSwamp.mov --panscan=0.6 &
+# mpv -ao null --wid=0 --loop=inf ~/media/loops/AmazonSwamp.mov --panscan=0.6 &
 
 # save my eyes
 #redshift -l 55.420898:65.273957 &
@@ -43,5 +43,5 @@ pgrep mpd >/dev/null || mpd &
 /usr/libexec/polkit-gnome-authentication-agent-1 &
 
 # run WM
-#compton &
+compton &
 exec dbus-launch --exit-with-session bspwm
