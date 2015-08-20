@@ -34,4 +34,15 @@ bind-key k up article
 bind-key K prev-unread article
 bind-key l open all
 bind-key h quit all
+# russian
+bind-key о next feedlist
+bind-key о next articlelist
+bind-key о down article
+bind-key О next-unread article
+bind-key л prev feedlist
+bind-key л prev articlelist
+bind-key л up article
+bind-key Л prev-unread article
+bind-key д open all
+bind-key р quit all
 bind-key . toggle-show-read-feeds all
