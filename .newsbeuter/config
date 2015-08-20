@@ -45,4 +45,6 @@ bind-key л up article
 bind-key Л prev-unread article
 bind-key д open all
 bind-key р quit all
+bind-key Ф mark-feed-read articlelist
+bind-key Т toggle-article-read articlelist
 bind-key . toggle-show-read-feeds all
