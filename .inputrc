@@ -1,7 +1,7 @@
-set enable-keypad On
-set keymap vi
-set editing-mode vi
-set show-mode-in-prompt On
+#set enable-keypad On
+#set keymap vi
+#set editing-mode vi
+#set show-mode-in-prompt On
 
 set completion-ignore-case on
 set completion-prefix-display-length 2
