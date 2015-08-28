@@ -186,6 +186,7 @@
 [jabber-highlight]
         appname = Profanity
         format = "<span weight='bold' color='#dc322f'>%s</span>\n%b"
+        urgency = critical
 
 [notify-send]
         appname = notify-send
