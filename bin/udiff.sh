@@ -29,7 +29,7 @@ then
     done
     if [[ ! -f $TMPDIR/Packages ]];
     then
-      echo -e 'Error: Can not load packages file from binary host'
+      echo -e "Error: Can not load packages file from $url"
       exit 1
     fi
 fi
@@ -37,7 +37,7 @@ fi
 # escape '/' character in pkg name for sed
 QUERY=$(echo $1 | sed 's@/@\\/@')
 # extract block of lines between CTV: ${PKG} and USE, then save last line
-BINUSE=$(sed -n "/^CPV: ${QUERY}[0-9._pre-]\+$/,/^USE:.*/p" $TMPDIR/Packages | sed -n '$p') 
+BINUSE=$(sed -n "/^CPV: ${QUERY}[0-9._prev-]\+$/,/^USE:.*/p" $TMPDIR/Packages | sed -n '$p') 
 if [[ -z $BINUSE ]];
 then
   echo "Error: Can not find $1 in $TMPDIR/Packages"
