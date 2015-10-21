@@ -1,5 +1,13 @@
 #!/bin/bash
-[[ -x ./tweaks.sh ]] && ./tweaks.sh
+source ../scripts/functions.sh
 
-#pack squashfs
-mksquashfs chroot image/casper/filesystem.squashfs -noappend 
+if [[ -x ./tweaks.sh ]];
+then
+	ebegin "make tweaks"
+	./tweaks.sh
+	eend $?
+fi
+
+ebegin "pack rootfs"
+	mksquashfs chroot image/casper/filesystem.squashfs -noappend -no-progress >/dev/null
+eend $?

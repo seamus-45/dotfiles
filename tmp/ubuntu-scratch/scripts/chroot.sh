@@ -1,29 +1,45 @@
 #!/bin/bash
-SOURCE=../remaster-apt-cache/archives/
-DEST=chroot/var/cache/apt/archives/
-function chkdir {
-if [ ! -d ${1} ];
-then
-  echo "Directory ${1} does not exists!"
-  exit 1
-fi
+source ../scripts/functions.sh
+
+mountfs() {
+	mountpoint $1 >/dev/null
+	if [[ $? -ne 0 ]];
+	then
+		ebegin "mounting $1"
+		mount -o rbind /${1#*/} $1
+		eend $?
+	else
+		ebegin "filesystem $1 is already mounted"
+		eend 0
+	fi
 }
-chkdir ${SOURCE}
-chkdir ${DEST}
-mountpoint ${DEST} >/dev/null; [[ $? -ne 0 ]] && mount -v -o bind ${SOURCE} ${DEST}
-mountpoint chroot/dev >/dev/null; [[ $? -ne 0 ]] && mount -v -o rbind /dev chroot/dev
-mountpoint chroot/proc >/dev/null; [[ $? -ne 0 ]] && mount -v -o bind /proc chroot/proc
-mountpoint chroot/sys >/dev/null; [[ $? -ne 0 ]] && mount -v -o bind /sys chroot/sys
 
-# divert initctl (fix upstart bug)
-cp -v chroot/sbin/initctl chroot/root/initctl
-chroot chroot /usr/bin/dpkg-divert --local --rename --add /sbin/initctl
-ln -s /bin/true chroot/sbin/initctl
+mountfs "chroot/dev"
+mountfs "chroot/proc"
+mountfs "chroot/sys"
 
-chroot chroot /bin/dbus-uuidgen > /var/lib/dbus/machine-id
+ebegin "divert initctl (fix upstart bug)"
+	chroot chroot /usr/bin/dpkg-divert --quiet --local --rename --add /sbin/initctl
+	ln -s /bin/true chroot/sbin/initctl
+eend $?
 
+ebegin "divert invoke-rc.d (fix apt-get bug with PI-scripts)"
+	chroot chroot /usr/bin/dpkg-divert --quiet --local --rename --add /usr/sbin/invoke-rc.d
+	cp invoke-rc.d-421 chroot/usr/sbin/invoke-rc.d
+eend $?
+
+ebegin "divert resolv.conf (set dns from host system)"
+	chroot chroot /usr/bin/dpkg-divert --quiet --local --rename --add /etc/resolv.conf
+	cp /etc/resolv.conf chroot/etc
+eend $?
+
+ebegin "generate dbus machine id"
+	chroot chroot /bin/dbus-uuidgen > /var/lib/dbus/machine-id
+eend $?
+
+echo -e "\nEntering chroot\n"
 chroot chroot /usr/bin/env -i \
-  LC_ALL=C \
+	LC_ALL=ru_RU.utf-8 \
   HOME=/root \
   TERM="$TERM" \
   PS1='\u:\w\$ ' \
@@ -31,19 +47,33 @@ chroot chroot /usr/bin/env -i \
   /bin/bash --login +h
 
 # clean and restore
-find chroot/usr/share/icons -type f -name icon-theme.cache -delete
-rm -vrf chroot/tmp/*
-rm -vf chroot/sbin/initctl
-chroot chroot /usr/bin/dpkg-divert --rename --remove /sbin/initctl
-[[ -f chroot/sbin/initctl ]] && echo 'initctl was restored successfully' || cp -vf chroot/root/initctl chroot/sbin/initctl
-rm -vf chroot/root/initctl
-rm -vf chroot/root/.bash_history
-rm -vf chroot/var/lib/dbus/machine-id
-rm -vf chroot/var/log/apt/*
+ebegin "restore initctl"
+	rm -f chroot/sbin/initctl
+	chroot chroot /usr/bin/dpkg-divert --quiet --rename --remove /sbin/initctl
+eend $?
 
-#umount all
-umount -v -l chroot/dev
-umount -v -l chroot/proc
-umount -v -l chroot/sys
-umount -v -l ${DEST}
+ebegin "restore invoke-rc.d"
+	rm -f chroot/usr/sbin/invoke-rc.d
+	chroot chroot /usr/bin/dpkg-divert --quiet --rename --remove /usr/sbin/invoke-rc.d
+eend $?
+
+ebegin "restore resolv.conf"
+	rm -f chroot/etc/resolv.conf
+	chroot chroot /usr/bin/dpkg-divert --quiet --rename --remove /etc/resolv.conf
+eend $?
+
+ebegin "clean temporary stuff"
+	find chroot/usr/share/icons -type f -name icon-theme.cache -delete
+	rm -rf chroot/tmp/*
+	rm -f chroot/root/.bash_history
+	rm -f chroot/var/log/apt/*
+	rm -rf chroot/var/cache/apt/archives/*
+	rm -f chroot/var/lib/dbus/machine-id
+eend $?
+
+ebegin "unbind filesystems"
+	umount -l chroot/sys
+	umount -l chroot/proc
+	umount -l chroot/dev
+eend $?
 
