@@ -53,14 +53,14 @@ bspc rule -a zabbix.taximaxim.ru__zabbix_history.php desktop=^2
 bspc rule -a surf desktop=^2
 bspc rule -a Gimp desktop=^12 follow=on floating=on
 bspc rule -a Skype floating=on
+bspc rule -a Dunst sticky=on floating=on
 
 # spawn several programs
 sxhkd &
-#geary &
 litetran &
 termite --class=tmux -e tmux &
 #termite --class=mps -e mpsyt &
 #termite --class=mps -e mps &
 termite --class=mpc -e ncmpcpp &
-/usr/lib64/chromium-browser/chromium-launcher.sh --profile-directory=Default --app-id=knipolnnllmklapflnccelgolnpehhpl &
+#/usr/lib64/chromium-browser/chromium-launcher.sh --profile-directory=Default --app-id=knipolnnllmklapflnccelgolnpehhpl &
 zabbix_mon.sh

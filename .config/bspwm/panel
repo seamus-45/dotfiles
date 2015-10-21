@@ -63,7 +63,7 @@ bspc control --subscribe > "$PANEL_FIFO" &
 # MO: - count of unread mail in office
 
 clock -sf 'S%A %B %d, %H:%M' > "$PANEL_FIFO" &
-xtitle -sf 'T%s' > "$PANEL_FIFO" &
+xtitle -t 120 -sf 'T%s' > "$PANEL_FIFO" &
 $BSPWM/mailcheck.py > "$PANEL_FIFO" &
 #}}}
 

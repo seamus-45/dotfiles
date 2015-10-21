@@ -16,7 +16,7 @@ hsetroot -tile $HOME/pictures/main/wallhaven-51214-0-0.jpg &
 # mpv -ao null --wid=0 --loop=inf ~/media/loops/AmazonSwamp.mov --panscan=0.6 &
 
 # save my eyes
-#redshift -l 55.420898:65.273957 &
+redshift -l 55.420898:65.273957 &
 
 # screen locker
 xset s 180

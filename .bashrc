@@ -6,11 +6,6 @@ if [[ $- != *i* ]] ; then
         return
 fi
 
-if [[ -n $DISPLAY ]]; then
-  xset +fp /usr/share/fonts/terminus/
-  xset fp rehash
-fi
-
 # activate bash-completion: 
 [ -f /etc/profile.d/bash-completion.sh ] && source /etc/profile.d/bash-completion.sh
 

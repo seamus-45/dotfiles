@@ -41,8 +41,9 @@ account=work
 
 [presence]
 autoaway.mode=idle
-autoaway.time=5
-autoaway.message=Отошел от компьютера
+
+autoaway.awaytime=5
+autoaway.awaymessage=Отошел от компьютера
 
 [chatstates]
 enabled=true
