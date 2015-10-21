@@ -1,7 +1,4 @@
 #!/bin/bash
-SOURCE=/home/fedotov_sv/tmp/uck-remaster/remaster-apt-cache/archives/
-DEST=/var/cache/apt/archives/
-
 # divert initctl (fix upstart bug)
 chroot chroot /usr/bin/dpkg-divert --local --rename --add /sbin/initctl
 ln -sv /bin/true chroot/sbin/initctl
@@ -18,7 +15,7 @@ cp -v /etc/resolv.conf chroot/etc
 chroot chroot /bin/dbus-uuidgen > /var/lib/dbus/machine-id
 
 # spawn container
-systemd-nspawn -D chroot --bind ${SOURCE}:${DEST} --setenv=LC_ALL=C /bin/bash
+systemd-nspawn -D chroot --setenv=LC_ALL=C /bin/bash
 
 # clean and restore
 rm -vf chroot/sbin/initctl
@@ -36,3 +33,4 @@ find chroot/usr/share/icons -type f -name icon-theme.cache -delete
 rm -vrf chroot/tmp/*
 rm -vf chroot/root/.bash_history
 rm -vf chroot/var/log/apt/*
+rm -vf chroot/var/cache/apt/archives/*
