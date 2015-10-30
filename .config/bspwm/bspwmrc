@@ -40,7 +40,7 @@ bspc monitor R -d Q W E R T Y
 bspc rule -a gmrun floating=on focus=true center=on 
 bspc rule -a Skype floating=on
 bspc rule -a Dunst sticky=on floating=on
-bspc rule -a Chromium-browser desktop=^1
+bspc rule -a chromium-browser-chromium desktop=^1
 bspc rule -a surf desktop=^2
 bspc rule -a mps desktop=^3
 bspc rule -a mpc desktop=^3
