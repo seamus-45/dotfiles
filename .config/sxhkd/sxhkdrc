@@ -121,6 +121,10 @@ super + Return
 alt + F2
   gmrun
 
+# scratchpad
+alt + F3
+  xdotool search --onlyvisible --class scratchpad windowunmap || xdotool search --class scratchpad windowmap || termite --class scratchpad --geometry 1674x300+0+18 &
+
 # screen locker
 Scroll_Lock
   alock -auth pam -bg shade:shade=40,color='#200000' 
