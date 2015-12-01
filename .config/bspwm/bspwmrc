@@ -55,6 +55,7 @@ bspc rule -a crx_knipolnnllmklapflnccelgolnpehhpl desktop=^8 floating=off follow
 bspc rule -a Gimp desktop=^12 floating=on
 bspc rule -a scratchpad sticky=true floating=true
 bspc rule -a Spicy floating=true
+bspc rule -a workchat sticky=true floating=true
 
 # spawn several programs
 sxhkd &
