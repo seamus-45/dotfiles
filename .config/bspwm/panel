@@ -73,9 +73,9 @@ function kbd_layout() {
   do
     case "$(xset -q | grep LED | awk '{ print $10 }')" in
       "00000002") KBD="KBDus" ;;
-      "00000000") KBD="KBDus" ;;
-      "00001004") KBD="KBDru" ;;
+      "00000003") KBD="KBDUS" ;;
       "00001006") KBD="KBDru" ;;
+      "00001007") KBD="KBDRU" ;;
         *) KBD="KBDunknown" ;;
     esac
     echo ${KBD}
