@@ -60,9 +60,9 @@ bspc rule -a pulsemixer sticky=true floating=true
 # spawn several programs
 sxhkd &
 litetran &
-termite --class=tmux -e tmux &
+st -c tmux -e tmux &
 #termite --class=mps -e mpsyt &
 #termite --class=mps -e mps &
-termite --class=mpc -e ncmpcpp &
+st -c mpc -e ncmpcpp &
 #/usr/lib64/chromium-browser/chromium-launcher.sh --profile-directory=Default --app-id=knipolnnllmklapflnccelgolnpehhpl &
 zabbix_mon.sh
