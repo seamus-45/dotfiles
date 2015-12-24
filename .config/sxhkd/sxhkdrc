@@ -127,7 +127,10 @@ alt + F2
 
 # scratchpad
 alt + F3
-  xdotool search --onlyvisible --class scratchpad windowunmap || xdotool search --class scratchpad windowmap || termite --class scratchpad --geometry 1914x300+0+18 -e "zsh -l" &
+  xdotool search --onlyvisible --class scratchpad windowunmap || xdotool search --class scratchpad windowmap || termite --class scratchpad --geometry 1914x300+0+18 -e "zsh -l"
+
+# spice client
+  spicy -h localhost -p 5900
 
 # screen locker
 Scroll_Lock
