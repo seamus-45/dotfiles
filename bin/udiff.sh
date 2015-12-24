@@ -37,7 +37,7 @@ fi
 # escape '/' character in pkg name for sed
 QUERY=$(echo $1 | sed 's@/@\\/@')
 # extract binary package version
-PKGVER=$(sed -n "/^CPV: ${QUERY}[0-9._prev-]\+$/p" $TMPDIR/Packages)
+PKGVER=$(sed -n "/^CPV: ${QUERY}[0-9._prev-]*$/p" $TMPDIR/Packages)
 if [[ -z $PKGVER ]];
 then
   echo "Error: Can not find $1 in $TMPDIR/Packages"

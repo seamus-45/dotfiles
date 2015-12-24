@@ -11,7 +11,7 @@ wmname LG3D
 # appearance
 xsetroot -cursor_name left_ptr &
 #hsetroot -tile $HOME/.config/bspwm/tinytile2.gif &
-hsetroot -tile $HOME/pictures/main/wallhaven-51214-0-0.jpg &
+hsetroot -tile $HOME/pictures/wallpapers/nightfall_starlight_panoramic6.jpg &
 # just for fun
 # mpv -ao null --wid=0 --loop=inf ~/media/loops/AmazonSwamp.mov --panscan=0.6 &
 

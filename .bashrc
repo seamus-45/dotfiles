@@ -11,4 +11,6 @@ fi
 
 alias makepasswd="/usr/bin/makepasswd --count=10 $@"
 unset GREP_OPTIONS
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+#[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+ff=~/bin/openfire-github/bash-completion/openfire-cli.sh
+[ -f ${ff} ] && source ${ff}

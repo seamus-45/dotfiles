@@ -16,5 +16,19 @@ eend() {
 	else
 		shift
 		echo -e "${c_red}failed${c_def} $*"
+		exit 1
+	fi
+}
+
+mountfs() {
+	mountpoint $1 >/dev/null
+	if [[ $? -ne 0 ]];
+	then
+		ebegin "mounting $1"
+		mount -o rbind /${1#*/} $1
+		eend $?
+	else
+		ebegin "filesystem $1 is already mounted"
+		eend 0
 	fi
 }

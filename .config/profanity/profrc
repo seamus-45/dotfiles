@@ -28,7 +28,7 @@ message=true
 message.current=true
 message.text=true
 room.current=false
-room=off
+room=true
 room.text=false
 remind=120
 typing=true
@@ -36,10 +36,14 @@ typing.current=false
 invite=true
 sub=true
 
+room.mention=true
+
 [connection]
 account=work
 
 defaccount=work
+
+carbons=false
 
 [presence]
 autoaway.mode=idle
