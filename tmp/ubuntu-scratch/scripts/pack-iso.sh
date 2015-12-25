@@ -23,7 +23,8 @@ ebegin "calculating md5 sums"
 eend $?
 
 ebegin "generating iso"
-	mkisofs -quiet -r -V "Ubuntu Remix" -cache-inodes -J -l -b isolinux/isolinux.bin -c isolinux/boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table -o ../ubuntu-remix.iso .
+  ver=$(chroot ../chroot lsb_release -sir | paste -s -d' ')
+	mkisofs -quiet -r -V "${ver}" -cache-inodes -J -l -b isolinux/isolinux.bin -c isolinux/boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table -o ../ubuntu-remix.iso .
 eend $?
 
 cd ..
