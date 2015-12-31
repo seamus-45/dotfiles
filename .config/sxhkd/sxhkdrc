@@ -115,7 +115,7 @@ super + Return
 
 # pulsemixer
 alt + F1
-  xdotool search --onlyvisible --classname pulsemixer windowunmap || xdotool search --classname pulsemixer windowmap || st -c pulsemixer -e pulsemixer
+  xdotool search --onlyvisible --classname pulsemixer windowunmap || xdotool search --classname pulsemixer windowmap || st -g 60x10 -c pulsemixer -e pulsemixer
 
 # run dialog
 alt + F2
