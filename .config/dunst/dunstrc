@@ -127,7 +127,7 @@
 
 [frame]
     width = 3
-    color = "#0BBD00"
+    color = "#038AC2"
 
 [shortcuts]
     # shortcuts are specified as [modifier+][modifier+]...key
@@ -151,18 +151,18 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the '#' and following  would be interpreted as a comment.
-    background = "#077300"
-    foreground = "#44FF00"
+    background = "#026B96"
+    foreground = "#00EFFF"
     timeout = 1
 
 [urgency_normal]
-    background = "#077300"
-    foreground = "#44FF00"
+    background = "#026B96"
+    foreground = "#00EFFF"
     timeout = 3
 
 [urgency_critical]
-    background = "#077300"
-    foreground = "#DCFF00"
+    background = "#026B96"
+    foreground = "#FFFFFF"
     timeout = 0
 
 
@@ -185,7 +185,7 @@
 # fitting options for rules.
 [jabber-highlight]
         appname = Profanity
-        format = "<span weight='bold' color='#dc322f'>%s</span>\n%b"
+        format = "<span weight='bold' color='#fff'>%s</span>\n%b"
         urgency = critical
 
 [notify-send]
