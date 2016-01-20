@@ -1,6 +1,16 @@
+"^chromium*"
+# smooth scroll with side buttons
+None, Thumb2, j, enter, 50000, 50000
+None, Thumb1, k, enter, 50000, 50000
+
 ".*"
+# prev/next workspace for bspwm
 None, Thumb2, Super_L|bracketleft,1
 None, Thumb1, Super_L|bracketright,1
+
+# prev/next workspace for other wm's
 #None, Thumb2, Super_L|Left,1
 #None, Thumb1, Super_L|Right,1
+
+# execute note
 # imwheel -k -b 000089
