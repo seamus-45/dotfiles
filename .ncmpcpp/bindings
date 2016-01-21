@@ -4,14 +4,14 @@ def_key "j"
 def_key "k"
  scroll_up
 
-def_key "ctrl_p"
+def_key "ctrl-p"
  scroll_up
 
-def_key "ctrl_n"
+def_key "ctrl-n"
  scroll_down
 
 def_key "l"
- press_enter
+ play_item
 
 def_key "h"
  jump_to_parent_directory

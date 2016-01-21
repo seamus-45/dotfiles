@@ -12,7 +12,6 @@ message_delay_time = "4"
 
 ##### song format #####
 song_library_format = "{%n - }{%t}|{%f}"
-tag_editor_album_format = "{(%y) }%b"
 browser_playlist_prefix = "$2playlist$9 "
 selected_item_prefix = "$6"
 selected_item_suffix = "$9"
