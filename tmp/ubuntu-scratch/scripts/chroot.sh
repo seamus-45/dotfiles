@@ -55,9 +55,9 @@ ebegin "clean temporary stuff"
 	find chroot/usr/share/icons -type f -name icon-theme.cache -delete
 	rm -rf chroot/tmp/*
 	rm -f chroot/root/.bash_history
-	rm -f chroot/var/log/apt/*
 	rm -rf chroot/var/cache/apt/archives/*
 	rm -f chroot/var/lib/dbus/machine-id
+	find chroot/var/log -type f -exec truncate -s 0  {} \;
 eend $?
 
 ebegin "unbind filesystems"
