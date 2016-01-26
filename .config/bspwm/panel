@@ -94,7 +94,7 @@ function autolocker() {
     if [ $(xssstate -s) != "disabled" ]; then 
       tosleep=$(($(xssstate -t) / 1000)) 
       if [[ $tosleep -le 0 && ! `pidof alock` ]]; then
-          alock -auth pam -bg shade:shade=40,color='#200000'
+          alock -auth pam -bg shade:shade=20,color='#001000'
       else 
         sleep 60
       fi 
