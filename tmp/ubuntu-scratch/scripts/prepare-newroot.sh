@@ -86,6 +86,9 @@ ebegin "copy files needed for bootable ISO"
 	cp chroot/boot/initrd.img-*.**.**-**-generic image/casper/initrd.gz
 	cp /usr/share/syslinux/isolinux.bin image/isolinux/
 	cp /usr/share/syslinux/ldlinux.c32 image/isolinux/
+	cp /usr/share/syslinux/chain.c32 image/isolinux/
+	cp /usr/share/syslinux/libcom32.c32 image/isolinux
+	cp /usr/share/syslinux/libutil.c32 image/isolinux
 	cp chroot/boot/memtest86+.bin image/install/memtest
 eend $?
 
