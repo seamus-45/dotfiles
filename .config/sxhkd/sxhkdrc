@@ -129,6 +129,10 @@ alt + F3
 alt + F4
   spicy -h localhost -p 5900
 
+# skype web client
+alt + F5
+  xdotool search --onlyvisible --classname web.skype.com__ru windowunmap || xdotool search --classname web.skype.com__ru windowmap || chromium-browser --user-data-dir=${HOME}/.config/chromium-skype --app=https://web.skype.com/ru/
+  
 # screen locker
 Scroll_Lock
   alock -auth pam -bg shade:shade=40,color='#200000' 
