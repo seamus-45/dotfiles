@@ -57,6 +57,7 @@ bspc rule -a scratchpad sticky=true floating=true
 bspc rule -a Spicy floating=true
 bspc rule -a Virt-manager floating=true
 bspc rule -a pulsemixer sticky=true floating=true
+bspc rule -a crx_chlffgpmiacpedhhbkiomidkjlcfhogd floating=true
 
 # spawn several programs
 sxhkd &
