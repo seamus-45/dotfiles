@@ -135,7 +135,11 @@ alt + F5
   
 # screen locker
 Scroll_Lock
-  alock -auth pam -bg shade:shade=40,color='#200000' 
+  alock -auth pam -bg shade:shade=20,color='#001000'
+
+# disable auto screen lock
+alt + Scroll_Lock
+  /bin/bash -c '[ $(xssstate -s) == "disabled" ] && xset s 180 || xset s 0'
 
 # Screenshot and upload
 super + @Print

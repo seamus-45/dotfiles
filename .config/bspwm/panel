@@ -96,16 +96,18 @@ function autolocker() {
       if [[ $tosleep -le 0 && ! `pidof alock` ]]; then
           alock -auth pam -bg shade:shade=20,color='#001000'
       else 
-        sleep 60
+        sleep 1
       fi 
-    else 
-      sleep 60 
-    fi 
+      echo "XD"
+    else
+      echo "XDUNSAFE"
+      sleep 1
+    fi
   done 
 }
 
 if [[ -x `which xssstate` && -x `which alock` ]]; then
-  autolocker &
+  autolocker > "$PANEL_FIFO" &
 fi
 #}}}
 
@@ -115,6 +117,10 @@ function fifo_handler {
     wm_panels=("" "" "" "")
     while read -r line ; do
         case $line in
+            XD*)
+                # warn when autolock is disabled
+                autolock="%{F$COLOR_FOCUSED_URGENT_BG}${line#??}%{F-}"
+                ;;
             KBD*)
                 # show kbd layout
                 current_layout="${line#???}"
@@ -211,9 +217,9 @@ function fifo_handler {
 
         # Optimize panel for single/dual monitor setup
         if [ $num_mon -lt 2 ]; then
-            output="%{l}${wm_panels[0]}%{c}${wm_title}%{r}${gmail_unread} ${office_unread}  ${current_layout}  ${wm_date}"
+            output="%{l}${wm_panels[0]}%{c}${wm_title}%{r}${autolock} ${gmail_unread} ${office_unread}  ${current_layout}  ${wm_date}"
         else
-            output="%{l}${wm_panels[0]}%{c}${wm_title}%{r}${gmail_unread} ${office_unread}  ${current_layout}  ${wm_date}%{S+}%{l}${wm_panels[1]}%{c}${wm_title}%{r}${gmail_unread} ${office_unread}  ${current_layout}  ${wm_date}"
+            output="%{l}${wm_panels[0]}%{c}${wm_title}%{r}${autolock} ${gmail_unread} ${office_unread}  ${current_layout}  ${wm_date}%{S+}%{l}${wm_panels[1]}%{c}${wm_title}%{r}${autolock} ${gmail_unread} ${office_unread}  ${current_layout}  ${wm_date}"
         fi
 
         printf "%s\n" "$output"
