@@ -16,4 +16,5 @@ map <Space> navigate next
 map <C-Space> navigate previous
 map s toggle_statusbar
 map i toggle_index
-map a adjust_window width
+map a adjust_window best-fit
+map A adjust_window width
