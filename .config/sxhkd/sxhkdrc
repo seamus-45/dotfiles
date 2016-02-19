@@ -132,6 +132,10 @@ alt + F4
 # skype web client
 alt + F5
   xdotool search --onlyvisible --classname web.skype.com__ru windowunmap || xdotool search --classname web.skype.com__ru windowmap || chromium-browser --user-data-dir=${HOME}/.config/chromium-skype --app=https://web.skype.com/ru/
+
+# show/hide equalizer
+alt + F11
+  xdotool search --onlyvisible --class Qpaeq windowunmap || xdotool search --class Qpaeq windowmap || qpaeq 
   
 # screen locker
 Scroll_Lock
