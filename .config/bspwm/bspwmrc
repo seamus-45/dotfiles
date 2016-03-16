@@ -48,7 +48,7 @@ bspc rule -a Geary desktop=^4
 bspc rule -a mail desktop=^4
 bspc rule -a transmission-gtk desktop=^6 follow=on
 bspc rule -a tmux desktop=^7
-bspc rule -a mpv floating=on desktop=^7
+bspc rule -a mpv floating=on desktop=^1
 bspc rule -a LiteTran desktop=^8
 bspc rule -a glances desktop=^8
 bspc rule -a crx_knipolnnllmklapflnccelgolnpehhpl desktop=^8 floating=off follow=on sticky=false
@@ -64,7 +64,7 @@ bspc rule -a crx_chlffgpmiacpedhhbkiomidkjlcfhogd floating=true
 # spawn several programs
 sxhkd &
 litetran &
-st -c tmux -e tmux &
+termite --class=tmux -e tmux &
 #termite --class=mps -e mpsyt &
 #termite --class=mps -e mps &
 st -c mpc -e ncmpcpp &

@@ -111,7 +111,7 @@ super + @button{1-3}
 
 # terminal
 super + Return
-  st 
+  termite 
 
 # pulsemixer
 alt + F1
@@ -127,15 +127,16 @@ alt + F3
 
 # spice client
 alt + F4
-  spicy -h localhost -p 5900
+  virt-viewer
+  #spicy -h localhost -p 5900
 
 # skype web client
 alt + F5
   xdotool search --onlyvisible --classname web.skype.com__ru windowunmap || xdotool search --classname web.skype.com__ru windowmap || chromium-browser --user-data-dir=${HOME}/.config/chromium-skype --app=https://web.skype.com/ru/
 
 # show/hide equalizer
-alt + F11
-  xdotool search --onlyvisible --class Qpaeq windowunmap || xdotool search --class Qpaeq windowmap || qpaeq 
+#alt + F11
+#  xdotool search --onlyvisible --class Qpaeq windowunmap || xdotool search --class Qpaeq windowmap || qpaeq 
   
 # screen locker
 Scroll_Lock
