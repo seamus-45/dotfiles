@@ -1,7 +1,8 @@
 #!/bin/bash
 DOFFSET=$(( $(bspc query -D | wc -l) / 2 ))
-N=3
+N=4
 i=1
+IN=''
 while [[ $i -le $N ]];
 do
   bspc desktop -f \^$i; 

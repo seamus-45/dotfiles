@@ -32,27 +32,28 @@ bspc config focused_frame_opacity 0.1
 
 # office setup
 bspc monitor DVI-I-1 -n L
-bspc monitor VGA-1 -n R
+bspc monitor VGA-0 -n R
 bspc monitor L -d I II III IV V VI
 bspc monitor R -d Q W E R T Y
 
 # rules
-bspc rule -a gmrun floating=on focus=true center=on 
-bspc rule -a Skype floating=on
-bspc rule -a Dunst sticky=on floating=on
+bspc rule -a gmrun floating=true focus=true center=true 
+bspc rule -a Skype floating=true
+bspc rule -a Dunst sticky=true floating=true
 bspc rule -a chromium-browser-chromium desktop=^1
 bspc rule -a surf desktop=^2
 bspc rule -a mps desktop=^3
 bspc rule -a mpc desktop=^3
 bspc rule -a Geary desktop=^4
 bspc rule -a mail desktop=^4
-bspc rule -a transmission-gtk desktop=^6 follow=on
+bspc rule -a vcsa.infranet.co__vsphere-client desktop=^4
+bspc rule -a transmission-gtk desktop=^6 follow=true
 bspc rule -a tmux desktop=^7
-bspc rule -a mpv floating=on desktop=^1
+bspc rule -a mpv floating=true desktop=^1
 bspc rule -a LiteTran desktop=^8
 bspc rule -a glances desktop=^8
-bspc rule -a crx_knipolnnllmklapflnccelgolnpehhpl desktop=^8 floating=off follow=on sticky=false
-bspc rule -a Gimp desktop=^12 floating=on
+bspc rule -a crx_knipolnnllmklapflnccelgolnpehhpl desktop=^8 floating=off follow=true sticky=false
+bspc rule -a Gimp desktop=^12 floating=true
 bspc rule -a scratchpad sticky=true floating=true
 bspc rule -a Spicy floating=true
 bspc rule -a Virt-manager floating=true
@@ -60,6 +61,7 @@ bspc rule -a Virt-viewer floating=true
 bspc rule -a pulsemixer sticky=true floating=true
 bspc rule -a Qpaeq sticky=true floating=true
 bspc rule -a crx_chlffgpmiacpedhhbkiomidkjlcfhogd floating=true
+bspc rule -a system-config-printer.py floating=true
 
 # spawn several programs
 sxhkd &
@@ -68,5 +70,7 @@ termite --class=tmux -e tmux &
 #termite --class=mps -e mpsyt &
 #termite --class=mps -e mps &
 st -c mpc -e ncmpcpp &
-#/usr/lib64/chromium-browser/chromium-launcher.sh --profile-directory=Default --app-id=knipolnnllmklapflnccelgolnpehhpl &
 zabbix_mon.sh
+dunst &
+parcellite &
+pgrep mpd >/dev/null || mpd &

@@ -1,6 +1,6 @@
 [ui]
 beep=true
-theme=batman-seamus
+theme=seamus
 flash=true
 history=true
 intype=true
@@ -18,6 +18,8 @@ roster=false
 titlebar.show=true
 wins.autotidy=true
 wrap=true
+
+tls.show=true
 
 [logging]
 chlog=true
@@ -53,3 +55,9 @@ autoaway.awaymessage=Отошел от компьютера
 
 [chatstates]
 enabled=true
+
+[adm@conference.taximaxim.ru]
+notify.trigger=true
+
+[xenial@conference.taximaxim.ru]
+notify.trigger=true
