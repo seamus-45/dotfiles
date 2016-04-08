@@ -61,3 +61,6 @@ notify.trigger=true
 
 [xenial@conference.taximaxim.ru]
 notify.trigger=true
+
+[plugins]
+load=ascii.py;emoticons.py;syscmd.py;wikipedia-prof.py
