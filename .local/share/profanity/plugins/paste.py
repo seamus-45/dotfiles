@@ -8,7 +8,7 @@ import gtk
 
 def _cmd_paste():
     clipboard = gtk.clipboard_get(selection="PRIMARY")
-    result = clipboard.wait_fot_text()
+    result = clipboard.wait_for_text()
     prof.send_line(u'\u000A' + result)
 
 
