@@ -63,4 +63,4 @@ notify.trigger=true
 notify.trigger=true
 
 [plugins]
-load=ascii.py;syscmd.py;wikipedia-prof.py
+load=ascii.py;paste.py;syscmd.py;
