@@ -55,7 +55,7 @@ def _cmd_system(arg1=None, arg2=None):
     else:
         prof.cons_bad_cmd_usage("/system")
 
-def prof_init(version, status):
+def prof_init(version, status, account_name, fulljid):
     synopsis = [
         "/system",
         "/system exec <comman>",

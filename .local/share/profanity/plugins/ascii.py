@@ -22,7 +22,8 @@ def _cmd_ascii(text):
     elif prof.current_win_is_console():
         prof.cons_show(u'\u000A' + ascii_out)
 
-def prof_init(version, status):
+
+def prof_init(version, status, account_name, fulljid):
     synopsis = [ "/ascii <message>" ]
     description = "ASCIIfy a message."
     args = [
@@ -31,5 +32,5 @@ def prof_init(version, status):
     examples = [
         "/ascii \"Hello there\""
     ]
-    
+
     prof.register_command("/ascii", 1, 1, synopsis, description, args, examples, _cmd_ascii)

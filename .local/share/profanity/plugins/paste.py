@@ -12,7 +12,7 @@ def _cmd_paste():
     prof.send_line(u'\u000A' + result)
 
 
-def prof_init(version, status):
+def prof_init(version, status, account_name, fulljid):
     synopsis = ["/paste"]
     description = "Paste contents of clipboard."
     args = []

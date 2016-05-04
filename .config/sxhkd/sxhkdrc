@@ -152,7 +152,8 @@ super + @Print
 
 # Hangouts
 super + F1
-  /usr/lib64/chromium-browser/chromium-launcher.sh --profile-directory=Default --app-id=knipolnnllmklapflnccelgolnpehhpl
+  /usr/bin/telegram-desktop
+  #/usr/lib64/chromium-browser/chromium-launcher.sh --profile-directory=Default --app-id=knipolnnllmklapflnccelgolnpehhpl
 
 # litetran
 super + F2
