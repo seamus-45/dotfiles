@@ -37,8 +37,8 @@ bspc monitor L -d I II III IV V VI
 bspc monitor R -d Q W E R T Y
 
 # rules
-bspc rule -a gmrun floating=true focus=true center=true 
-bspc rule -a Skype floating=true
+bspc rule -a gmrun floating=true focus=true center=true
+bspc rule -a web.skype.com__ru floating=true
 bspc rule -a Dunst sticky=true floating=true
 bspc rule -a chromium-browser-chromium desktop=^1
 bspc rule -a surf desktop=^2
