@@ -7,19 +7,33 @@ intype=true
 
 statuses.muc=none
 
-occupants=false
+occupants=true
 statuses.chat=all
 statuses.console=none
 mouse=false
 vercheck=true
 
-roster=false
+roster=true
 
 titlebar.show=true
 wins.autotidy=true
 wrap=true
 
 tls.show=true
+
+roster.offline=false
+roster.resource=false
+roster.presence=false
+roster.status=false
+roster.empty=false
+roster.priority=false
+roster.contacts=false
+roster.rooms=true
+roster.count=unread
+roster.count.zero=false
+roster.unread=before
+roster.rooms.unread=before
+occupants.jid=false
 
 [logging]
 chlog=true

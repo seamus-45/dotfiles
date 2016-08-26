@@ -119,7 +119,7 @@ alt + F1
 
 # run dialog
 alt + F2
-  xdotool search --onlyvisible --class gmrun windowunmap || xdotool search --class gmrun windowmap || gmrun
+  rofi -show run
 
 # scratchpad
 alt + F3
@@ -148,7 +148,7 @@ alt + Scroll_Lock
 
 # Screenshot and upload
 super + @Print
-  cd ~/pictures/shots/; scrot -s '%Y%m%d-%T.png' -e 'curl -s -i -X POST -F pewpew=@$f http://pic.taximaxim.ru/pic2.php' | tail -n1 | xargs xdg-open
+  export FILE="$HOME/pictures/shots/$(date +%Y%m%d-%T).png"; maim -c 0,0.7,0,0.3 --hidecursor -s $FILE; curl -s -i -X POST -F pewpew=@$FILE http://pic.taximaxim.ru/pic2.php | tail -n1 | xargs xdg-open
 
 # Hangouts
 super + F1
