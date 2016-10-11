@@ -38,7 +38,7 @@ bspc monitor R -d Q W E R T Y
 
 # rules
 bspc rule -a gmrun floating=true focus=true center=true
-bspc rule -a web.skype.com__ru floating=true
+bspc rule -a skypeforlinux floating=true
 bspc rule -a Dunst sticky=true floating=true
 bspc rule -a chromium-browser-chromium desktop=^1
 bspc rule -a surf desktop=^2
@@ -52,7 +52,6 @@ bspc rule -a tmux desktop=^7
 bspc rule -a mpv floating=true desktop=^1
 bspc rule -a LiteTran desktop=^8
 bspc rule -a glances desktop=^8
-bspc rule -a crx_knipolnnllmklapflnccelgolnpehhpl desktop=^8 floating=off follow=true sticky=false
 bspc rule -a telegram-desktop desktop=^8
 bspc rule -a Gimp desktop=^12 floating=true
 bspc rule -a scratchpad sticky=true floating=true
@@ -61,8 +60,8 @@ bspc rule -a Virt-manager floating=true
 bspc rule -a Virt-viewer floating=true
 bspc rule -a pulsemixer sticky=true floating=true
 bspc rule -a Qpaeq sticky=true floating=true
-bspc rule -a crx_chlffgpmiacpedhhbkiomidkjlcfhogd floating=true
 bspc rule -a system-config-printer.py floating=true
+bspc rule -a Xdialog floating=true
 
 # spawn several programs
 sxhkd &

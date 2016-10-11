@@ -11,7 +11,7 @@ wmname LG3D
 # appearance
 xsetroot -cursor_name left_ptr &
 #hsetroot -tile $HOME/.config/bspwm/tinytile2.gif &
-hsetroot -full $HOME/pictures/wallpapers/wallhaven-59947.jpg &
+hsetroot -full $HOME/pictures/wallpapers/wallhaven-54770.jpg &
 # just for fun
 # mpv -ao null --wid=0 --loop=inf ~/media/loops/AmazonSwamp.mov --panscan=0.6 &
 
@@ -31,7 +31,7 @@ numlockx
 imwheel -k -b 000089
 
 # polkit (for virt-manager gui)
-/usr/libexec/polkit-gnome-authentication-agent-1 &
+#/usr/libexec/polkit-gnome-authentication-agent-1 &
 
 # run WM
 compton &

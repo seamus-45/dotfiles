@@ -132,7 +132,7 @@ alt + F4
 
 # skype web client
 alt + F5
-  xdotool search --onlyvisible --classname web.skype.com__ru windowunmap || xdotool search --classname web.skype.com__ru windowmap || chromium-browser --user-data-dir=${HOME}/.config/chromium-skype --app=https://web.skype.com/ru/
+  xdotool search --onlyvisible --classname skypeforlinux windowunmap || xdotool search --classname skypeforlinux windowmap || skypeforlinux 
 
 # show/hide equalizer
 #alt + F11
