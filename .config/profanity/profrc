@@ -35,6 +35,8 @@ roster.unread=before
 roster.rooms.unread=before
 occupants.jid=false
 
+console.private=all
+
 [logging]
 chlog=true
 grlog=true
@@ -77,4 +79,4 @@ notify.trigger=true
 notify.trigger=true
 
 [plugins]
-load=ascii.py;paste.py;syscmd.py;
+load=paste.py;syscmd.py;ascii.py;sounds.py;
