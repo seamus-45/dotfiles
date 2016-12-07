@@ -150,10 +150,9 @@ alt + Scroll_Lock
 super + @Print
   export FILE="$HOME/pictures/shots/$(date +%Y%m%d-%T).png"; maim -c 0,0.7,0,0.3 --hidecursor -s $FILE; curl -s -i -X POST -F pewpew=@$FILE http://pic.taximaxim.ru/pic2.php | tail -n1 | xargs xdg-open
 
-# Hangouts
+# Telegram
 super + F1
   /usr/bin/telegram-desktop
-  #/usr/lib64/chromium-browser/chromium-launcher.sh --profile-directory=Default --app-id=knipolnnllmklapflnccelgolnpehhpl
 
 # litetran
 super + F2
