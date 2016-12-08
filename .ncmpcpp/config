@@ -38,7 +38,7 @@ now_playing_suffix = "$9"
 song_status_format = "{(%l) }{%a - }{%t}|{%f}"
 song_window_title_format = "{%a - }{%t}|{%f}"
 alternative_header_first_line_format = "{%t}"
-alternative_header_second_line_format = "{%a} - {%b} {(%y)}"
+alternative_header_second_line_format = "$8{%a} - {%b} {(%y)}$9"
 
 ##### colors definitions #####
 colors_enabled = "yes"
