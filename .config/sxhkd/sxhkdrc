@@ -173,3 +173,13 @@ super + {KP_Add,KP_Subtract}
 
 super + shift {KP_Add,KP_Subtract}
   mpc -h /home/fedotov_sv/.mpd/socket {volume +5, volume -5}
+
+# Rofi clipboard manager
+super + minus
+  rofi -modi "clipboard:roficlip.py --show,persistent:roficlip.py --show --persistent,actions:roficlip.py --show --actions" -show clipboard
+
+super + equal
+  rofi -modi "clipboard:roficlip.py --show,persistent:roficlip.py --show --persistent,actions:roficlip.py --show --actions" -show persistent
+
+super + backslash
+  rofi -modi "clipboard:roficlip.py --show,persistent:roficlip.py --show --persistent,actions:roficlip.py --show --actions" -show actions

@@ -72,7 +72,7 @@ termite --class=tmux -e tmux &
 st -c mpc -e ncmpcpp &
 zabbix_mon.sh
 dunst &
-parcellite &
+roficlip.py --daemon &
 start-pulseaudio-x11 &
 sleep 1
 pkill mpd >/dev/null && mpd || mpd &
