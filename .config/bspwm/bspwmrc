@@ -69,7 +69,7 @@ litetran &
 termite --class=tmux -e tmux &
 #termite --class=mps -e mpsyt &
 #termite --class=mps -e mps &
-st -c mpc -e ncmpcpp &
+termite --class=mpc -e ncmpcpp &
 zabbix_mon.sh
 dunst &
 roficlip.py --daemon &
