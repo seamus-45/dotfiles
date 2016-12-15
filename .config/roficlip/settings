@@ -1,0 +1,8 @@
+settings:
+  ring_size: 20
+  newline_char: ''
+
+actions:
+  'add to persistent': 'roficlip.py -q --add'
+  'del from persistent': 'roficlip.py -q --remove'
+  'open url with mpv to play': 'mpv --geometry=720x405-20-20 %s'
