@@ -64,7 +64,7 @@ bspc rule -a transmission-gtk desktop=^6 follow=true floating=true
 bspc rule -a vcsa.infranet.co__vsphere-client desktop=^4
 
 # spawn several programs
-sxhkd &
+sxhkd -f 100 &
 litetran &
 termite --class=tmux -e tmux &
 #termite --class=mps -e mpsyt &
