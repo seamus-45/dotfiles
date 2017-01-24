@@ -32,48 +32,45 @@ bspc config focused_frame_opacity 0.1
 
 # office setup
 bspc monitor DVI-I-1 -n L
-bspc monitor VGA-1 -n R
+bspc monitor VGA-0 -n R
 bspc monitor L -d I II III IV V VI
 bspc monitor R -d Q W E R T Y
 
 # rules
 bspc rule -a Dunst sticky=true floating=true
-bspc rule -a Geary desktop=^4
-bspc rule -a Gimp desktop=^12 floating=true
-bspc rule -a LiteTran desktop=^8
-bspc rule -a Qpaeq sticky=true floating=true
+bspc rule -a Gimp desktop=Y floating=true
+bspc rule -a LiteTran desktop=W
 bspc rule -a Spicy floating=true
 bspc rule -a Virt-manager floating=true
 bspc rule -a Virt-viewer floating=true
 bspc rule -a Xdialog floating=true
-bspc rule -a chromium-browser-chromium desktop=^1
-bspc rule -a glances desktop=^8
-bspc rule -a gmrun floating=true focus=true center=true
-bspc rule -a mail desktop=^4
-bspc rule -a mpc desktop=^3
-bspc rule -a mps desktop=^3
-bspc rule -a mpv floating=true desktop=^1
+bspc rule -a chromium-browser-chromium desktop=I
+bspc rule -a mpc desktop=III
+bspc rule -a mps desktop=III
+bspc rule -a mpv floating=true desktop=I
 bspc rule -a pulsemixer sticky=true floating=true
 bspc rule -a scratchpad sticky=true floating=true
 bspc rule -a skypeforlinux floating=true
-bspc rule -a surf desktop=^2
+bspc rule -a surf desktop=II
 bspc rule -a system-config-printer.py floating=true
-bspc rule -a telegram-desktop desktop=^8
-bspc rule -a tmux desktop=^7
-bspc rule -a transmission-gtk desktop=^6 follow=true floating=true
-bspc rule -a vcsa.infranet.co__vsphere-client desktop=^4
+bspc rule -a telegram-desktop desktop=W
+bspc rule -a tmux desktop=Q
+bspc rule -a transmission-gtk desktop=VI follow=true floating=true
+bspc rule -a xfreerdp floating=true follow=true desktop=E
+bspc rule -a gnome-mpv floating=true
 
 # spawn several programs
 sxhkd -f 100 &
-litetran &
+dunst &
+roficlip.py --daemon &
+start-pulseaudio-x11 &
 termite --class=tmux -e tmux &
 #termite --class=mps -e mpsyt &
 #termite --class=mps -e mps &
 termite --class=mpc -e ncmpcpp &
 zabbix_mon.sh
-dunst &
-roficlip.py --daemon &
-start-pulseaudio-x11 &
-sleep 1
-pkill mpd >/dev/null && mpd || mpd &
-eval `ssh-agent`
+litetran &
+pkill tmux
+pkill mpd >/dev/null; mpd
+pkill ssh-agent; eval `ssh-agent`
+wait

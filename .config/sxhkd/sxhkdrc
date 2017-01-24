@@ -80,8 +80,8 @@ super + ctrl + {1-9}
   bspc window -r 0.{1-9}
 
 # focus/move window - to desktop
-super + {_,shift + }{1-6,q,w,e,r,t,y}
-  bspc {desktop -f,window -d} ^{1-6,7,8,9,10,11,12}
+super + {_,shift + }{1,2,3,4,5,6,q,w,e,r,t,y}
+  bspc {desktop -f,window -d} {I, II, III, IV, V, VI, Q, W ,E ,R ,T, Y}
 
 # Fill window to both monitors
 super + alt + f
@@ -173,10 +173,10 @@ super + shift {KP_Add,KP_Subtract}
 
 # Rofi clipboard manager
 super + minus
-  rofi -modi "clipboard:roficlip.py --show,persistent:roficlip.py --show --persistent,actions:roficlip.py --show --actions" -show clipboard
+  rofi -modi " clipboard:roficlip.py --show, persistent:roficlip.py --show --persistent, actions:roficlip.py --show --actions" -show ' clipboard'
 
 super + equal
-  rofi -modi "clipboard:roficlip.py --show,persistent:roficlip.py --show --persistent,actions:roficlip.py --show --actions" -show persistent
+  rofi -modi " clipboard:roficlip.py --show, persistent:roficlip.py --show --persistent, actions:roficlip.py --show --actions" -show ' persistent'
 
 super + backslash
-  rofi -modi "clipboard:roficlip.py --show,persistent:roficlip.py --show --persistent,actions:roficlip.py --show --actions" -show actions
+  rofi -modi " clipboard:roficlip.py --show, persistent:roficlip.py --show --persistent, actions:roficlip.py --show --actions" -show ' actions'

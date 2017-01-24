@@ -79,4 +79,4 @@ notify.trigger=true
 notify.trigger=true
 
 [plugins]
-load=paste.py;syscmd.py;ascii.py;sounds.py;
+load=syscmd.py;ascii.py;sounds.py;paste.py;

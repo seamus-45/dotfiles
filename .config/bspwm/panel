@@ -72,8 +72,10 @@ function kbd_layout() {
   while true
   do
     case "$(xset -q | grep LED | awk '{ print $10 }')" in
+      "00000000") KBD="KBDus" ;;
       "00000002") KBD="KBDus" ;;
       "00000003") KBD="KBDUS" ;;
+      "00001004") KBD="KBDru" ;;
       "00001006") KBD="KBDru" ;;
       "00001007") KBD="KBDRU" ;;
         *) KBD="KBDunknown" ;;
@@ -156,7 +158,7 @@ function fifo_handler {
             W*)
                 # bspwm internal state
                 wm_info=""
-                cur_mon=-1
+                cur_mon=0
 
                 IFS=':'
                 set -- ${line#?}
@@ -166,17 +168,25 @@ function fifo_handler {
                     case $item in
                         M*)
                             # active monitor
-                            cur_mon=$((cur_mon + 1))
                             wm_info=""
                             if [ $num_mon -gt 1 ] ; then
+                                if [ $name == "L" ] ; then
+                                    cur_mon=0
+                                else
+                                    cur_mon=1
+                                fi
                                 wm_info="$wm_info %{F$COLOR_ACTIVE_MONITOR_FG}%{B$COLOR_ACTIVE_MONITOR_BG} ${name} %{B-}%{F-}  "
                             fi
                             ;;
                         m*)
                             # inactive monitor
-                            cur_mon=$((cur_mon + 1))
                             wm_info=""
                             if [ $num_mon -gt 1 ] ; then
+                                if [ $name == "L" ] ; then
+                                    cur_mon=0
+                                else
+                                    cur_mon=1
+                                fi
                                 wm_info="$wm_info %{F$COLOR_INACTIVE_MONITOR_FG}%{B$COLOR_INACTIVE_MONITOR_BG} ${name} %{B-}%{F-}  "
                             fi
                             ;;

@@ -1,6 +1,6 @@
 # vim: set ft=dunstrc:
 [global]
-    font = Droid Sans 10
+    font = Droid Sans 11
 
     # allow a small subset of html markup:
     # <b>bold</b>

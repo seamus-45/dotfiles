@@ -30,3 +30,6 @@ def_key "J"
 
 def_key "K"
  page_up
+
+def_key "space"
+ set_selected_items_priority
