@@ -112,7 +112,7 @@ super + Return
 
 # pulsemixer
 alt + F1
-  xdotool search --onlyvisible --classname pulsemixer windowunmap || xdotool search --classname pulsemixer windowmap || st -g 60x10 -c pulsemixer -e pulsemixer
+  xdotool search --onlyvisible --classname pulsemixer windowunmap || xdotool search --classname pulsemixer windowmap || st -g 120x15 -c pulsemixer -e pulsemixer
 
 # run dialog
 alt + F2
@@ -131,17 +131,9 @@ alt + F4
 alt + F5
   xdotool search --onlyvisible --classname skypeforlinux windowunmap || xdotool search --classname skypeforlinux windowmap || skypeforlinux 
 
-# show/hide equalizer
-#alt + F11
-#  xdotool search --onlyvisible --class Qpaeq windowunmap || xdotool search --class Qpaeq windowmap || qpaeq 
-  
 # screen locker
 Scroll_Lock
   alock -auth pam -bg shade:shade=20,color='#001000'
-
-# disable auto screen lock
-alt + Scroll_Lock
-  /bin/bash -c '[ $(xssstate -s) == "disabled" ] && xset s 180 || xset s 0'
 
 # Screenshot and upload
 super + @Print
@@ -154,12 +146,6 @@ super + F1
 # litetran
 super + F2
   litetran
-
-super + F9
-  eval $(grep mpv ~/.xinitrc)
-
-super + F10
-  pkill mpv
 
 # MPD control
 super + KP_Multiply
