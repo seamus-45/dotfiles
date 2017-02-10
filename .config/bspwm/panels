@@ -1,0 +1,31 @@
+# vim:set ft=sh:
+LEMONOPTS="
+  -p -f'Droid Sans Mono Slashed for Powerline:pixelsize=13:weight=Bold' \
+  -p -f'FontAwesome:pixelsize=14' \
+  -p -B'#aa000000' \
+  -p -u2 \
+"
+
+[ -z "${PANEL_HEIGHT}" ] && PANEL_HEIGHT=24 ||:
+[ -z "${CFG_ROOT}" ] && CFG_ROOT='.' ||:
+
+# spawn panels
+pushd "${CFG_ROOT}/widgets"
+
+eval luastatus-lemonbar-launcher -p -g1920x${PANEL_HEIGHT} ${LEMONOPTS} -- -B separator='' \
+  Lpager.lua \
+  title.lua \
+  lang.lua \
+  gmail.lua \
+  mail.lua \
+  clock.lua &
+
+eval luastatus-lemonbar-launcher -p -g1920x${PANEL_HEIGHT}+1920 ${LEMONOPTS} -- -B separator='' \
+  Rpager.lua \
+  mpd.lua \
+  title.lua \
+  cpu.lua \
+  lang.lua \
+  clock.lua &
+
+popd

@@ -1,18 +1,24 @@
+# vim:set ft=config foldmethod=marker:
+#{{{ INSTANCE CONTROLS
 
+# quit session
 super + alt + BackSpace
-  pkill -x panel; bspc quit
+  bspc quit
 
-# make sxhkd reload its configuration file
+# reload SXHKD configuration file
 super + Escape
   pkill -USR1 -x sxhkd
 
-# make bspwm reload rules
+# reload BSPWM rules
 super + alt + Escape
-  bspc rule -l | while read line; do bspc rule -r head; done ; cat ~/.config/bspwm/bspwmrc | grep '^bspc rule' | sed 's/bspc//' | xargs -L 1 bspc
+  bspc rule -l | while read line; do bspc rule -r head; done ; cat ~/.config/bspwm/rules | grep '^bspc rule' | sed 's/bspc//' | xargs -L 1 bspc
+#}}}
 
-# close window
+#{{{ WINDOW MANAGEMENT
+
+# close node
 super + c
-  bspc window -c
+  bspc node -c
 
 # tiled|monocle layouts
 super + v
@@ -20,95 +26,59 @@ super + v
 
 # balance split ratios of the tree
 super + b
-  bspc desktop -B
+  bspc node @/ -B
 
 # toggle floating/fullscreen
-super + {F,f}
-  bspc window -t {floating,fullscreen}
+super + {shift+t,shift+p,shift+f,f}
+  bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
 # toggle sticky
-super + s
-  bspc window -t sticky
+super + shift + {s, m, c}
+  bspc node -g {sticky,private,locked}
 
-# focus last window/desktop
+# focus last node/desktop
 super + {grave,Tab}
-  bspc {window,desktop} -f last
+  bspc {node,desktop} -f last
 
-# cycle windows on all desktops
-super + {o,i}
-  bspc control --record-history off; \
-  bspc window {older,newer} -f; \
-  bspc control --record-history on
-
-# swap the current window with the biggest
+# swap the current node with the biggest
 super + m
-  bspc window -s biggest
+  bspc node -s biggest.local
 
-# focus/swap window in given direction
-super + {_,shift + }{h,j,k,l}
-  bspc window -{f,s} {left,down,up,right}
-
-# circulate the leaves of the tree of the selected desktop
-super + {comma,period}
-  bspc desktop -C {backward,forward}
+# focus/swap node in given direction
+super + {_,shift+}{h,j,k,l}
+  bspc node -{f,s} {west,south,north,east}
 
 # rotate the tree of the selected desktop
 super + slash
-  bspc desktop -R 90
+  bspc node -R 90
 
 # focus previous/next desktop
 super + bracket{left,right}
   bspc desktop -f {prev,next}
 
-# preselect the splitting area of the selected window
+# preselect the splitting area of the selected node
 super + ctrl + {h,j,k,l}
-  bspc window -p {left,down,up,right}
+  bspc node -p {west,south,north,east}
 
-# cancel presel of window/all windows
-super + ctrl + {_,shift + }space
-  bspc {window -p cancel,desktop -c}
+# cancel presel of node
+super + ctrl + space
+  bspc node -p cancel
 
-# set or change the splitting ratio of the edge located in the given direction in relation to the selected window
-super + alt + {h,j,k,l}
-  bspc window -e {left -10,down +10,up -10,right +10}
-
-super + alt + shift + {h,j,k,l}
-  bspc window -e {right -10,up +10,down -10,left +10}
-
-# set the splitting ratio of the selected window
-super + ctrl + {1-9}
-  bspc window -r 0.{1-9}
-
-# focus/move window - to desktop
+# focus desktop / move node to desktop
 super + {_,shift + }{1,2,3,4,5,6,q,w,e,r,t,y}
-  bspc {desktop -f,window -d} {I, II, III, IV, V, VI, Q, W ,E ,R ,T, Y}
+  bspc {desktop -f,node -d} {I,II,III,IV,V,VI,Q,W,E,R,T,Y}
 
-# Fill window to both monitors
-super + alt + f
-  bspc config -w focused border_width 0 && bspc window -t floating=on && xdotool getactivewindow windowsize 3840 1080 windowmove 0 0
+# span window to both monitors
+alt + shift + f
+  bspc node -d Both; bspc monitor -f Both
 
-# revert previous back
-super + alt + F
-  bspc config -w focused border_width 3 && bspc window -t floating=off
+#}}}
 
-# mouse actions 
-~button1
-  bspc pointer -g focus
-
-super + button{1-3}
-  bspc pointer -g {move,resize_side,resize_corner}
-
-super + @button{1-3}
-  bspc pointer -u
-# end mouse actions
-
-#
-# wm independent hotkeys
-#
+#{{{ WM INDEPENDENT HOTKEYS
 
 # terminal
 super + Return
-  termite 
+  termite
 
 # pulsemixer
 alt + F1
@@ -120,7 +90,7 @@ alt + F2
 
 # scratchpad
 alt + F3
-  xdotool search --onlyvisible --class scratchpad windowunmap || xdotool search --class scratchpad windowmap || termite --class scratchpad --geometry 1914x300+0+18 -e "zsh -l"
+  xdotool search --onlyvisible --class scratchpad windowunmap || xdotool search --class scratchpad windowmap || termite --class scratchpad --geometry 1914x300+0+26 -e "zsh -l"
 
 # spice client
 alt + F4
@@ -147,17 +117,7 @@ super + F1
 super + F2
   litetran
 
-# MPD control
-super + KP_Multiply
-  mpc -h /home/fedotov_sv/.mpd/socket toggle
-
-super + {KP_Add,KP_Subtract}
-  mpc -h /home/fedotov_sv/.mpd/socket {next,prev}
-
-super + shift {KP_Add,KP_Subtract}
-  mpc -h /home/fedotov_sv/.mpd/socket {volume +5, volume -5}
-
-# Rofi clipboard manager
+#{{{ Rofi clipboard manager
 super + minus
   rofi -modi " clipboard:roficlip.py --show, persistent:roficlip.py --show --persistent, actions:roficlip.py --show --actions" -show ' clipboard'
 
@@ -166,3 +126,16 @@ super + equal
 
 super + backslash
   rofi -modi " clipboard:roficlip.py --show, persistent:roficlip.py --show --persistent, actions:roficlip.py --show --actions" -show ' actions'
+#}}}
+
+#{{{ MPD control
+super + KP_Multiply
+  mpc -h /home/fedotov_sv/.mpd/socket toggle
+
+super + {KP_Add,KP_Subtract}
+  mpc -h /home/fedotov_sv/.mpd/socket {next,prev}
+
+super + shift {KP_Add,KP_Subtract}
+  mpc -h /home/fedotov_sv/.mpd/socket {volume +5,volume -5}
+#}}}
+#}}}

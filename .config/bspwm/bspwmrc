@@ -1,90 +1,44 @@
 #! /bin/sh
+# vim:set ft=sh foldmethod=marker:
 
-# control windows from previous session
-bspc control --adopt-orphans
+CFG_ROOT="${HOME}/.config/bspwm"
+PANEL_HEIGHT='24'
 
-# spawn panels
-pushd $HOME/.config/bspwm
-LEMONBAR="./lemonbar -g 1920x24" luastatus-lemonbar-launcher -- -B separator='' \
-  Lpager.lua \
-  title.lua \
-  lang.lua \
-  clock.lua &
-LEMONBAR="./lemonbar -g 1920x24+1920" luastatus-lemonbar-launcher -- -B separator='' \
-  Rpager.lua \
-  title.lua \
-  lang.lua \
-  clock.lua &
-popd
-
-# bspwm settings
-bspc config top_padding 24
-bspc config border_width 3
-bspc config window_gap 6
-
-bspc config split_ratio 0.52
-bspc config borderless_monocle true
-bspc config gapless_monocle true
-bspc config focus_follows_pointer true
-bspc config pointer_follows_monitor true
-
-bspc config focused_border_color "#fa5000"
-bspc config active_border_color "#586e75"
-bspc config normal_border_color "#073642"
-bspc config presel_border_color "#b58900"
-bspc config focused_locked_border_color "#d7ff00"
-bspc config normal_locked_border_color "#d7d700"
-bspc config focused_sticky_border_color "#87ff00"
-bspc config normal_sticky_border_color "#87af00"
-bspc config focused_private_border_color "#af00ff"
-bspc config normal_private_border_color "#5f00d7"
-bspc config urgent_border_color "#ff0000"
-bspc config normal_frame_opacity 0.0
-bspc config focused_frame_opacity 0.1
-
-# office setup
+# monitor setup
 bspc monitor DVI-I-1 -n L
 bspc monitor VGA-1 -n R
 bspc monitor L -d I II III IV V VI
 bspc monitor R -d Q W E R T Y
 
-# rules
-bspc rule -a Dunst sticky=true floating=true
-bspc rule -a Gimp desktop=Y floating=true
-bspc rule -a LiteTran desktop=W
-bspc rule -a Spicy floating=true
-bspc rule -a Virt-manager floating=true
-bspc rule -a Virt-viewer floating=true
-bspc rule -a Xdialog floating=true
-bspc rule -a chromium-browser-chromium desktop=I
-bspc rule -a mpc desktop=III
-bspc rule -a mps desktop=III
-bspc rule -a mpv floating=true desktop=I
-bspc rule -a pulsemixer sticky=true floating=true
-bspc rule -a scratchpad sticky=true floating=true
-bspc rule -a skypeforlinux floating=true
-bspc rule -a surf desktop=II
-bspc rule -a system-config-printer.py floating=true
-bspc rule -a telegram-desktop desktop=W
-bspc rule -a tmux desktop=Q
-bspc rule -a transmission-gtk desktop=VI follow=true floating=true
-bspc rule -a xfreerdp floating=true follow=true desktop=E
-bspc rule -a gnome-mpv floating=true
-bspc rule -a 'Simple Viewer GL' floating=true fullscreen=true
-bspc rule -a Sxiv floating=true fullscreen=true
+# add big virtual monitor
+bspc wm -a Both 3840x1080+0+0
+bspc monitor Both -d Both
 
-# spawn several programs
-sxhkd -f 100 &
-dunst &
-roficlip.py --daemon &
-start-pulseaudio-x11 &
-termite --class=tmux -e tmux &
-#termite --class=mps -e mpsyt &
-#termite --class=mps -e mps &
-termite --class=mpc -e ncmpcpp &
-zabbix_mon.sh
-litetran &
-pkill tmux
-pkill mpd >/dev/null; mpd
-pkill ssh-agent; eval `ssh-agent`
+# misc settings
+bspc config top_padding ${PANEL_HEIGHT}
+bspc config border_width 3
+bspc config window_gap 6
+bspc config split_ratio 0.52
+bspc config borderless_monocle false
+bspc config gapless_monocle false
+bspc config paddingless_monocle false
+bspc config focus_follows_pointer true
+bspc config pointer_follows_focus false
+bspc config pointer_follows_monitor true
+
+# colors
+bspc config normal_border_color "#073642"
+bspc config active_border_color "#586e75"
+bspc config focused_border_color "#fa5000"
+bspc config presel_feedback_color "#fa5000"
+
+# rules
+source ${CFG_ROOT}/rules
+
+# panels
+source ${CFG_ROOT}/panels
+
+# autostart
+source ${CFG_ROOT}/autostart
+
 wait

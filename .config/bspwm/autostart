@@ -1,0 +1,12 @@
+# vim:set ft=sh:
+sxhkd &
+dunst &
+roficlip.py --daemon &
+pulseaudio -k
+pkill ssh-agent; eval `ssh-agent`
+pkill mpd >/dev/null; mpd
+pkill tmux; termite --class=tmux -e tmux &
+termite --class=mpc -e ncmpcpp &
+st -c htop -e htop &
+zabbix_mon.sh
+litetran &
