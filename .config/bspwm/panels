@@ -15,6 +15,7 @@ pushd "${CFG_ROOT}/widgets"
 eval luastatus-lemonbar-launcher -p -g1920x${PANEL_HEIGHT} ${LEMONOPTS} -- -B separator='' \
   Lpager.lua \
   title.lua \
+  simplecpu.lua \
   lang.lua \
   gmail.lua \
   mail.lua \
@@ -24,7 +25,7 @@ eval luastatus-lemonbar-launcher -p -g1920x${PANEL_HEIGHT}+1920 ${LEMONOPTS} -- 
   Rpager.lua \
   mpd.lua \
   title.lua \
-  cpu.lua \
+  simplecpu.lua \
   lang.lua \
   clock.lua &
 
