@@ -10,7 +10,7 @@ widget = {
       return string.format(
         '%%{+u}%%{U#afd700}%%{F#afd700} %s %%{F#aea9b1}%s - %s %%{F#ff7f00}%s%s%s%%{F-}%%{U-}%%{-u}',
         ({play = '', pause = '', stop = ''})[t.status.state],
-        t.song.Artist,
+        t.song.Artist == t.song.AlbumArtist and t.song.Artist or string.format('%s / %s', t.song.AlbumArtist, t.song.Artist),
         t.song.Title,
         t.status.random == '1' and ' ' or '',
         t.status['repeat'] == '1' and ' ' or '',
