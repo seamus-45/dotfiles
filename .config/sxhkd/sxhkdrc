@@ -28,9 +28,17 @@ super + v
 super + b
   bspc node @/ -B
 
-# toggle floating/fullscreen
-super + {shift+t,shift+p,shift+f,f}
-  bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+# toggle floating/tiled
+super + shift + f
+  bspc node focused.tiled -t floating || bspc node focused.floating -t tiled
+
+# toggle pseudo_tiled/tiled
+super + shift + p
+  bspc node focused.tiled -t pseudo_tiled || bspc node focused.pseudo_tiled -t tiled
+
+# toggle fullscreen/tiled
+super + f
+  bspc node focused.tiled -t fullscreen || bspc node focused.fullscreen -t tiled
 
 # toggle sticky
 super + shift + {s, m, c}
