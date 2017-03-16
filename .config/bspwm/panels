@@ -2,7 +2,7 @@
 LEMONOPTS="
   -p -f'Droid Sans Mono Slashed for Powerline:pixelsize=13:weight=Bold' \
   -p -f'FontAwesome:pixelsize=14' \
-  -p -B'#aa000000' \
+  -p -B'#99000000' \
   -p -u2 \
 "
 

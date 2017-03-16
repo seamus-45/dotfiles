@@ -32,13 +32,13 @@ function draw_bar()
   local avg = load_avg()
   usage = math.floor((avg / 5) + 0.5)
   free = math.floor(((100 - avg) / 5) + 0.5)
-  return string.rep('%{F#fff}', usage) .. string.rep('%{F#555}', free)
+  return string.rep('%{F#fff}', usage) .. string.rep('%{F#777}', free)
 end
 
 widget = {
   plugin = 'timer',
   opts = {period = 1},
   cb = function(t) 
-    return ('%%{+u}%%{U#555} %s %s %%{-u}'):format(lib.colorize('', 'icons'), draw_bar())
+    return (' %s %s '):format(lib.colorize('', 'icons'), draw_bar())
   end
 }

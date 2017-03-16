@@ -11,16 +11,16 @@ local colors = {
   mail = {fg = '#777', u = '#20b2aa'},
   mail_unseen = {fg = '#fff', u = '#20b2aa'},
   M = {fg = '#000', bg = '#00bfff'},
-  m = {fg = '#00bfff', bg = '#aa000000'},
+  m = {fg = '#00bfff', bg = '#99000000'},
   O = {fg = '#fff', bg = '#104e8b', u = '#00bfff'},
-  o = {fg = '#fdf6e3', bg = '#aa000000', u = '#005a70'},
+  o = {fg = '#fdf6e3', bg = '#99000000', u = '#005a70'},
   F = {fg = '#777', bg = '#104e8b', u = '#00bfff'},
-  f = {fg = '#777', bg = '#aa000000', u = '#005a70'},
+  f = {fg = '#777', bg = '#99000000', u = '#005a70'},
   U = {fg = '#fff', bg = '#aa104e8b', u = '#00bfff'},
-  u = {fg = '#00bfff', bg = '#aa000000', u = '#00bfff'},
-  L = {fg = '#00bfff', bg = '#aa000000'},
-  T = {fg = '#00bfff', bg = '#aa000000'},
-  G = {fg = '#00bfff', bg = '#aa000000'},
+  u = {fg = '#00bfff', bg = '#99000000', u = '#00bfff'},
+  L = {fg = '#00bfff', bg = '#99000000'},
+  T = {fg = '#00bfff', bg = '#99000000'},
+  G = {fg = '#00bfff', bg = '#99000000'},
 }
 
 local glyphs = {
