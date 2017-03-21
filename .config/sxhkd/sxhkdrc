@@ -56,9 +56,13 @@ super + m
 super + {_,shift+}{h,j,k,l}
   bspc node -{f,s} {west,south,north,east}
 
+# transplant node in given direction
+super + shift + alt {h,j,k,l}
+  bspc node -n {west,south,north,east}
+
 # rotate the tree of the selected desktop
-super + slash
-  bspc node -R 90
+super + {comma, period}
+  bspc node @/ -R {-90, 90}
 
 # focus previous/next desktop
 super + bracket{left,right}
@@ -90,7 +94,7 @@ super + Return
 
 # pulsemixer
 alt + F1
-  xdotool search --onlyvisible --classname pulsemixer windowunmap || xdotool search --classname pulsemixer windowmap || st -g 120x15 -c pulsemixer -e pulsemixer
+  xdotool search --onlyvisible --class pulsemixer windowunmap || xdotool search --classname pulsemixer windowmap || st -g 120x15 -c pulsemixer -e pulsemixer
 
 # run dialog
 alt + F2

@@ -3,23 +3,24 @@
 # Note, xprop report is instance:class
 bspc rule -a 'Simple Viewer GL' state=floating fullscreen=on
 bspc rule -a Dunst sticky=on state=floating
-bspc rule -a Gimp desktop=Y follow=on
-bspc rule -a LiteTran desktop=W locked=on
+bspc rule -a Gimp desktop=T follow=on
+bspc rule -a LiteTran desktop=W locked=on state=pseudo_tiled
 bspc rule -a Spicy state=floating
 bspc rule -a Sxiv state=floating state=fullscreen
-bspc rule -a Virt-manager state=floating
+bspc rule -a Virt-manager state=floating desktop=E
 bspc rule -a Virt-viewer state=floating
 bspc rule -a Xdialog state=floating
 bspc rule -a Chromium-browser-chromium desktop=I private=on
 bspc rule -a mpc desktop=III locked=on
 bspc rule -a mpv state=floating desktop=I
-bspc rule -a *:pulsemixer sticky=on state=floating
-bspc rule -a *:htop locked=on private=on desktop=W
+bspc rule -a pulsemixer sticky=on state=floating
+bspc rule -a htop locked=on private=on desktop=W
+bspc rule -a *:lemonbar manage=off floating=on layer=below
 bspc rule -a scratchpad sticky=on state=floating
 bspc rule -a skypeforlinux state=floating
 bspc rule -a Surf desktop=II locked=on
 bspc rule -a system-config-printer.py state=floating
-bspc rule -a telegram-desktop desktop=W locked=on
+bspc rule -a TelegramDesktop desktop=W locked=on
 bspc rule -a tmux desktop=Q locked=on private=on
 bspc rule -a Transmission-gtk desktop=VI follow=on state=floating center=on
 bspc rule -a xfreerdp state=floating follow=on desktop=E
