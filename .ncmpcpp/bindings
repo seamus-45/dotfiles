@@ -33,3 +33,6 @@ def_key "K"
 
 def_key "space"
  set_selected_items_priority
+
+def_key "="
+ toggle_visualization_type

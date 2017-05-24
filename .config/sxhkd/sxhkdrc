@@ -44,6 +44,10 @@ super + f
 super + shift + {s, m, c}
   bspc node -g {sticky,private,locked}
 
+# toggle layer
+super + shift + {a, n, b}
+  bspc node -l {above, normal, below}
+
 # focus last node/desktop
 super + {grave,Tab}
   bspc {node,desktop} -f last

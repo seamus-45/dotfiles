@@ -4,15 +4,15 @@
 CFG_ROOT="${HOME}/.config/bspwm"
 PANEL_HEIGHT='24'
 
+# virtual monitor
+bspc wm -a Both 3840x1080+0+0
+bspc monitor Both -d Both
+
 # monitor setup
 bspc monitor DVI-I-1 -n L
 bspc monitor VGA-1 -n R
 bspc monitor L -d I II III IV V VI
 bspc monitor R -d Q W E R T Y
-
-# add big virtual monitor
-bspc wm -a Both 3840x1080+0+0
-bspc monitor Both -d Both
 
 # misc settings
 bspc config top_padding ${PANEL_HEIGHT}
