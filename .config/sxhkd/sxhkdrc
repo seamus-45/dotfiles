@@ -133,6 +133,10 @@ super + F1
 super + F2
   litetran
 
+# mpv youtube
+super + o
+  playtube.sh `xclip -selection clipboard -o`
+
 #{{{ Rofi clipboard manager
 super + minus
   rofi -modi " clipboard:roficlip.py --show, persistent:roficlip.py --show --persistent, actions:roficlip.py --show --actions" -show ' clipboard'
