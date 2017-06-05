@@ -11,9 +11,4 @@ then
   URL=$(echo ${URL} | sed -e "s/viewtube://")
 fi
 
-if [ ! -x /usr/bin/youtube-dl ]; then
-  echo 'You must install youtube-dl for parse URI media content.'
-  exit 1
-fi
-
-mpv -geometry 500x300-50-60 -really-quiet $(youtube-dl --get-url "${URL}") &
+mpv -geometry 500x300-50-60 -really-quiet "${URL}" &
