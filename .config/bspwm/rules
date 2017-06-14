@@ -7,7 +7,7 @@ bspc rule -a Gimp desktop=T follow=on
 bspc rule -a LiteTran desktop=W locked=on state=pseudo_tiled
 bspc rule -a Spicy state=floating
 bspc rule -a Sxiv state=floating state=fullscreen
-bspc rule -a Virt-manager state=floating desktop=E
+bspc rule -a Virt-manager state=floating desktop=R
 bspc rule -a Virt-viewer state=floating
 bspc rule -a Xdialog state=floating
 bspc rule -a Chromium-browser-chromium desktop=I private=on follow=on
