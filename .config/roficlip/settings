@@ -3,6 +3,8 @@ settings:
   newline_char: ''
 
 actions:
-  'add to persistent': 'roficlip.py -q --add'
-  'del from persistent': 'roficlip.py -q --remove'
-  'open url with mpv to play': 'mpv --geometry=720x405-20-20 %s'
+  'Add to persistent': 'roficlip.py -q --add'
+  'Del from persistent': 'roficlip.py -q --remove'
+  'Open url with mpv to play': 'mpv --geometry=720x405-20-20 %s'
+  'Fix layout En-Ru': 'fix-en-ru.sh'
+  'Fix layout Ru-En': 'fix-ru-en.sh'

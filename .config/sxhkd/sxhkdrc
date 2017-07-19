@@ -127,7 +127,7 @@ super + @Print
 
 # Telegram
 super + F1
-  /usr/bin/telegram-desktop
+  Telegram
 
 # litetran
 super + F2
