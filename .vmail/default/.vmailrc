@@ -1,8 +1,0 @@
-username: *****@gmail.com
-password: *****
-name: Федотов Сергей
-signature: |
-  --
-  Sent from Vmail. http://danielchoi.com/software/vmail.html
-polling: true
-vim_opts: set cursorline | colorscheme summerfruit256 | AirlineTheme tomorrow
