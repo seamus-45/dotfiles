@@ -1,0 +1,14 @@
+#!/bin/bash
+if [ ! -x /usr/bin/youtube-dl ];
+then
+    echo "Please install youtube-dl script"
+    exit 1
+fi
+if [ $# -lt 1 ];
+then
+    echo "Usage: $0 playlist-url"
+    exit 1
+fi
+youtube-dl -o "%(playlist_title)s/%(playlist_index)02d %(fulltitle)s.%(ext)s" $1 && \
+echo "Writing album cover..." && \
+youtube-dl -q --max-downloads 1 --skip-download --write-thumbnail -o "%(playlist_title)s/album.jpg" $1
