@@ -4,7 +4,7 @@
 bspc rule -a 'Simple Viewer GL' state=floating fullscreen=on
 bspc rule -a Dunst sticky=on state=floating
 bspc rule -a Gimp desktop=T follow=on
-bspc rule -a LiteTran desktop=W locked=on state=pseudo_tiled
+bspc rule -a LiteTran desktop=W locked=on state=pseudo_tiled split_dir=west
 bspc rule -a Spicy state=floating
 bspc rule -a Sxiv state=floating state=fullscreen
 bspc rule -a Virt-manager state=floating desktop=R
@@ -18,7 +18,7 @@ bspc rule -a htop locked=on private=on desktop=W
 bspc rule -a *:lemonbar manage=off floating=on layer=below
 bspc rule -a scratchpad sticky=on state=floating
 bspc rule -a skypeforlinux state=floating
-bspc rule -a Surf desktop=II locked=on
+bspc rule -a Surf desktop=II locked=on state=tiled
 bspc rule -a Steam state=floating
 bspc rule -a system-config-printer.py state=floating
 bspc rule -a TelegramDesktop desktop=W locked=on
@@ -28,3 +28,5 @@ bspc rule -a xfreerdp state=floating follow=on desktop=E
 bspc rule -a Wine state=floating
 bspc rule -a Pavucontrol state=floating
 bspc rule -a Mumble state=floating
+bspc rule -a openshot state=floating
+

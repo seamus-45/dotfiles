@@ -5,8 +5,8 @@ CFG_ROOT="${HOME}/.config/bspwm"
 PANEL_HEIGHT='24'
 
 # virtual monitor
-bspc wm -a Both 3840x1080+0+0
-bspc monitor Both -d Both
+# bspc wm -a Both 3840x1080+0+0
+# bspc monitor Both -d Both
 
 # monitor setup
 bspc monitor DVI-I-1 -n L
