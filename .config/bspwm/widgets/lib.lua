@@ -25,18 +25,18 @@ local colors = {
 
 local glyphs = {
   -- layout
-  L = { T = '', -- tiled
-        M = '' }, -- monocle
+  L = { T = '',        -- tiled
+        M = '' },     -- monocle
   -- node state
-  T = { T = '', -- tiled
-        P = '', -- pseudo tiled
-        F = '', -- floating
-        ['='] = '', -- fullscreen
+  T = { T = '',       -- tiled
+        P = '',       -- pseudo tiled
+        F = '',       -- floating
+        ['='] = '',   -- fullscreen
         ['@'] = '' }, -- ??
   -- flags
-  G = { S = '', -- sticky
-        P = '', -- private
-        L = '' } -- locked
+  G = { S = '',       -- sticky
+        P = '',       -- private
+        L = '' }      -- locked
 }
 
 function lib.colorize(text, key)
@@ -85,6 +85,19 @@ function lib.unseen(account)
   connection:login(creds[account].login, creds[account].pass)
   local stat = connection:status('INBOX', {'UNSEEN'})
   return stat.UNSEEN
+end
+
+function lib.tprint (tbl, indent)
+  if not indent then indent = 0 end
+  for k, v in pairs(tbl) do
+    formatting = string.rep("  ", indent) .. k .. ": "
+    if type(v) == "table" then
+      print(formatting)
+      lib.tprint(v, indent+1)
+    else
+      print(formatting .. v)
+    end
+  end
 end
 
 return lib
