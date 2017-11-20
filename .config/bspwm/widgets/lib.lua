@@ -87,7 +87,7 @@ function lib.unseen(account)
   return stat.UNSEEN
 end
 
-function lib.tprint (tbl, indent)
+function lib.tprint(tbl, indent)
   if not indent then indent = 0 end
   for k, v in pairs(tbl) do
     formatting = string.rep("  ", indent) .. k .. ": "
