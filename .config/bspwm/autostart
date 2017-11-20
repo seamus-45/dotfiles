@@ -9,4 +9,3 @@ roficlip.py --daemon &
 termite --class=mpc -e ncmpcpp &
 st -c htop -e htop &
 zabbix_mon.sh
-litetran &
