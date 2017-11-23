@@ -1,3 +1,4 @@
+-- Required: luarocks install utf8
 utf8 = require 'utf8'
 lib = require 'lib'
 

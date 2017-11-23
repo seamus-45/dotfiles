@@ -1,3 +1,5 @@
+-- Required: https://github.com/vrld/imap4.lua
+-- Required: luarocks install luasec luasocket
 imap4 = require 'imap4'
 lib = require 'lib'
 
