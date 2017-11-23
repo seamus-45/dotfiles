@@ -53,11 +53,11 @@ widget = {
     if t.what == 'update' then
 			-- show cover
 			cover = find_cover(string.format('%s/%s', music_dir, t.song.file)) or ''
-			luastatus.spawn({'dunstify', 
+			luastatus.spawn({'dunstify',
 				'--appname=mpd.lua',
 				'--icon=' .. cover,
-				string.format('%s', t.song.Artist),
-				string.format('%s', t.song.Title)
+				string.format('<u>%s</u>', t.song.Artist),
+				string.format('<b>%s</b>\n%s', t.song.Album, t.song.Title)
 			})
 
       -- build title
