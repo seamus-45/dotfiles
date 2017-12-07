@@ -34,12 +34,12 @@ cur.execute("SELECT login,password FROM users;")
 row = cur.fetchone()
 while row is not None:
     login, password = row
+    #if password[:7] == 'blocked':
+    #    update_pass(conn, login)
     try:
         cracklib.FascistCheck(password)
     except ValueError as e:
         print "{0:40}{1:20}{2}".format(login, password, e.message)
-        # if password == 'Hq6bv1E3Rha8hzSz':
-        #     update_pass(conn, login)
     row = cur.fetchone()
 cur.close
 conn.close
