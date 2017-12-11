@@ -18,7 +18,7 @@ bspc rule -a pulsemixer sticky=on state=floating
 bspc rule -a htop locked=on private=on desktop=W
 bspc rule -a *:lemonbar manage=off floating=on layer=below
 bspc rule -a scratchpad sticky=on state=floating
-bspc rule -a skypeforlinux state=floating
+bspc rule -a Skype state=floating
 bspc rule -a Surf desktop=II locked=on state=tiled
 bspc rule -a Steam state=floating
 bspc rule -a system-config-printer.py state=floating

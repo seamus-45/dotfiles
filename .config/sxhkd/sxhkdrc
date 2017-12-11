@@ -115,7 +115,7 @@ alt + F4
 
 # skype web client
 alt + F5
-  xdotool search --onlyvisible --classname skypeforlinux windowunmap || xdotool search --classname skypeforlinux windowmap || skypeforlinux 
+  xdotool search --onlyvisible --class Skype windowunmap || xdotool search --class Skype windowmap || skypeforlinux 
 
 # screen locker
 Scroll_Lock
