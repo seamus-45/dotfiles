@@ -1,5 +1,0 @@
-#Triggers file version 1.0
--privmsgs -command 'exec - aplay -q /home/fedotov_sv/.irssi/sounds/Butn_Mission.wav &' 
--publics -command 'exec - aplay -q /home/fedotov_sv/.irssi/sounds/Butn_Number.wav &' 
--publics -regexp '(seamus|seamuz|mrfido|fedotov_sv)' -command 'exec - aplay -q /home/fedotov_sv/.irssi/sounds/Butn_Mission.wav &' 
--beep -command 'exec - aplay -q /home/fedotov_sv/.irssi/sounds/Butn_Arrow.wav &' 

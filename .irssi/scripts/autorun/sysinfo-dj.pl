@@ -1,1 +1,0 @@
-../sysinfo-dj.pl
