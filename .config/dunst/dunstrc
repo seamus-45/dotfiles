@@ -278,6 +278,12 @@
 # NOTE: It might be helpful to run dunst -print in a terminal in order
 # to find fitting options for rules.
 
+[Chromium]
+    appname = Chromium
+    background = "#ffffff"
+    foreground = "#000000"
+    frame_color = "#ffffff"
+
 #[espeak]
 #    summary = "*"
 #    script = dunst_espeak.sh
