@@ -11,15 +11,13 @@ function next {
         if [ "$i" -eq $(( LEN - 1 )) ];
         then
             echo "${ITEMS[0]}" > "$HOME"/.config/bspwm/wallpaper
-            hsetroot -fill "${ITEMS[0]}"
-            echo "${ITEMS[0]}"
             break
         else
             echo "${ITEMS[$i+1]}" > "$HOME"/.config/bspwm/wallpaper
-            hsetroot -fill "${ITEMS[$i+1]}"
-            echo "${ITEMS[$i+1]}"
+            break
         fi
     done
+    hsetroot -fill $(cat "$HOME"/.config/bspwm/wallpaper)
 }
 
 function prev {
@@ -29,22 +27,19 @@ function prev {
         if [ "$i" -eq 0 ];
         then
             echo "${ITEMS[$(( LEN - 1 ))]}" > "$HOME"/.config/bspwm/wallpaper
-            hsetroot -fill "${ITEMS[$(( LEN - 1 ))]}"
-            echo "${ITEMS[$(( LEN - 1 ))]}"
             break
         else
             echo "${ITEMS[$i-1]}" > "$HOME"/.config/bspwm/wallpaper
-            hsetroot -fill "${ITEMS[$i-1]}"
-            echo "${ITEMS[$i-1]}"
+            break
         fi
     done
+    hsetroot -fill $(cat "$HOME"/.config/bspwm/wallpaper)
 }
 
 function random {
     RND=$(( RANDOM % LEN ))
     echo "${ITEMS[$RND]}" > "$HOME"/.config/bspwm/wallpaper
     hsetroot -fill "${ITEMS[$RND]}"
-    echo "${ITEMS[$RND]}"
 }
 
 if [ ! "$LEN" -ge 1 ]; then
