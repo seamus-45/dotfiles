@@ -64,6 +64,10 @@ super + m
 super + {_,shift+}{h,j,k,l}
   bspc node -{f,s} {west,south,north,east}
 
+# focus next node on the local desktop
+super + n 
+  bspc node -f next.local
+
 # transplant node in given direction
 super + shift + alt {h,j,k,l}
   bspc node -n {west,south,north,east}
@@ -150,7 +154,7 @@ super + shift + period
   dunstify -t 10000 "$(xclip -selection primary -o | trans :ru -brief)"
 
 # translate ru>en
-super + shift + comma 
+super + shift + comma
   dunstify -t 10000 "$(xclip -selection primary -o | trans :en -brief)"
 
 #{{{ Rofi clipboard manager
@@ -165,13 +169,19 @@ super + backslash
 #}}}
 
 #{{{ MPD control
-super + KP_Multiply
+XF86AudioPlay
   mpc -h /home/fedotov_sv/.mpd/socket toggle
 
-super + {KP_Add,KP_Subtract}
+XF86AudioStop
+  mpc -h /home/fedotov_sv/.mpd/socket stop
+
+XF86AudioMute
+  amixer set Master toggle
+
+{XF86AudioNext,XF86AudioPrev}
   mpc -h /home/fedotov_sv/.mpd/socket {next,prev}
 
-super + shift {KP_Add,KP_Subtract}
+{XF86AudioRaiseVolume,XF86AudioLowerVolume}
   mpc -h /home/fedotov_sv/.mpd/socket {volume +5,volume -5}
 #}}}
 #}}}
