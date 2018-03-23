@@ -65,7 +65,7 @@ super + {_,shift+}{h,j,k,l}
   bspc node -{f,s} {west,south,north,east}
 
 # focus next node on the local desktop
-super + n 
+super + n
   bspc node -f next.local
 
 # transplant node in given direction
@@ -95,6 +95,10 @@ super + {_,shift + }{1,2,3,4,5,6,q,w,e,r,t,y}
 # span window to both monitors
 alt + shift + f
   bspc node -d Both; bspc monitor -f Both
+
+# focus virtual desktop
+alt + shift + b
+  bspc desktop -f Both
 
 #}}}
 
