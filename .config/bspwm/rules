@@ -26,7 +26,7 @@ bspc rule -a Wine state=floating
 bspc rule -a Xdialog state=floating
 bspc rule -a com-sun-javaws-Main state=floating
 bspc rule -a htop locked=on private=on desktop=W
-bspc rule -a mpc desktop=III locked=on
+bspc rule -a mpc desktop=III locked=on state=pseudo_tiled
 bspc rule -a mpv state=floating
 bspc rule -a openshot state=floating
 bspc rule -a pulsemixer sticky=on state=floating
