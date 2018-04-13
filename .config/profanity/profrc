@@ -57,11 +57,12 @@ sub=true
 room.mention=true
 
 [connection]
-account=work
+account=calculate
 
-defaccount=work
 
 carbons=false
+
+defaccount=calculate
 
 [presence]
 autoaway.mode=idle
