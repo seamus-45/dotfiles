@@ -5,12 +5,14 @@ bspc rule -a 'Simple Viewer GL' state=floating fullscreen=on
 bspc rule -a *:lemonbar manage=off floating=on layer=below
 bspc rule -a Chromium-browser-chromium desktop=I private=on follow=on
 bspc rule -a Dunst sticky=on state=floating
+bspc rule -a Gimp desktop=VI
 bspc rule -a GoldenDict state=floating
 bspc rule -a Lightscreen state=floating
 bspc rule -a LiteTran desktop=W locked=on state=pseudo_tiled split_dir=west
 bspc rule -a Mumble state=floating
 bspc rule -a Pavucontrol state=floating
 bspc rule -a Pinentry state=floating
+bspc rule -a Qpaeq state=floating
 bspc rule -a Skype state=floating
 bspc rule -a Spicy state=floating
 bspc rule -a Steam state=floating

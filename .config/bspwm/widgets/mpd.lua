@@ -62,7 +62,7 @@ widget = {
 
       -- build title
       local title = string.format('%s: %s', t.song.Artist, t.song.Title)
-      title = (utf8.len(title) <= 39 and title) or utf8.sub(title, 1, 39) .. '…'
+      title = (utf8.len(title) <= 79 and title) or utf8.sub(title, 1, 79) .. '…'
 
       -- draw icons
       text = string.format(' %s %s %s%s%s',
@@ -106,6 +106,6 @@ widget = {
       res = res:gsub(key, '%%{F#ff7f00}' .. key)
     end
 
-    return '%{+u}%{U#afd700}%{F#afd700}' .. res .. '%{F-}%{-u}'
+    return '%{c}%{+u}%{U#afd700}%{F#afd700}' .. res .. '%{F-}%{-u}%{r}'
   end
 }

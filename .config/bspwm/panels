@@ -7,12 +7,13 @@ LEMONOPTS="
 "
 
 [ -z "${PANEL_HEIGHT}" ] && PANEL_HEIGHT=24 ||:
+[ -z "${GAP}" ] && GAP=8 ||:
 [ -z "${CFG_ROOT}" ] && CFG_ROOT='.' ||:
 
 # spawn panels
 pushd "${CFG_ROOT}/widgets"
 
-eval luastatus-lemonbar-launcher -p -g1920x${PANEL_HEIGHT} ${LEMONOPTS} -- -B separator='' \
+eval luastatus-lemonbar-launcher -p -g$(( 1920 - ${GAP} * 2 ))x${PANEL_HEIGHT}+${GAP}+${GAP} ${LEMONOPTS} -- -B separator='' \
   Lpager.lua \
   title.lua \
   simplecpu.lua \
@@ -21,10 +22,9 @@ eval luastatus-lemonbar-launcher -p -g1920x${PANEL_HEIGHT} ${LEMONOPTS} -- -B se
   mail.lua \
   clock.lua &
 
-eval luastatus-lemonbar-launcher -p -g1920x${PANEL_HEIGHT}+1920 ${LEMONOPTS} -- -B separator='' \
+eval luastatus-lemonbar-launcher -p -g$(( 1920 - ${GAP} * 2 ))x${PANEL_HEIGHT}+$(( 1920 + ${GAP} ))+${GAP} ${LEMONOPTS} -- -B separator='' \
   Rpager.lua \
   mpd.lua \
-  title.lua \
   simplecpu.lua \
   lang.lua \
   clock.lua &

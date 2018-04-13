@@ -112,6 +112,14 @@ super + Return
 alt + F1
   xdotool search --onlyvisible --class pulsemixer windowunmap || xdotool search --classname pulsemixer windowmap || st -g 120x15 -c pulsemixer -e pulsemixer
 
+# equalizer
+control + F1
+  xdotool search --onlyvisible --class Qpaeq windowunmap || xdotool search --classname Qpaeq windowmap || qpaeq
+
+# pavucontrol
+super + F1
+  xdotool search --onlyvisible --class Pavucontrol windowunmap || xdotool search --classname Pavucontrol windowmap || pavucontrol
+
 # run dialog
 alt + F2
   rofi -show run
@@ -136,14 +144,6 @@ Scroll_Lock
 # Screenshot and upload
 super + @Print
   export FILE="$HOME/pictures/shots/$(date +%Y%m%d-%T).png"; maim -c 0,0.7,0,0.3 --hidecursor -s $FILE; curl -s -i -X POST -F pewpew=@$FILE http://pic.taximaxim.ru/pic2.php | tail -n1 | xargs xdg-open
-
-# Telegram
-super + F1
-  Telegram
-
-# litetran
-super + F2
-  litetran
 
 # change wallpaper
 super + {F5,F6,F8}

@@ -2,7 +2,8 @@
 # vim:set ft=sh foldmethod=marker:
 
 CFG_ROOT="${HOME}/.config/bspwm"
-PANEL_HEIGHT='24'
+PANEL_HEIGHT=24
+GAP=8
 
 # virtual monitor
 # bspc wm -a Both 3840x1080+0+0
@@ -15,9 +16,9 @@ bspc monitor L -d I II III IV V VI
 bspc monitor R -d Q W E R T Y
 
 # misc settings
-bspc config top_padding ${PANEL_HEIGHT}
+bspc config top_padding $(( ${PANEL_HEIGHT} + ${GAP} ))
 bspc config border_width 3
-bspc config window_gap 6
+bspc config window_gap ${GAP}
 bspc config split_ratio 0.52
 bspc config borderless_monocle false
 bspc config gapless_monocle false
