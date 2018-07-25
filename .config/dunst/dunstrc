@@ -159,7 +159,7 @@
     max_icon_size = 64
 
     # Paths to default icons.
-    icon_folders = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
+    icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
 
     ### History ###
 
@@ -241,13 +241,13 @@
     # Otherwise the "#" and following would be interpreted as a comment.
     background = "#000000"
     foreground = "#aaaaaa"
-    timeout = 3
+    timeout = 3s
     icon = /home/fedotov_sv/.icons/Numix/64x64/status/info.svg
 
 [urgency_normal]
     background = "#000000"
     foreground = "#ffffff"
-    timeout = 5
+    timeout = 5s
     icon = /home/fedotov_sv/.icons/Numix/64x64/status/info.svg
 
 [urgency_critical]

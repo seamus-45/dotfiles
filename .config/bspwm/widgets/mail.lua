@@ -10,7 +10,7 @@ widget = {
     unseen = lib.unseen('work')
     return lib.colorize(
       string.format('%s %d ',
-        (unseen == 0 and '') or '',
+        (unseen == 0 and '') or '',
         unseen
       ),
       (unseen == 0 and 'mail') or 'mail_unseen'

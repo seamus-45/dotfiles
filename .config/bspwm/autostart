@@ -8,4 +8,3 @@ dunst &
 roficlip.py --daemon &
 termite --geometry 1000x600 --class=mpc -e ncmpcpp &
 st -c htop -e htop &
-zabbix_mon.sh
