@@ -33,4 +33,4 @@ bspc rule -a pulsemixer sticky=on state=floating
 bspc rule -a scratchpad sticky=on state=floating
 bspc rule -a system-config-printer.py state=floating
 bspc rule -a tmux desktop=Q locked=on private=on
-bspc rule -a xfreerdp state=floating follow=on desktop=E
+bspc rule -a xfreerdp state=floating fullscreen=on follow=on desktop=E

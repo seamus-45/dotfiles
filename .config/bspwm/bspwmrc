@@ -6,8 +6,8 @@ PANEL_HEIGHT=24
 GAP=8
 
 # virtual monitor
-# bspc wm -a Both 3840x1080+0+0
-# bspc monitor Both -d Both
+#bspc wm -a Both 3840x1080+0+0
+#bspc monitor Both -d Both
 
 # monitor setup
 bspc monitor DVI-I-1 -n L
