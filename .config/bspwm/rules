@@ -3,7 +3,7 @@
 # Note, xprop report is instance:class
 bspc rule -a 'Simple Viewer GL' state=floating fullscreen=on
 bspc rule -a *:lemonbar manage=off floating=on layer=below
-bspc rule -a Chromium-browser-chromium desktop=I private=on follow=on
+bspc rule -a Chromium-browser-chromium desktop=III private=on follow=on
 bspc rule -a Dunst sticky=on state=floating
 bspc rule -a Gimp desktop=VI
 bspc rule -a GoldenDict state=floating
@@ -16,7 +16,6 @@ bspc rule -a Qpaeq state=floating
 bspc rule -a Skype state=floating
 bspc rule -a Spicy state=floating
 bspc rule -a Steam state=floating
-bspc rule -a Surf desktop=II locked=on state=tiled
 bspc rule -a Sxiv state=floating state=fullscreen
 bspc rule -a TelegramDesktop desktop=W locked=on
 bspc rule -a Transmission-gtk desktop=VI follow=on state=floating center=on
@@ -26,7 +25,7 @@ bspc rule -a Wine state=floating
 bspc rule -a Xdialog state=floating
 bspc rule -a com-sun-javaws-Main state=floating
 bspc rule -a htop locked=on private=on desktop=W
-bspc rule -a mpc desktop=III locked=on state=pseudo_tiled
+bspc rule -a mpc desktop=II locked=on state=pseudo_tiled
 bspc rule -a mpv state=floating
 bspc rule -a openshot state=floating
 bspc rule -a pulsemixer sticky=on state=floating

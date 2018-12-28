@@ -10,8 +10,8 @@ GAP=8
 #bspc monitor Both -d Both
 
 # monitor setup
-bspc monitor DVI-I-1 -n L
-bspc monitor VGA-1 -n R
+bspc monitor HDMI-0 -n L
+bspc monitor VGA-0 -n R
 bspc monitor L -d I II III IV V VI
 bspc monitor R -d Q W E R T Y
 
