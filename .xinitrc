@@ -18,7 +18,10 @@ hsetroot -fill $(cat ~/.config/bspwm/wallpaper) &
 redshift -l 55.420898:65.273957 &
 
 # screen locker
-xset s 600
+xset s off
+
+# dpms settings (standby|suspend|off)
+xset dpms 300 600 1200
 
 # turn on num lock
 numlockx

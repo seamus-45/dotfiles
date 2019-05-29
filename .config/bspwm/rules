@@ -1,7 +1,7 @@
 # vim:set ft=sh:
 # Rules: (class_name|*)[:instance_name|*]
 # Note, xprop report is instance:class
-bspc rule -a 'Simple Viewer GL' state=floating fullscreen=on
+bspc rule -a 'Simple Viewer GL' state=fullscreen
 bspc rule -a *:lemonbar manage=off floating=on layer=below
 bspc rule -a Chromium-browser-chromium desktop=III private=on follow=on
 bspc rule -a Dunst sticky=on state=floating
@@ -16,7 +16,7 @@ bspc rule -a Qpaeq state=floating
 bspc rule -a Skype state=floating
 bspc rule -a Spicy state=floating
 bspc rule -a Steam state=floating
-bspc rule -a Sxiv state=floating state=fullscreen
+bspc rule -a Sxiv state=fullscreen
 bspc rule -a TelegramDesktop desktop=W locked=on
 bspc rule -a Transmission-gtk desktop=VI follow=on state=floating center=on
 bspc rule -a Virt-manager -o state=pseudo_tiled desktop=R
@@ -32,4 +32,4 @@ bspc rule -a pulsemixer sticky=on state=floating
 bspc rule -a scratchpad sticky=on state=floating
 bspc rule -a system-config-printer.py state=floating
 bspc rule -a tmux desktop=Q locked=on private=on
-bspc rule -a xfreerdp state=floating fullscreen=on follow=on desktop=E
+bspc rule -a xfreerdp state=fullscreen follow=on desktop=Y

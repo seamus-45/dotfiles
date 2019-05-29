@@ -188,4 +188,12 @@ XF86AudioMute
 {XF86AudioRaiseVolume,XF86AudioLowerVolume}
   mpc -h /home/fedotov_sv/.mpd/socket {volume +5,volume -5}
 #}}}
+
+#{{{ DDC/CI Controls
+super + {Insert,Delete}
+  ddcutil --bus=1 setvcp 0x60 {0x03,0x04}
+
+super + {Prior,Next}
+  ddcutil --bus=2 setvcp 0x60 {0x03,0x04}
+#}}}
 #}}}
