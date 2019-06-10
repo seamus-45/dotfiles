@@ -1,32 +1,8 @@
-# vim:set ft=sh:
-LEMONOPTS="
-  -p -f'Droid Sans Mono Slashed for Powerline:pixelsize=13:weight=Bold' \
-  -p -f'FontAwesome:pixelsize=14' \
-  -p -B'#99000000' \
-  -p -u2 \
-"
+# Terminate already running bar instances
+killall -q polybar
 
-[ -z "${PANEL_HEIGHT}" ] && PANEL_HEIGHT=24 ||:
-[ -z "${GAP}" ] && GAP=8 ||:
-[ -z "${CFG_ROOT}" ] && CFG_ROOT='.' ||:
+# Wait until the processes have been shut down
+while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
-# spawn panels
-pushd "${CFG_ROOT}/widgets"
-
-eval luastatus-lemonbar-launcher -p -g$(( 1920 - ${GAP} * 2 ))x${PANEL_HEIGHT}+${GAP}+${GAP} ${LEMONOPTS} -- -B separator='' \
-  Lpager.lua \
-  title.lua \
-  simplecpu.lua \
-  lang.lua \
-  gmail.lua \
-  mail.lua \
-  clock.lua &
-
-eval luastatus-lemonbar-launcher -p -g$(( 1920 - ${GAP} * 2 ))x${PANEL_HEIGHT}+$(( 1920 + ${GAP} ))+${GAP} ${LEMONOPTS} -- -B separator='' \
-  Rpager.lua \
-  mpd.lua \
-  simplecpu.lua \
-  lang.lua \
-  clock.lua &
-
-popd
+polybar -r left &
+polybar -r right &

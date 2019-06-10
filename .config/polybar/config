@@ -1,0 +1,390 @@
+; vim:set ft=dosini foldmethod=marker sw=2 ts=2:
+;==========================================================
+;
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/jaagr/polybar/wiki/Configuration
+;
+;   The README contains alot of information
+;
+;==========================================================
+
+; {{{ Global
+[global/wm]
+margin-bottom = 0
+margin-top = 0
+
+[settings]
+screenchange-reload = true
+
+compositing-background = source
+compositing-foreground = over
+compositing-overline = over
+compositing-underline = over
+compositing-border = over
+
+pseudo-transparency = true
+;}}}
+
+;{{{ Colors
+[colors]
+background = #99000000
+foreground = #fff
+underline = #f00
+icon = #aaa
+red = #f00
+purple = #9400d3
+blue = #00bfff
+yellow = #ffd700
+green = #008b00
+green1 = #90ee90
+white = #ffebcd
+pink = #ff6eb4
+cyan = #4bffdc
+orange = #ff7f00
+lime = #afd700
+;}}}
+
+;{{{ Bar common
+[bar/common]
+width = 100%:-12
+height = 24
+offset-x = 6
+offset-y = 6
+fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+radius = 4.0
+
+line-size = 2
+line-color = ${colors.underline}
+
+;border-size = 0
+;border-color = #000
+
+padding = 0
+module-margin = 0
+
+font-0 = Droid Sans Mono Slashed for Powerline Nerd Font:pixelsize=10:weight=Bold;2
+font-1 = FontAwesome:pixelsize=11;1
+;font-2 = siji:pixelsize=10;1
+
+locale = ru_RU.utf-8
+
+wm-restack = bspwm
+
+;override-redirect = true
+
+scroll-up = bspwm-desknext
+scroll-down = bspwm-deskprev
+;}}}
+
+;{{{ Bar left
+[bar/left]
+inherit = bar/common
+
+monitor = DVI-0
+
+modules-left = bspwm
+modules-center = xwindow
+modules-right = pulseaudio xkeyboard temperature cpu memory date powermenu
+
+tray-position = right
+tray-maxsize = 16
+tray-padding = 2
+;tray-backgroud=${colors.background}
+;}}}
+
+;{{{ Bar right
+[bar/right]
+inherit = bar/common
+
+monitor = DVI-1
+
+modules-left = bspwm
+modules-center = mpd
+modules-right = pulseaudio xkeyboard cpu eth date powermenu
+;}}}
+
+;{{{ Module bspwm-common
+[module/bspwm]
+type = internal/bspwm
+
+pin-workspaces = true
+inline-mode = false
+reverse-scroll = true
+fuzzy-match = true
+
+format = <label-state><label-mode>
+
+label-monitor = %name%
+label-monitor-padding = 1
+
+label-monocle = 
+label-monocle-padding-left = 1
+label-monocle-foreground = ${colors.blue}
+label-tiled = 
+label-tiled-padding-left = 1
+label-tiled-foreground = ${colors.blue}
+label-fullscreen = 
+label-fullscreen-padding-left = 1
+label-fullscreen-foreground = ${colors.blue}
+label-floating = 
+label-floating-padding-left = 1
+label-floating-foreground = ${colors.blue}
+label-pseudotiled = 
+label-pseudotiled-padding-left = 1
+label-pseudotiled-foreground = ${colors.blue}
+label-locked = 
+label-locked-padding-left = 1
+label-locked-foreground = ${colors.blue}
+label-sticky = 
+label-sticky-padding-left = 1
+label-sticky-foreground = ${colors.blue}
+label-private = 
+label-private-padding-left = 1
+label-private-foreground = ${colors.blue}
+
+label-focused = %name%
+label-focused-background = #104e8b
+label-focused-underline= ${colors.blue}
+label-focused-padding = 1
+label-occupied = %name%
+label-occupied-foreground = #ccc
+label-ocuppied-underline= ${colors.blue}
+label-occupied-padding = 1
+label-urgent = %name%
+label-urgent-background = #aa104e8b
+label-urgent-underline= ${colors.blue}
+label-urgent-padding = 1
+label-empty = %name%
+label-empty-foreground = #777
+label-empty-padding = 1
+;}}}
+
+;{{{ Module xwindow
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:100:...%
+label-empty = -
+label-padding = 1
+label-underline = ${colors.purple}
+;}}}
+
+;{{{ Module xkeyboard
+[module/xkeyboard]
+type = internal/xkeyboard
+blacklist-0 = num lock
+blacklist-1 = caps lock
+
+format-prefix = " "
+format-prefix-padding-left = 1
+format-prefix-foreground = ${colors.icon}
+format-spacing = 0
+format-prefix-underline = ${colors.green}
+
+label-layout = %layout%
+label-layout-foreground = ${colors.foreground}
+label-layout-padding-right = 1
+label-layout-underline = ${colors.green}
+;}}}
+
+;{{{ Module mpd
+[module/mpd]
+type = internal/mpd
+
+host = /home/fedotov_sv/.mpd/socket
+interval = 2
+
+format-online = <icon-prev> <icon-stop> <toggle> <icon-next> <label-song> <label-time> <icon-repeat> <icon-random>
+format-online-padding = 1
+format-online-underline = ${colors.lime}
+
+icon-prev = 
+icon-stop = 
+icon-play = 
+icon-pause = 
+icon-next = 
+icon-random = 
+icon-repeat = 
+icon-single = 
+icon-prev-foreground = ${colors.orange}
+icon-stop-foreground = ${colors.orange}
+icon-play-foreground = ${colors.orange}
+icon-pause-foreground = ${colors.orange}
+icon-next-foreground = ${colors.orange}
+
+label-song = %artist% - %title%
+label-song-maxlen = 50
+label-song-ellipsis = true
+
+label-time = %elapsed%/%total%
+label-time-foreground = #999
+
+label-offline =  mpd is offline
+
+toggle-on-foreground = ${colors.orange}
+toggle-off-foreground = #777
+;}}}
+
+;{{{ Module cpu
+[module/cpu]
+type = internal/cpu
+interval = 1
+
+format = <label>
+format-prefix = ""
+format-prefix-padding = 1
+format-prefix-foreground = ${colors.icon}
+format-underline = ${colors.orange}
+
+label = %percentage%%
+label-padding-right = 1
+;}}}
+
+;{{{ Module memory
+[module/memory]
+type = internal/memory
+interval = 5
+
+format = <label>
+format-prefix = ""
+format-prefix-padding = 1
+format-prefix-foreground = ${colors.icon}
+format-underline = ${colors.cyan}
+
+label = %percentage_used%%
+label-padding-right = 1
+;}}}
+
+;{{{ Module eth
+[module/eth]
+type = internal/network
+interface = eth0
+
+interval = 3.0
+
+format-connected = <label-connected>
+format-connected-prefix = ""
+format-connected-prefix-foreground = ${colors.icon}
+format-connected-prefix-padding = 1
+format-connected-underline = ${colors.green1}
+
+format-disconnected = <label-disconnected>
+format-disconnected-prefix = ""
+format-disconnected-prefix-foreground = ${colors.red}
+format-disconnected-underline = ${colors.green1}
+
+label-connected = %downspeed%
+label-connected-padding-right = 1
+;}}}
+
+;{{{ Module date
+[module/date]
+type = internal/date
+interval = 1.0
+
+time = %H:%M
+time-alt = %H:%M:%S
+
+date = %d %b
+date-alt = %A %d %B
+
+format-prefix = 
+;format-prefix = 
+format-prefix-foreground = ${colors.icon}
+format-prefix-padding = 1
+format-underline = #0a6cf5
+
+label = %date% %time%
+label-padding-right = 1
+;}}}
+
+;{{{ Module pulseaudio
+[module/pulseaudio]
+type = internal/pulseaudio
+
+; Sink to be used, if it exists (find using `pacmd list-sinks`, name field)
+sink = alsa_output.pci-0000_05_04.0.analog-stereo
+
+; Use PA_VOLUME_UI_MAX (~153%) if true, or PA_VOLUME_NORM (100%) if false
+; Default: true
+use-ui-max = false
+
+; Interval for volume increase/decrease (in percent points)
+interval = 5
+
+format-volume = <ramp-volume>
+format-volume-padding = 1
+format-volume-underline = ${colors.yellow}
+
+label-volume = %percentage%
+label-volume-foreground = ${colors.foreground}
+
+label-muted = X
+label-muted-foreground = ${colors.red}
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+;}}}
+
+;{{{ Module temperature
+[module/temperature]
+type = internal/temperature
+
+thermal-zone = 0
+
+warn-temperature = 60
+
+format = <label>
+format-prefix = 
+format-prefix-padding-right = 1
+format-prefix-foreground = ${colors.icon}
+format-padding = 1
+format-underline = ${colors.pink}
+format-warn = <label-warn>
+format-warn-underline = ${self.format-underline}
+
+label = %temperature-c%
+label-warn = %temperature-c%
+label-warn-foreground = ${colors.red}
+;}}}
+
+;{{{ Module menu
+[module/powermenu]
+type = custom/menu
+
+;expand-right = false
+
+;format = <menu> <label-toggle>
+format-spacing = 1
+format-padding = 1
+format-underline = ${colors.red}
+
+label-open = 
+label-close = 
+label-close-foreground = ${colors.yellow}
+label-separator = 
+
+menu-0-0 =  Reboot
+menu-0-0-exec = menu-open-1
+menu-0-1 =  Shutdown
+menu-0-1-exec = menu-open-2
+
+menu-1-0 = Reboot? 
+menu-1-0-exec = sudo reboot
+
+menu-2-0 = Shutdown? 
+menu-2-0-exec = sudo poweroff
+;}}}

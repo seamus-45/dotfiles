@@ -10,10 +10,10 @@ GAP=8
 #bspc monitor Both -d Both
 
 # monitor setup
-bspc monitor DVI-0 -n L
-bspc monitor DVI-1 -n R
-bspc monitor L -d I II III IV V VI
-bspc monitor R -d Q W E R T Y
+#bspc monitor DVI-0 -n L
+#bspc monitor DVI-1 -n R
+bspc monitor DVI-0 -d I II III IV V VI
+bspc monitor DVI-1 -d Q W E R T Y
 
 # misc settings
 bspc config top_padding $(( ${PANEL_HEIGHT} + ${GAP} ))
