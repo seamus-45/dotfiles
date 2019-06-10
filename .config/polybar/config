@@ -97,7 +97,7 @@ monitor = DVI-0
 
 modules-left = bspwm
 modules-center = xwindow
-modules-right = pulseaudio xkeyboard temperature cpu memory date powermenu
+modules-right = pulseaudio xkeyboard email temperature cpu memory date powermenu
 
 ;tray-position = right
 ;tray-maxsize = 16
@@ -248,7 +248,7 @@ format-prefix-padding = 1
 format-prefix-foreground = ${colors.icon}
 format-underline = ${colors.orange}
 
-label = %percentage%%
+label = %percentage:3%%
 label-padding-right = 1
 ;}}}
 
@@ -263,7 +263,7 @@ format-prefix-padding = 1
 format-prefix-foreground = ${colors.icon}
 format-underline = ${colors.cyan}
 
-label = %percentage_used%%
+label = %percentage_used:3%%
 label-padding-right = 1
 ;}}}
 
@@ -387,4 +387,17 @@ menu-1-0-exec = sudo reboot
 
 menu-2-0 = Shutdown? 
 menu-2-0-exec = sudo poweroff
+;}}}
+
+;{{{ Module email
+[module/email]
+type = custom/script
+
+exec = /home/fedotov_sv/.config/polybar/scripts/mail/UnseenMail.py
+interval = 120
+
+format = <label>
+format-underline = #f50a4d
+
+label-padding = 1
 ;}}}
