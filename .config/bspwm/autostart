@@ -1,7 +1,7 @@
 # vim:set ft=sh:
 pkill ssh-agent; eval `ssh-agent`
 pkill mpd >/dev/null; mpd
-pkill tmux; termite --class=tmux -e tmux -s right &
+pkill tmux; termite --class=tmux -e 'tmux -s right' &
 pulseaudio -k
 sxhkd &
 dunst &
