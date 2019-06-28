@@ -6,5 +6,5 @@ pulseaudio -k
 sxhkd &
 dunst &
 roficlip.py --daemon &
-termite --geometry 1000x600 --class=mpc -e ncmpcpp &
+termite --class=mpc -e ncmpcpp &
 st -c htop -e htop &

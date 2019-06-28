@@ -126,7 +126,7 @@ alt + F2
 
 # scratchpad
 alt + F3
-  xdotool search --onlyvisible --class scratchpad windowunmap || xdotool search --class scratchpad windowmap || termite --class scratchpad --geometry 1902x300+6+40 -e "zsh -l"
+  xdotool search --onlyvisible --class scratchpad windowunmap || xdotool search --class scratchpad windowmap || termite --class scratchpad -e "zsh -l"
 
 # spice client
 alt + F4
@@ -135,7 +135,7 @@ alt + F4
 
 # skype web client
 alt + F5
-  xdotool search --onlyvisible --class Skype windowunmap || xdotool search --class Skype windowmap || skypeforlinux 
+  xdotool search --onlyvisible --class Skype windowunmap || xdotool search --class Skype windowmap || skypeforlinux
 
 # screen locker
 Scroll_Lock
