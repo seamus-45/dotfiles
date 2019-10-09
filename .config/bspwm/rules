@@ -13,7 +13,9 @@ bspc rule -a Mumble state=floating
 bspc rule -a Pavucontrol state=floating
 bspc rule -a Pinentry state=floating
 bspc rule -a Qpaeq state=floating
+bspc rule -a qView state=fullscreen
 bspc rule -a Rofi state=floating sticky=on manage=off
+bspc rule -a SimpleScreenRecorder state=floating
 bspc rule -a Skype state=floating
 bspc rule -a Spicy state=floating
 bspc rule -a Steam state=floating

@@ -1,7 +1,7 @@
-"^chromium*"
+"^Chromium*"
 # smooth scroll with side buttons
-None, Thumb2, j, enter, 50000, 50000
-None, Thumb1, k, enter, 50000, 50000
+None, Thumb2, k, enter, 50000, 50000
+None, Thumb1, j, enter, 50000, 50000
 
 ".*"
 # prev/next workspace for bspwm
