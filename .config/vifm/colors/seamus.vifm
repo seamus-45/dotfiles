@@ -1,0 +1,76 @@
+" Seamus theme
+" by Fedotov Sergey
+
+" STYLES
+" bold
+" underline
+" reverse or inverse
+" standout
+" none
+
+" Clear scheme
+highlight clear
+
+" Base colors
+highlight Win         cterm=none                   ctermfg=255     ctermbg=234
+highlight Border      cterm=none                   ctermfg=255     ctermbg=default
+highlight CurrLine    cterm=bold                   ctermfg=default ctermbg=238
+highlight OtherLine   cterm=bold                   ctermfg=default ctermbg=235
+highlight Selected    cterm=bold                   ctermfg=220     ctermbg=default
+highlight CmpMismatch cterm=bold                   ctermfg=255     ctermbg=124
+highlight TopLine     cterm=bold                   ctermfg=242     ctermbg=235
+highlight TopLineSel  cterm=bold,underline         ctermfg=255     ctermbg=235
+highlight StatusLine  cterm=none                   ctermfg=232     ctermbg=184
+highlight WildMenu    cterm=bold,reverse           ctermfg=232     ctermbg=184
+highlight CmdLine     cterm=bold                   ctermfg=184     ctermbg=235
+highlight ErrorMsg    cterm=bold                   ctermfg=255     ctermbg=196
+highlight SuggestBox  cterm=bold,reverse           ctermfg=158     ctermbg=default
+
+" File depended colors
+highlight Directory   cterm=bold                   ctermfg=80      ctermbg=default
+highlight Executable  cterm=bold                   ctermfg=118     ctermbg=default
+highlight Link        cterm=bold                   ctermfg=85      ctermbg=default
+highlight BrokenLink  cterm=bold                   ctermfg=196     ctermbg=default
+highlight Socket      cterm=bold                   ctermfg=183     ctermbg=default
+highlight Device      cterm=bold                   ctermfg=170     ctermbg=default
+highlight Fifo        cterm=bold                   ctermfg=178     ctermbg=default
+
+" software documentation
+highlight {COPYRIGHT,COPYING*,BUGS,ChangeLog*,FAQ,INSTALL*,LICEN[CS]E,NEWS,
+          \README*,AUTHORS,TODO,THANKS}
+        \ cterm=bold ctermfg=255 ctermbg=default
+" build system files
+highlight {Makefile,Makefile.am,Makefile.in,Makefile.win,*.mak,*.mk,
+          \CMakeLists.txt}
+        \ cterm=none ctermfg=40 ctermbg=default
+" archives
+highlight {*.7z,*.ace,*.arj,*.bz2,*.cpio,*.deb,*.dz,*.gz,*.jar,*.lzh,*.lzma,
+          \*.rar,*.rpm,*.rz,*.tar,*.taz,*.tb2,*.tbz,*.tbz2,*.tgz,*.tlz,*.trz,
+          \*.txz,*.tz,*.tz2,*.xz,*.z,*.zip,*.zoo}
+        \ cterm=none ctermfg=215 ctermbg=default
+" documents
+highlight {*.djvu,*.htm,*.html,*.shtml,*.css,*.markdown,*.md,*[^0-9].[1-9],
+          \*.mkd,*.org,*.pandoc,*.pdc,*.pdf,*.epub,*.fb2,*.tex,*.txt,*.xhtml,
+          \*.xml,*.pptx,*.ppt,*.doc,*.docx,*.xls,*.xls[mx],*.mobi}
+        \ cterm=none ctermfg=228 ctermbg=default
+" media
+highlight {*.aac,*.anx,*.asf,*.au,*.avi,*.ts,*.axa,*.axv,*.divx,*.flac,*.m2a,
+          \*.m2v,*.m4a,*.m4p,*.m4v,*.mid,*.midi,*.mka,*.mkv,*.mov,*.mp3,*.mp4,
+          \*.flv,*.mp4v,*.mpc,*.mpeg,*.mpg,*.nuv,*.oga,*.ogg,*.ogv,*.ogx,*.pbm,
+          \*.pgm,*.qt,*.ra,*.ram,*.rm,*.spx,*.vob,*.wav,*webm,*.wma,*.wmv,*.xvid,
+          \*.ac3}
+        \ cterm=none ctermfg=49 ctermbg=default
+" images
+highlight {*.bmp,*.gif,*.jpeg,*.jpg,*.ico,*.png,*.ppm,*.svg,*.svgz,*.tga,*.tif,
+          \*.tiff,*.xbm,*.xcf,*.xpm,*.xspf,*.xwd}
+        \ cterm=none ctermfg=117 ctermbg=default
+" executables
+highlight {*.sh,*.bash,*.bat,*.btm,*.cmd,*.com,*.dll,*.exe,*.run,*.msu,*.msi}
+        \ cterm=none ctermfg=77 ctermbg=default
+" source code
+highlight {*.patch,*.diff,*.py,*.[ch]pp,*.mk,*.c,*.h,*.[ch]pp,*.cc,*.hs,*.php}
+        \ cterm=none ctermfg=193 ctermbg=default
+
+if $USER == 'root'
+    highlight  CurrLine    cterm=bold               ctermfg=default  ctermbg=red
+endif

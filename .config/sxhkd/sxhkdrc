@@ -141,8 +141,12 @@ alt + F5
 Scroll_Lock
   alock -auth pam -bg shade:shade=20,color='#001000'
 
-# Screenshot and upload
+# Screenshot and copy to buffer
 super + @Print
+  export FILE="$HOME/pictures/shots/$(date +%Y%m%d-%T).png"; maim -c 0,0.7,0,0.3 --hidecursor -s $FILE; xclip -selection clipboard -t image/png $FILE; dunstify 'Screenshot copied to clipboard'
+
+# Screenshot and upload
+super + shift + @Print
   export FILE="$HOME/pictures/shots/$(date +%Y%m%d-%T).png"; maim -c 0,0.7,0,0.3 --hidecursor -s $FILE; curl -s -i -X POST -F pewpew=@$FILE http://pic.taximaxim.ru/pic2.php | tail -n1 | xargs xdg-open
 
 # change wallpaper
