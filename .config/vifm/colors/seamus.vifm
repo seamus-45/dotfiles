@@ -26,6 +26,12 @@ highlight CmdLine     cterm=bold                   ctermfg=184     ctermbg=235
 highlight ErrorMsg    cterm=bold                   ctermfg=255     ctermbg=196
 highlight SuggestBox  cterm=bold,reverse           ctermfg=158     ctermbg=default
 
+" root user colors
+if $USER == 'root'
+    highlight StatusLine  cterm=none                   ctermfg=255     ctermbg=196
+    highlight WildMenu    cterm=bold,reverse           ctermfg=255     ctermbg=196
+endif
+
 " File depended colors
 highlight Directory   cterm=bold                   ctermfg=80      ctermbg=default
 highlight Executable  cterm=bold                   ctermfg=118     ctermbg=default
@@ -68,9 +74,5 @@ highlight {*.bmp,*.gif,*.jpeg,*.jpg,*.ico,*.png,*.ppm,*.svg,*.svgz,*.tga,*.tif,
 highlight {*.sh,*.bash,*.bat,*.btm,*.cmd,*.com,*.dll,*.exe,*.run,*.msu,*.msi}
         \ cterm=none ctermfg=77 ctermbg=default
 " source code
-highlight {*.patch,*.diff,*.py,*.[ch]pp,*.mk,*.c,*.h,*.[ch]pp,*.cc,*.hs,*.php}
+highlight {*.patch,*.diff,*.py,*.[ch]pp,*.mk,*.c,*.h,*.[ch]pp,*.cc,*.hs,*.php,*.bb,*.bbappend}
         \ cterm=none ctermfg=193 ctermbg=default
-
-if $USER == 'root'
-    highlight  CurrLine    cterm=bold               ctermfg=default  ctermbg=red
-endif
