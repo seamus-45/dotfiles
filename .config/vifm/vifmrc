@@ -177,8 +177,6 @@ filextype *.djvu
 
 " Audio
 filetype *.wav,*.mp3,*.flac,*.m4a,*.wma,*.ape,*.ac3,*.og[agx],*.spx,*.opus
-       \ {Play using ffplay}
-       \ ffplay -nodisp %c,
        \ {Play using mpv}
        \ mpv -vo null %f,
 fileviewer *.mp3 mp3info
@@ -202,6 +200,7 @@ filextype *.html,*.htm
         \ {Open with chromium}
         \ chromium-browser %f %i &,
 filetype *.html,*.htm links, lynx
+fileviewer *.html,*.htm lynx -dump %f
 
 " Object
 filetype *.o nm %f | less
@@ -287,6 +286,10 @@ fileviewer *.[ch],*.[ch]pp highlight -O xterm256 -s dante --syntax c %c
 fileviewer Makefile,Makefile.* highlight -O xterm256 -s dante --syntax make %c
 fileviewer *.sh highlight -O xterm256 -s dante --syntax sh %c
 fileviewer *.json highlight -O xterm256 -s dante --syntax json %c
+fileviewer *.py highlight -O xterm256 -s dante --syntax python %c
+fileviewer *.md highlight -O xterm256 -s dante --syntax md %c
+fileviewer ChangeLog highlight -O xterm256 -s dante --syntax md %c
+fileviewer *.spec highlight -O xterm256 -s dante --syntax spec %c
 "
 " Or leave it for automatic detection
 "
