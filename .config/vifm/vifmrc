@@ -157,6 +157,9 @@ command! reload :write | restart
 " You can also add %CLEAR if you want to clear screen before running FUSE
 " program.
 
+" Iso
+fileviewer *.iso isoinfo -l -i %c
+
 " Pdf
 filextype *.pdf zathura %c %i &, mupdf %c
 fileviewer *.pdf pdftotext -nopgbrk %c -
@@ -200,7 +203,7 @@ filextype *.html,*.htm
         \ {Open with chromium}
         \ chromium-browser %f %i &,
 filetype *.html,*.htm links, lynx
-fileviewer *.html,*.htm lynx -dump %f
+fileviewer *.html,*.htm lynx -dump %c
 
 " Object
 filetype *.o nm %f | less
@@ -322,6 +325,19 @@ nnoremap S :sort<cr>
 nnoremap w :view<cr>
 vnoremap w :view<cr>gv
 
+" Open marks menu
+nnoremap ` :marks<cr>
+nnoremap gm :marks<cr>
+
+" Open file menu
+nnoremap F :file<cr>
+
+" Open directory stack
+nnoremap gd :dirs<cr>
+
+" Calculate size with du
+nnoremap du :!du -csh %f<cr>
+
 " Open file in the background using its default program
 nnoremap gb :file &<cr>l
 
@@ -347,6 +363,9 @@ nnoremap <insert> :touch<space>
 
 " File info
 nnoremap i <c-G>
+
+" Select current
+nnoremap <space> tj
 
 " Example of standard two-panel file managers mappings
 nnoremap <f3> :!nvimpager %f<cr>
