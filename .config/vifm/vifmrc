@@ -265,7 +265,7 @@ fileviewer *.zip,*.jar,*.war,*.ear,*.oxt zip -sf %c
 filetype *.tar,*.tar.bz2,*.tbz2,*.tgz,*.tar.gz,*.tar.xz,*.txz
 fileviewer *.tgz,*.tar.gz tar -tzf %c
 fileviewer *.tar.bz2,*.tbz2 tar -tjf %c
-fileviewer *.tar.txz,*.txz xz --list %c
+fileviewer *.tar.xz,*.tar.txz,*.txz tar -tJf %c
 
 " Rar archives
 fileviewer *.rar unrar v %c
