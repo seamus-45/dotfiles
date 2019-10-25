@@ -1,0 +1,2 @@
+#!/bin/bash
+mpv http://127.0.0.1:8080/live.ogg --msg-level=all=error --osd-bar --osd-msg1='fps: ${estimated-vf-fps} desync: ${=time-remaining}' --osd-font-size=16 --fs --script=clock $@
