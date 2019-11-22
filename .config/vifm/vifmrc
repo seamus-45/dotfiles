@@ -256,10 +256,10 @@ filetype *.torrent transmission-qt %f &
 fileviewer *.torrent transmission-show -v %c
 
 " Zip archives
-filetype *.zip,*.jar,*.war,*.ear,*.oxt,*.apkg
+filetype *.zip,*.jar,*.war,*.ear,*.oxt,*.apkg,*.apk
        \ {Extract here}
-       \ tar -xf %c,
-fileviewer *.zip,*.jar,*.war,*.ear,*.oxt zip -sf %c
+       \ unzip %c,
+fileviewer *.zip,*.jar,*.war,*.ear,*.oxt,*.apk zip -sf %c
 
 " Tar archives
 filetype *.tar,*.tar.bz2,*.tbz2,*.tgz,*.tar.gz,*.tar.xz,*.txz

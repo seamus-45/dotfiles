@@ -22,7 +22,7 @@ bspc rule -a Steam state=floating
 bspc rule -a Sxiv state=fullscreen
 bspc rule -a TelegramDesktop desktop=W locked=on
 bspc rule -a Transmission-gtk desktop=VI follow=on state=floating center=on
-bspc rule -a Virt-manager -o state=pseudo_tiled desktop=R
+bspc rule -a Virt-manager state=floating desktop=R
 bspc rule -a Virt-viewer state=floating
 bspc rule -a Wine state=floating
 bspc rule -a Xdialog state=floating
