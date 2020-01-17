@@ -30,6 +30,7 @@ bspc rule -a com-sun-javaws-Main state=floating
 bspc rule -a htop locked=on private=on desktop=W
 bspc rule -a mpc desktop=II locked=on state=pseudo_tiled rectangle=800x910+0+0
 bspc rule -a mpv state=floating
+bspc rule -a mpv:spycam state=floating sticky=on border=off marked=on
 bspc rule -a openshot state=floating
 bspc rule -a pulsemixer sticky=on state=floating
 bspc rule -a scratchpad sticky=on state=floating rectangle=1902x300+6+40

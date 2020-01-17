@@ -66,7 +66,7 @@ super + {_,shift+}{h,j,k,l}
 
 # focus next node on the local desktop
 super + n
-  bspc node -f next.local
+  bspc node -f next.!marked.local
 
 # transplant node in given direction
 super + shift + alt {h,j,k,l}
@@ -126,7 +126,7 @@ alt + F2
 
 # scratchpad
 alt + F3
-  xdotool search --onlyvisible --class scratchpad windowunmap || xdotool search --class scratchpad windowmap || termite --class scratchpad -e "zsh -l"
+  xdotool search --onlyvisible --class scratchpad windowunmap || xdotool search --class scratchpad windowmap || termite --class scratchpad -e "tmux new-session -s CON"
 
 # spice client
 alt + F4
