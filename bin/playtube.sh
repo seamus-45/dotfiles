@@ -11,4 +11,4 @@ then
   URL=$(echo ${URL} | sed -e "s/viewtube://")
 fi
 
-mpv -geometry 500x300-50-60 -really-quiet "${URL}" &
+mpv -geometry 500x300-50-60 -really-quiet --x11-name 'pip' "${URL}" &
