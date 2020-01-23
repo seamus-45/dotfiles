@@ -62,7 +62,7 @@ super + m
 
 # focus/swap node in given direction
 super + {_,shift+}{h,j,k,l}
-  bspc node -{f,s} {west,south,north,east}
+  bspc node -{f,s} {west,south,north,east}.!marked
 
 # focus next node on the local desktop
 super + n
