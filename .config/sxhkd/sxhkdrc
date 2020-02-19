@@ -108,16 +108,8 @@ alt + shift + b
 super + Return
   termite
 
-# pulsemixer
-alt + F1
-  xdotool search --onlyvisible --class pulsemixer windowunmap || xdotool search --classname pulsemixer windowmap || st -g 120x15 -c pulsemixer -e pulsemixer
-
-# equalizer
-control + F1
-  xdotool search --onlyvisible --class Qpaeq windowunmap || xdotool search --classname Qpaeq windowmap || qpaeq
-
 # pavucontrol
-super + F1
+alt + F1
   xdotool search --onlyvisible --class Pavucontrol windowunmap || xdotool search --classname Pavucontrol windowmap || pavucontrol
 
 # run dialog

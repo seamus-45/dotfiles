@@ -12,7 +12,7 @@ message_delay_time = "4"
 ##### various settings #####
 playlist_display_mode = "classic"
 incremental_seeking = "yes"
-seek_time = "10"
+seek_time = "30"
 autocenter_mode = "yes"
 default_place_to_search_in = "database"
 default_find_mode = "wrapped"

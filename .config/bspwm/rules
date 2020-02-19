@@ -26,6 +26,7 @@ bspc rule -a Virt-viewer state=floating
 bspc rule -a Wine state=floating
 bspc rule -a Xdialog state=floating
 bspc rule -a com-sun-javaws-Main state=floating
+bspc rule -a flameshot state=floating
 bspc rule -a htop locked=on desktop=W
 bspc rule -a mpc desktop=II locked=on state=pseudo_tiled rectangle=800x910+0+0
 bspc rule -a mpv state=floating
