@@ -2,4 +2,4 @@
 nc -z 127.0.0.1 8080 || ssh -nN -g -f -L 8080:192.168.1.11:8080 root@nas.seamus-45.ru -p 4001 -o ExitOnForwardFailure=yes -o TCPKeepAlive=yes -o ServerAliveInterval=5 && \
 mpv http://127.0.0.1:8080/live.ogg -geometry -11-11 --autofit=500x300 \
     --msg-level=all=error --osd-bar --osd-msg1='fps: ${estimated-vf-fps} desync: ${=time-remaining}' \
-    --osd-font-size=16 --x11-name 'pip' $@ &
+    --osd-font-size=16 --x11-name='pip' $@

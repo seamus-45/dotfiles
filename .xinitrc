@@ -35,10 +35,6 @@ imwheel -k -b 000089
 # polkit (for virt-manager gui)
 #/usr/libexec/polkit-gnome-authentication-agent-1 &
 
-# mouse
-xinput --set-prop 'Microsoft Microsoft® Classic IntelliMouse®' 'libinput Accel Speed' 0.3
-xinput --set-prop 'Microsoft Microsoft® Classic IntelliMouse®' 'libinput Accel Profile Enabled' 0, 1
-
 # run WM
 compton &
 exec dbus-launch --exit-with-session bspwm
