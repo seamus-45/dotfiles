@@ -23,6 +23,8 @@ bspc rule -a TelegramDesktop desktop=W locked=on
 bspc rule -a Transmission-gtk desktop=VI follow=on state=floating center=on
 bspc rule -a Virt-manager state=floating desktop=R
 bspc rule -a Virt-viewer state=floating
+bspc rule -a Remote-viewer state=floating
+bspc rule -a realvnc-vncviewer state=floating
 bspc rule -a Wine state=floating
 bspc rule -a Xdialog state=floating
 bspc rule -a com-sun-javaws-Main state=floating
@@ -37,4 +39,4 @@ bspc rule -a scratchpad sticky=on state=floating rectangle=1902x300+6+40
 bspc rule -a system-config-printer.py state=floating
 bspc rule -a tmux desktop=Q locked=on
 bspc rule -a transmission desktop=VI follow=on state=floating center=on
-bspc rule -a xfreerdp state=fullscreen follow=on desktop=Y
+bspc rule -a xfreerdp follow=on desktop=Y
