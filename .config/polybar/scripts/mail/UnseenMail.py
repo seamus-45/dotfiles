@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python3.7
 # Source: https://framagit.org/DanaruDev/UnseenMail/
 from __future__ import print_function
 from apiclient.discovery import build

@@ -131,7 +131,7 @@ alt + F5
 
 # screen locker
 Scroll_Lock
-  alock -auth pam -bg shade:shade=20,color='#001000'
+  alock -auth pam -bg shade:shade=20,color='#001000',blur=50
 
 # Screenshot and copy to buffer
 super + @Print
