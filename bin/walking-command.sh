@@ -1,6 +1,6 @@
 #!/bin/bash
 usage() {
-    echo "Usage: $0 [-w <timeout>] -n <network> [-f <from>] -[t <to>] -c <command>"
+    echo "Usage: $0 [-v] [-w <timeout>] -n <network> [-f <from>] -[t <to>] -c <command>"
     echo "E.g. $0 -n 10.1.1.0 -f 10 -t 20 -c uptime"
 }
 
@@ -25,33 +25,18 @@ validate_net() {
 OPTIND=1
 while getopts "hvn:f:t:w:c:" opt; do
     case "$opt" in
-        h)
-            usage
-            exit 0
-            ;;
-        v)
-            v=1
-            ;;
-        n)
-            net=$OPTARG
-            ;;
-        f)
-            from=$OPTARG
-            ;;
-        t)
-            to=$OPTARG
-            ;;
-        w)
-            w=$OPTARG
-            ;;
-        c)
-            cmd=$OPTARG
-            ;;
-        *)
-            usage
-            exit 1
+        h) usage; exit 0 ;;
+        v) v=1 ;;
+        n) net=$OPTARG ;;
+        f) from=$OPTARG ;;
+        t) to=$OPTARG ;;
+        w) w=$OPTARG ;;
+        c) cmd=$OPTARG ;;
+        *) usage ; exit 1 ;;
         esac
 done
+shift $((OPTIND-1))
+[ "${1:-}" = "--" ] && shift
 
 # check arguments
 if [[ -z "$net" || -z "$cmd" ]]; then
