@@ -27,6 +27,7 @@ bspc rule -a Remote-viewer state=floating
 bspc rule -a realvnc-vncviewer state=floating
 bspc rule -a Wine state=floating
 bspc rule -a Xdialog state=floating
+bspc rule -a cantata state=pseudo_tiled
 bspc rule -a com-sun-javaws-Main state=floating
 bspc rule -a flameshot state=floating
 bspc rule -a htop locked=on desktop=W

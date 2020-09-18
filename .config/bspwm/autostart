@@ -7,4 +7,5 @@ sxhkd &
 dunst &
 roficlip.py --daemon &
 termite --class=mpc -e ncmpcpp &
+flameshot &
 st -c htop -e htop &

@@ -181,7 +181,7 @@ filextype *.djvu
 " Audio
 filetype *.wav,*.mp3,*.flac,*.m4a,*.wma,*.ape,*.ac3,*.og[agx],*.spx,*.opus
        \ {Play using mpv}
-       \ mpv -vo null %f,
+       \ mpv -vo=null %f,
 fileviewer *.mp3 mp3info
 fileviewer *.flac soxi
 

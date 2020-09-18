@@ -12,6 +12,7 @@ set completion-highlight-fg "#268bd2"
 set zoom-center true
 set vertical-center true
 set guioptions ""
+set selection-clipboard clipboard
 
 # keybindings
 map <Space> navigate next
