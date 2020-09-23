@@ -47,14 +47,16 @@ else
 fi
 
 # set defaults
-[ -n "$from" ] || from=2
-[ -n "$to" ] || to=254
-[ -n "$w" ] || w=3
+[ -n "$from" ] && [ -z "$to" ] && to=$from
+[ -n "$to" ] && [ -z "$from" ] && from=$to
+[ -z "$from" ] && from=2
+[ -z "$to" ] && to=254
+[ -z "$w" ] && w=3
 
 echo -e "Walking over list...\n"
 for host in $(seq "$from" "$to"); do
     addr="${net%.*}.${host}"
-    [ $v -eq 1 ] && echo "Connecting to ${addr}:"
+    [ -n "$v" ] && echo "Connecting to ${addr}:"
     ssh -q -o ConnectTimeout="$w" root@"$addr" "$cmd" || echo "${addr}: timeout";
 done
 
