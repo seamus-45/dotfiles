@@ -1,23 +1,20 @@
 #!/usr/bin/env python3.7
 # Source: https://framagit.org/DanaruDev/UnseenMail/
-from __future__ import print_function
 from apiclient.discovery import build
 from httplib2 import Http
 from oauth2client import file, client, tools
 
 import imaplib
+import yaml
 import os
-import configparser
 import socket
 import time
 
 dirname = os.path.split(os.path.abspath(__file__))[0]
-accounts = configparser.ConfigParser()
-accounts.read(os.path.abspath(dirname + '/accounts.ini'))
+config_path = os.path.abspath(dirname + '/accounts.yml')
 strFormatted = ""
 tryConnectWeb = 0
 isConnectedToWeb = False
-
 
 def check_connection():
     try:
@@ -54,6 +51,13 @@ def check_gmail(gmail_account):
     return labels["messagesUnread"]
 
 
+# load config
+if os.path.isfile(config_path):
+    with open(config_path, "r") as conf:
+        config = yaml.safe_load(conf)
+        accounts = config['accounts']
+        settings = config['settings']
+
 isConnectedToWeb = check_connection()
 while not isConnectedToWeb and tryConnectWeb < 4:
     tryConnectWeb += 1
@@ -65,16 +69,14 @@ if not isConnectedToWeb:
 else:
     for account in accounts:
         currentAccount = accounts[account]
-        if account is "DEFAULT":
-            continue
         if currentAccount['protocol'] == "GmailAPI":
             unread = check_gmail(account)
         else:
             unread = check_imap(currentAccount)
         icon = 'icon-unread' if unread > 0 else 'icon-empty'
-        if not currentAccount[icon]:
-            icon = accounts["DEFAULT"][icon]
-        else:
+        if icon in currentAccount:
             icon = currentAccount[icon]
+        else:
+            icon = settings[icon]
         strFormatted += icon + " " + str(unread) + " "
     print(strFormatted.rstrip())
