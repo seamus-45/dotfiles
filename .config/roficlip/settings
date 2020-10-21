@@ -2,6 +2,7 @@ settings:
   ring_size: 20
   newline_char: ''
   show_comments_first: True
+  notify_timeout: 2
 
 actions:
   'Add to persistent': 'roficlip.py -q --add'
