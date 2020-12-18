@@ -128,6 +128,7 @@ command! df df -h %m 2> /dev/null
 command! run !! ./%f
 command! mkcd :mkdir %a | cd %a
 command! reload :write | restart
+command! du du -csh %f %m
 
 " ------------------------------------------------------------------------------
 
@@ -335,11 +336,8 @@ nnoremap F :file<cr>
 " Open directory stack
 nnoremap gd :dirs<cr>
 
-" Calculate size with du
-nnoremap du :!du -csh %f<cr>
-
 " Open file in the background using its default program
-nnoremap gb :file &<cr>l
+nnoremap gb :file &<cr>
 
 " Yank current directory path into the clipboard
 nnoremap yd :!echo %d | xclip %i<cr>
