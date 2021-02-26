@@ -8,8 +8,8 @@ rofi.font:                           Droid Sans Mono Slashed 12
 ! ROFI Color theme
 ! ------------------------------------------------------------------------------
 rofi.color-enabled: true
-rofi.color-window: #99000000, #ff7f00, #ff7f00
-rofi.color-normal: #99161616, #cacaca, #212121, #ff7f00, #ffffff
+rofi.color-window: #99000000, #18caff, #18caff
+rofi.color-normal: #99161616, #cacaca, #212121, #008ed4, #ffffff
 
 rofi.terminal:                       st
 rofi.ssh-client:                     ssh
