@@ -3,6 +3,7 @@ rofi.opacity:                        100
 rofi.width:                          50
 rofi.lines:                          10
 rofi.font:                           Droid Sans Mono Slashed 12
+rofi.monitor:                        -1
 
 ! ------------------------------------------------------------------------------
 ! ROFI Color theme
