@@ -1,4 +1,4 @@
-#!/usr/bin/env python3.7
+#!/usr/bin/env python3
 # Source: https://framagit.org/DanaruDev/UnseenMail/
 from apiclient.discovery import build
 from httplib2 import Http
