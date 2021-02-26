@@ -36,5 +36,6 @@ imwheel -k -b 000089
 #/usr/libexec/polkit-gnome-authentication-agent-1 &
 
 # run WM
-picom --experimental-backends &
+#picom --experimental-backends &
+picom  &
 exec dbus-launch --exit-with-session bspwm

@@ -186,11 +186,11 @@ XF86AudioMute
 #}}}
 
 #{{{ DDC/CI Controls
-# should be -d 1 and -d 2 instead of bus?
+# Some models of monitors (such as my LG) accept commands only from active input source.
 super + {Insert,Delete}
-  ddcutil --bus=1 setvcp 0x60 {0x03,0x04}
+  ddcutil -d=1 setvcp 0x60 {0x03,0x04}
 
 super + {Prior,Next}
-  ddcutil --bus=2 setvcp 0x60 {0x03,0x04}
+  ddcutil -d=2 setvcp 0x60 {0x03,0x04}
 #}}}
 #}}}
