@@ -135,11 +135,11 @@ Scroll_Lock
 
 # Screenshot and copy to buffer
 super + @Print
-  export FILE="$HOME/pictures/shots/$(date +%Y%m%d-%T).png"; maim -c 1,0.32,0,0.3 --hidecursor -s $FILE; xclip -selection clipboard -t image/png $FILE; dunstify 'Screenshot copied to clipboard'
+  export FILE="$HOME/pictures/shots/$(date +%Y%m%d-%T).png"; maim -l -c 1,0.32,0,0.3 --hidecursor -s $FILE; xclip -selection clipboard -t image/png $FILE; dunstify 'Screenshot copied to clipboard'
 
 # Screenshot and upload
 super + shift + @Print
-  export FILE="$HOME/pictures/shots/$(date +%Y%m%d-%T).png"; maim -c 1,0.32,0,0.3 --hidecursor -s $FILE; curl -s -X POST -F pewpew=@$FILE https://pic.taximaxim.ru/pic2.php | xargs xdg-open
+  export FILE="$HOME/pictures/shots/$(date +%Y%m%d-%T).png"; maim -l -c 1,0.32,0,0.3 --hidecursor -s $FILE; curl -s -X POST -F pewpew=@$FILE https://pic.taximaxim.ru/pic2.php | xargs xdg-open
 
 # change wallpaper
 super + {F5,F6,F8}
