@@ -41,3 +41,4 @@ bspc rule -a system-config-printer.py state=floating
 bspc rule -a tmux desktop=Q locked=on
 bspc rule -a transmission desktop=VI follow=on state=floating center=on
 bspc rule -a xfreerdp follow=on desktop=Y
+bspc rule -a xfreerdp follow=on desktop=IV state=floating
