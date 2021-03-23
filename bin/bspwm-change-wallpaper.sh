@@ -17,7 +17,7 @@ function next {
             break
         fi
     done
-    hsetroot -fill $(cat "$HOME"/.config/bspwm/wallpaper)
+    hsetroot -root -fill $(cat "$HOME"/.config/bspwm/wallpaper)
 }
 
 function prev {
@@ -33,13 +33,13 @@ function prev {
             break
         fi
     done
-    hsetroot -fill $(cat "$HOME"/.config/bspwm/wallpaper)
+    hsetroot -root -fill $(cat "$HOME"/.config/bspwm/wallpaper)
 }
 
 function random {
     RND=$(( RANDOM % LEN ))
     echo "${ITEMS[$RND]}" > "$HOME"/.config/bspwm/wallpaper
-    hsetroot -fill "${ITEMS[$RND]}"
+    hsetroot -root -fill "${ITEMS[$RND]}"
 }
 
 if [ ! "$LEN" -ge 1 ]; then
