@@ -66,7 +66,7 @@ super + {_,shift+}{h,j,k,l}
 
 # focus next node on the local desktop
 super + n
-  bspc node -f next.!marked.local
+  bspc node -f next.local.!marked.!hidden.window
 
 # transplant node in given direction
 super + shift + alt {h,j,k,l}
