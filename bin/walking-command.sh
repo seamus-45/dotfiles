@@ -1,7 +1,9 @@
 #!/bin/bash
+
 usage() {
-    echo "Usage: $0 [-v] [-w <timeout>] -n <network> [-f <from>] -[t <to>] -c <command>"
-    echo "E.g. $0 -n 10.1.1.0 -f 10 -t 20 -c uptime"
+    local SELF=$(basename $0)
+    echo "Usage: $SELF [-v] [-w <timeout>] -n <network> [-f <from>] -[t <to>] -c <command>"
+    echo "E.g. $SELF -n 10.1.1.0 -f 10 -t 20 -c uptime"
 }
 
 validate_net() {

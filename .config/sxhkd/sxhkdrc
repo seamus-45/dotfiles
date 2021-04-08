@@ -134,12 +134,13 @@ Scroll_Lock
   alock -auth pam -bg shade:shade=20,color='#001000',blur=50
 
 # Screenshot and copy to buffer
+# export FILE="$HOME/pictures/shots/$(date +%Y%m%d-%T).png"; maim -l -c 1,0.32,0,0.3 --hidecursor -s $FILE; xclip -selection clipboard -t image/png $FILE; dunstify 'Screenshot copied to clipboard'
 super + @Print
-  export FILE="$HOME/pictures/shots/$(date +%Y%m%d-%T).png"; maim -l -c 1,0.32,0,0.3 --hidecursor -s $FILE; xclip -selection clipboard -t image/png $FILE; dunstify 'Screenshot copied to clipboard'
+  flameshot gui
 
 # Screenshot and upload
-super + shift + @Print
-  export FILE="$HOME/pictures/shots/$(date +%Y%m%d-%T).png"; maim -l -c 1,0.32,0,0.3 --hidecursor -s $FILE; curl -s -X POST -F pewpew=@$FILE https://pic.taximaxim.ru/pic2.php | xargs xdg-open
+# export FILE="$HOME/pictures/shots/$(date +%Y%m%d-%T).png"; maim -l -c 1,0.32,0,0.3 --hidecursor -s $FILE; curl -s -X POST -F pewpew=@$FILE https://pic.taximaxim.ru/pic2.php | xargs xdg-open
+#super + shift + @Print
 
 # change wallpaper
 super + {F5,F6,F8}
@@ -188,9 +189,9 @@ XF86AudioMute
 #{{{ DDC/CI Controls
 # Some models of monitors (such as my LG) accept commands only from active input source.
 super + {Insert,Delete}
-  ddcutil -d=1 setvcp 0x60 {0x03,0x04}
+  ddcutil -d 1 setvcp 0x60 {0x03,0x04}
 
 super + {Prior,Next}
-  ddcutil -d=2 setvcp 0x60 {0x03,0x04}
+  ddcutil -d 2 setvcp 0x60 {0x03,0x04}
 #}}}
 #}}}
