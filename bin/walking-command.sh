@@ -59,7 +59,7 @@ echo -e "Walking over list...\n"
 for host in $(seq "$from" "$to"); do
     addr="${net%.*}.${host}"
     [ -n "$v" ] && echo "Connecting to ${addr}:"
-    ssh -q -o ConnectTimeout="$w" root@"$addr" "$cmd" || echo "${addr}: timeout";
+    ssh -q -o ConnectTimeout="$w" root@"$addr" "$cmd" || echo "timeout";
 done
 
 exit 0
