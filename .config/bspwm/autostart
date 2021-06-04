@@ -1,11 +1,72 @@
 # vim:set ft=sh:
-pkill ssh-agent; eval `ssh-agent`
-pkill mpd >/dev/null; mpd
-pkill tmux; termite --class=tmux -e 'tmux new-session -s local-R -t local' &
-pulseaudio -k
+
+# fix bug with java apps
+wmname LG3D
+
+# appearance
+xsetroot -cursor_name left_ptr &
+hsetroot -root -fill $(cat ~/.config/bspwm/wallpaper) &
+
+# just for fun
+# mpv -ao null --wid=0 --loop=inf ~/media/loops/AmazonSwamp.mov --panscan=0.6 &
+
+# screen locker
+xset s off
+# dpms settings (standby|suspend|off)
+xset dpms 300 600 1200
+
+# turn on num lock
+numlockx
+
+# bspwm keyboard daemon
 sxhkd &
+
+# auto mounts USB to /media/
+# udiskie &
+
+# bind side buttons
+imwheel -k -b 000089
+
+# compositor
+#picom --experimental-backends &
+picom  &
+
+# polkit (for virt-manager gui)
+#/usr/libexec/polkit-gnome-authentication-agent-1 &
+
+# save my eyes
+#redshift -l 55.420898:65.273957 &
+redshift-gtk &
+
+# setup ssh agent
+pkill ssh-agent; eval `ssh-agent`
+
+# music daemon
+pkill mpd >/dev/null; mpd
+
+# music player client
+alacritty --class=mpc -e ncmpcpp &
+
+# restore tmux session
+tmux has-session -t local && alacritty --class=tmux -e tmux -- join-session -t local || alacritty --class=tmux -e tmux -- new-session -s local-R -t local &
+
+# notify daemon
 dunst &
+
+# clipboard daemon
 roficlip.py --daemon &
-termite --class=mpc -e ncmpcpp &
+
+# screenshot tool
 flameshot &
-st -c htop -e htop &
+
+# system monitor
+alacritty --class=htop -e htop &
+
+# software update tool
+pamac-manager &
+
+# network manager applet
+nm-applet &
+
+# pulseaudio applet
+pasystray &

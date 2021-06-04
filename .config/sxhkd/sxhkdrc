@@ -106,7 +106,7 @@ alt + shift + b
 
 # terminal
 super + Return
-  termite
+  alacritty
 
 # pavucontrol
 alt + F1
@@ -118,16 +118,12 @@ alt + F2
 
 # scratchpad
 alt + F3
-  xdotool search --onlyvisible --class scratchpad windowunmap || xdotool search --class scratchpad windowmap || termite --class scratchpad -e "tmux new-session -s CON"
+  xdotool search --onlyvisible --classname scratchpad windowunmap || xdotool search --classname scratchpad windowmap || alacritty --class scratchpad -e tmux -- new-session -s CON
 
 # spice client
 alt + F4
   virt-viewer
   #spicy -h localhost -p 5900
-
-# skype web client
-alt + F5
-  xdotool search --onlyvisible --class Skype windowunmap || xdotool search --class Skype windowmap || skypeforlinux
 
 # screen locker
 Scroll_Lock

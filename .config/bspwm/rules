@@ -2,12 +2,9 @@
 # Rules: (class_name|*)[:instance_name|*]
 # Note, xprop report is instance:class
 bspc rule -a 'Simple Viewer GL' state=fullscreen
-bspc rule -a *:lemonbar manage=off floating=on layer=below
 bspc rule -a Chromium-browser-chromium desktop=III
 bspc rule -a Dunst sticky=on state=floating
 bspc rule -a Gimp desktop=VI
-bspc rule -a GoldenDict state=floating
-bspc rule -a Lightscreen state=floating
 bspc rule -a Mumble state=floating
 bspc rule -a Pavucontrol state=floating
 bspc rule -a Pinentry state=floating
@@ -30,15 +27,14 @@ bspc rule -a Xdialog state=floating
 bspc rule -a cantata state=pseudo_tiled
 bspc rule -a com-sun-javaws-Main state=floating
 bspc rule -a flameshot state=floating
-bspc rule -a htop locked=on desktop=W
-bspc rule -a mpc desktop=II locked=on state=pseudo_tiled rectangle=800x910+0+0
+bspc rule -a *:htop locked=on desktop=W
+bspc rule -a *:mpc desktop=II locked=on state=pseudo_tiled rectangle=800x910+0+0
 bspc rule -a mpv state=floating
 bspc rule -a mpv:pip desktop=III state=floating border=off marked=on focus=off sticky=on
 bspc rule -a openshot state=floating
 bspc rule -a pulsemixer sticky=on state=floating
-bspc rule -a scratchpad sticky=on state=floating rectangle=1902x300+6+40
+bspc rule -a *:scratchpad sticky=on state=floating rectangle=1902x300+6+40
 bspc rule -a system-config-printer.py state=floating
-bspc rule -a tmux desktop=Q locked=on
+bspc rule -a *:tmux desktop=Q locked=on
 bspc rule -a transmission desktop=VI follow=on state=floating center=on
-bspc rule -a xfreerdp follow=on desktop=Y
 bspc rule -a xfreerdp follow=on desktop=IV state=floating

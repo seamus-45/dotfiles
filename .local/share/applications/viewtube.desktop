@@ -1,6 +1,0 @@
-[Desktop Entry]
-Name=ViewTube Protocol
-Exec=playtube.sh %u
-Type=Application
-Terminal=false
-MimeType=x-scheme-handler/viewtube

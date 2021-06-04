@@ -4,5 +4,5 @@ killall -q -9 polybar
 # Wait until the processes have been shut down
 while pgrep -u $UID -x polybar >/dev/null; do sleep 0.2; done
 
-sleep 0.2 ; polybar -r left &
-sleep 0.2 ; polybar -r right &
+polybar -r left &
+polybar -r right &
