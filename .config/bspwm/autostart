@@ -47,14 +47,15 @@ pkill mpd >/dev/null; mpd
 # music player client
 alacritty --class=mpc -e ncmpcpp &
 
-# restore tmux session
-tmux has-session -t local && alacritty --class=tmux -e tmux -- join-session -t local || alacritty --class=tmux -e tmux -- new-session -s local-R -t local &
+# restore tmux sessions
+tmux has-session -t local-L && alacritty --class=tmux-L -e tmux -- attach-session -t local-L || alacritty --class=tmux-L -e tmux -- new-session -s local-L -t local &
+tmux has-session -t local-R && alacritty --class=tmux-R -e tmux -- attach-session -t local-R || alacritty --class=tmux-R -e tmux -- new-session -s local-R -t local &
 
 # notify daemon
 dunst &
 
 # clipboard daemon
-roficlip.py --daemon &
+~/roficlip.py --daemon &
 
 # screenshot tool
 flameshot &
@@ -70,3 +71,7 @@ nm-applet &
 
 # pulseaudio applet
 pasystray &
+
+# start messengers
+~/bin/Telegram &
+~/bin/Technogram &

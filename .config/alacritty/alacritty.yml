@@ -62,7 +62,7 @@ window:
   # Values for `decorations` (macOS only):
   #     - transparent: Title bar, transparent background and title bar buttons
   #     - buttonless: Title bar, transparent background and no title bar buttons
-  #decorations: full
+  decorations: none
 
   # Startup Mode (changes require restart)
   #
@@ -73,10 +73,10 @@ window:
   #
   # Values for `startup_mode` (macOS only):
   #   - SimpleFullscreen
-  #startup_mode: Windowed
+  startup_mode: Windowed
 
   # Window title
-  #title: Alacritty
+  title: Alacritty
 
   # Allow terminal applications to change Alacritty's window title.
   dynamic_title: true
@@ -94,10 +94,10 @@ window:
   # and `light`. Set this to `None` to use the default theme variant.
   #gtk_theme_variant: None
 
-#scrolling:
+scrolling:
   # Maximum number of lines in the scrollback buffer.
   # Specifying '0' will disable scrolling.
-  #history: 10000
+  history: 10000
 
   # Scrolling distance multiplier.
   #multiplier: 3
@@ -199,7 +199,7 @@ colors:
   # Allowed values are CellForeground/CellBackground, which reference the
   # affected cell, or hexadecimal colors like #ff00ff.
   cursor:
-    text: '#000000'
+    text: '#ffffff'
     cursor: '#cb4b16'
 
   # Vi mode cursor colors
@@ -209,7 +209,7 @@ colors:
   # Allowed values are CellForeground/CellBackground, which reference the
   # affected cell, or hexadecimal colors like #ff00ff.
   vi_mode_cursor:
-    text: '#000000'
+    text: '#ffffff'
     cursor: '#db4b16'
 
   # Search colors
@@ -221,6 +221,7 @@ colors:
     matches:
       foreground: '#cb4b16'
       background: '#d1d1d1'
+
     focused_match:
       foreground: '#ffffff'
       background: '#cb4b16'
@@ -254,8 +255,8 @@ colors:
   #
   # By default, these will use the opposing primary color.
   line_indicator:
-    foreground: '#ffffff'
-    background: '#cb4b16'
+    foreground: '#cb4b16'
+    background: '#ffffff'
 
   # Selection colors
   #

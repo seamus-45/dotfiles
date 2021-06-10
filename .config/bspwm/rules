@@ -5,6 +5,7 @@ bspc rule -a 'Simple Viewer GL' state=fullscreen
 bspc rule -a Chromium-browser-chromium desktop=III
 bspc rule -a Dunst sticky=on state=floating
 bspc rule -a Gimp desktop=VI
+bspc rule -a Gpick state=floating
 bspc rule -a Mumble state=floating
 bspc rule -a Pavucontrol state=floating
 bspc rule -a Pinentry state=floating
@@ -17,6 +18,8 @@ bspc rule -a Spicy state=floating
 bspc rule -a Steam state=floating
 bspc rule -a Sxiv state=fullscreen
 bspc rule -a TelegramDesktop desktop=W locked=on
+bspc rule -a TechnogramDesktop desktop=E locked=on
+bspc rule -a Timeshift-gtk state=floating
 bspc rule -a Transmission-gtk desktop=VI follow=on state=floating center=on
 bspc rule -a Virt-manager state=floating desktop=R
 bspc rule -a Virt-viewer state=floating
@@ -35,6 +38,7 @@ bspc rule -a openshot state=floating
 bspc rule -a pulsemixer sticky=on state=floating
 bspc rule -a *:scratchpad sticky=on state=floating rectangle=1902x300+6+40
 bspc rule -a system-config-printer.py state=floating
-bspc rule -a *:tmux desktop=Q locked=on
+bspc rule -a *:tmux-L desktop=I locked=on
+bspc rule -a *:tmux-R desktop=Q locked=on
 bspc rule -a transmission desktop=VI follow=on state=floating center=on
 bspc rule -a xfreerdp follow=on desktop=IV state=floating
