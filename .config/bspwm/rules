@@ -8,9 +8,11 @@ bspc rule -a Gimp desktop=VI
 bspc rule -a Gpick state=floating
 bspc rule -a Mumble state=floating
 bspc rule -a Pavucontrol state=floating
+bspc rule -a Peek state=floating
 bspc rule -a Pinentry state=floating
 bspc rule -a Qpaeq state=floating
 bspc rule -a qView state=fullscreen
+bspc rule -a Pamac-manager state=floating
 bspc rule -a Rofi state=floating sticky=on manage=off
 bspc rule -a SimpleScreenRecorder state=floating
 bspc rule -a Skype state=floating

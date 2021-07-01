@@ -1,4 +1,10 @@
-
 [Default Applications]
 x-scheme-handler/http=google-chrome.desktop
 x-scheme-handler/https=google-chrome.desktop
+text/plain=nvim-qt.desktop
+application/pdf=FoxitReader.desktop
+application/ppdf=FoxitReader.desktop
+
+[Added Associations]
+text/plain=nvim-qt.desktop;
+application/pdf=qpdfview.desktop;

@@ -31,8 +31,8 @@ imwheel -k -b 000089
 #picom --experimental-backends &
 picom  &
 
-# polkit (for virt-manager gui)
-#/usr/libexec/polkit-gnome-authentication-agent-1 &
+# polkit (for gui apps with admin rights)
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 # save my eyes
 #redshift -l 55.420898:65.273957 &
@@ -64,7 +64,7 @@ flameshot &
 alacritty --class=htop -e htop &
 
 # software update tool
-pamac-manager &
+pamac-tray &
 
 # network manager applet
 nm-applet &
