@@ -24,14 +24,15 @@ with Connection('http://admin:k4A3Fodk@192.168.8.1/') as connection:
     traffic = client.monitoring.traffic_statistics()
     sms = client.sms.sms_count()
     status = client.monitoring.status()
+    unread = int(sms['LocalUnread'])
 
     result = u":{power} SINR:{sinr} {sms_icon}:{sms_count} {down} {up}".format(
-        power = status['SignalIcon'],
-        sinr = signal['sinr'],
-        sms_icon = '' if int(sms['LocalUnread']) else '',
-        sms_count = int(sms['LocalUnread']),
-        down = scale_units(int(traffic['CurrentDownloadRate']) * 8),
-        up = scale_units(int(traffic['CurrentUploadRate']) * 8),
+        power=status['SignalIcon'],
+        sinr=signal['sinr'],
+        sms_icon='' if unread else '',
+        sms_count=unread,
+        down=scale_units(int(traffic['CurrentDownloadRate']) * 8),
+        up=scale_units(int(traffic['CurrentUploadRate']) * 8),
     )
 
     print(result)

@@ -55,7 +55,7 @@ fi
 [ -z "$to" ] && to=254
 [ -z "$w" ] && w=3
 
-echo -e "Walking over list...\n"
+echo -e "Walking over list with $(( $to - $from + 1 )) items...\n"
 for host in $(seq "$from" "$to"); do
     addr="${net%.*}.${host}"
     [ -n "$v" ] && echo "Connecting to ${addr}:"
