@@ -13,7 +13,11 @@ hsetroot -root -fill $(cat ~/.config/bspwm/wallpaper) &
 # screen locker
 xset s off
 # dpms settings (standby|suspend|off)
-xset dpms 300 600 1200
+#xset dpms 600 1200 3600
+xset -dpms
+
+# force dpi
+xrandr --dpi 110
 
 # turn on num lock
 numlockx
@@ -21,15 +25,12 @@ numlockx
 # bspwm keyboard daemon
 sxhkd &
 
-# auto mounts USB to /media/
-# udiskie &
-
 # bind side buttons
 imwheel -k -b 000089
 
 # compositor
-#picom --experimental-backends &
-picom  &
+picom --experimental-backends &
+#picom  &
 
 # polkit (for gui apps with admin rights)
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
@@ -48,14 +49,19 @@ pkill mpd >/dev/null; mpd
 alacritty --class=mpc -e ncmpcpp &
 
 # restore tmux sessions
-tmux has-session -t local-L && alacritty --class=tmux-L -e tmux -- attach-session -t local-L || alacritty --class=tmux-L -e tmux -- new-session -s local-L -t local &
-tmux has-session -t local-R && alacritty --class=tmux-R -e tmux -- attach-session -t local-R || alacritty --class=tmux-R -e tmux -- new-session -s local-R -t local &
+tmux has-session -t local-L && alacritty --class=local-L -e tmux -- attach-session -t local-L || alacritty --class=local-L -e tmux -- new-session -s local-L -t local &
+tmux has-session -t local-R &&  alacritty --class=local-R -e tmux -- attach-session -t local-R || alacritty --class=local-R -e tmux -- new-session -s local-R -t local &
+[ -d /sys/class/net/vpn0 ] && alacritty --class=remote-L -e ssh -t -- fedotov_sv@seamus.core tmux attach-session -t remote-L || alacritty --class=remote-L &
+[ -d /sys/class/net/vpn0 ] && alacritty --class=remote-R -e ssh -t -- fedotov_sv@seamus.core tmux attach-session -t remote-R || alacritty --class=remote-R &
+sleep 1s
+xdotool search --class remote-L windowunmap
+xdotool search --class remote-R windowunmap
 
 # notify daemon
 dunst &
 
 # clipboard daemon
-~/roficlip.py --daemon &
+~/bin/roficlip.py --daemon &
 
 # screenshot tool
 flameshot &

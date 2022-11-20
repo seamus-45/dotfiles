@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 # Source: https://framagit.org/DanaruDev/UnseenMail/
 from apiclient.discovery import build
 from httplib2 import Http
@@ -33,9 +33,12 @@ def check_imap(imap_account):
         client = imaplib.IMAP4_SSL(imap_account["host"], int(imap_account["port"]))
     else:
         client = imaplib.IMAP4(imap_account["host"], int(imap_account["port"]))
-    client.login(imap_account["login"], imap_account["password"])
-    client.select()
-    return len(client.search(None, 'UNSEEN')[1][0].split())
+    try:
+        client.login(imap_account["login"], imap_account["password"])
+        client.select()
+        return len(client.search(None, 'UNSEEN')[1][0].split())
+    except OSError:
+        return -1
 
 
 def check_gmail(gmail_account):
@@ -46,9 +49,12 @@ def check_gmail(gmail_account):
     if not credentials or credentials.invalid:
         flow = client.flow_from_clientsecrets(os.path.abspath(dirname + '/gmail/client_secret.json'), scopes)
         credentials = tools.run_flow(flow, store)
-    service = build('gmail', 'v1', http=credentials.authorize(Http()))
-    labels = service.users().labels().get(userId='me', id='INBOX').execute()
-    return labels["messagesUnread"]
+    try:
+        service = build('gmail', 'v1', http=credentials.authorize(Http()))
+        labels = service.users().labels().get(userId='me', id='INBOX').execute()
+        return labels["messagesUnread"]
+    except OSError:
+        return -1
 
 
 # load config

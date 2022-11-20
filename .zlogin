@@ -1,1 +1,1 @@
-/home/fedotov_sv/.zprezto/runcoms/zlogin
+.zprezto/runcoms/zlogin

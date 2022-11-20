@@ -1,19 +1,25 @@
 #! /bin/sh
 # vim:set ft=sh foldmethod=marker:
 
+#PATH="/bin:/usr/bin:/usr/local/bin:/home/seamus/bin:${PATH}"
+
 CFG_ROOT="${HOME}/.config/bspwm"
 PANEL_HEIGHT=24
 GAP=8
 
-# virtual monitor
-#bspc wm -a Both 3840x1080+0+0
-#bspc monitor Both -d Both
+# virtual monitor to span both physicals
+bspc wm -a Full 3440x1440+0+0
+bspc monitor Full -d Full
 
 # monitor setup
-#bspc monitor DVI-0 -n L
-#bspc monitor DVI-1 -n R
-bspc monitor DVI-0 -d I II III IV V VI
-bspc monitor DVI-1 -d Q W E R T Y
+bspc monitor HDMI-0 -d I II III IV V VI
+bspc monitor DP-4 -d Q W E R T Y
+
+# desktop setup
+bspc desktop I -l monocle
+bspc desktop Q -l monocle
+bspc desktop W -l monocle
+bspc desktop E -l monocle
 
 # misc settings
 bspc config top_padding $(( ${PANEL_HEIGHT} + ${GAP} ))
@@ -38,8 +44,8 @@ bspc config pointer_action1 moveasd
 # colors
 bspc config normal_border_color "#073642"
 bspc config active_border_color "#586e75"
-bspc config focused_border_color "#fa5000"
-bspc config presel_feedback_color "#fa5000"
+bspc config focused_border_color "#c50ed2"
+bspc config presel_feedback_color "#c50ed2"
 
 # rules
 source ${CFG_ROOT}/rules

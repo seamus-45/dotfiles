@@ -76,8 +76,8 @@ line-color = ${colors.underline}
 padding = 0
 module-margin = 0
 
-font-0 = Liberation Mono:pixelsize=11:weight=Bold;2
-font-1 = FontAwesome:pixelsize=11:antialias=false;1
+font-0 = Noto Mono:pixelsize=12:weight=Bold;2
+font-1 = FontAwesome:pixelsize=12:antialias=false;2
 ;font-2 = siji:pixelsize=10;1
 
 locale = ru_RU.utf-8
@@ -94,15 +94,19 @@ scroll-down = bspwm-deskprev
 [bar/left]
 inherit = bar/common
 
-monitor = DVI-0
+monitor = HDMI-0
 
 modules-left = bspwm
-modules-center = xwindow
-modules-right = pulseaudio xkeyboard email temperature cpu memory date powermenu
+;modules-center = xwindow
+modules-right = xkeyboard email temperature cpu memory date powermenu
+
+cursor-click = pointer
+cursor-scroll = resize
 
 tray-position = right
 tray-maxsize = 16
 tray-padding = 2
+tray-margin = 4
 tray-backgroud=${colors.background}
 ;}}}
 
@@ -110,11 +114,14 @@ tray-backgroud=${colors.background}
 [bar/right]
 inherit = bar/common
 
-monitor = DVI-1
+monitor = DP-4
 
 modules-left = bspwm
 modules-center = mpd
 modules-right = pulseaudio xkeyboard cpu eth date powermenu
+
+cursor-click = pointer
+cursor-scroll = resize
 ;}}}
 
 ;{{{ Module bspwm-common
@@ -175,7 +182,7 @@ label-empty-padding = 1
 ;{{{ Module xwindow
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:100:...%
+label = %title:0:50:...%
 label-empty = -
 label-padding = 1
 label-underline = ${colors.purple}
@@ -209,7 +216,7 @@ label-indicator-underline = #f00
 [module/mpd]
 type = internal/mpd
 
-host = /home/fedotov_sv/.mpd/socket
+host = /home/seamus/.mpd/socket
 interval = 2
 
 format-online = <icon-prev> <icon-stop> <toggle> <icon-next> <label-song> <label-time> <icon-repeat> <icon-random>
@@ -398,11 +405,24 @@ menu-2-0-exec = sudo poweroff
 [module/email]
 type = custom/script
 
-exec = /home/fedotov_sv/.config/polybar/scripts/mail/UnseenMail.py
+exec = /home/seamus/.config/polybar/scripts/mail/UnseenMail.py
 interval = 120
 
 format = <label>
 format-underline = #f50a4d
+
+label-padding = 1
+;}}}
+;
+;{{{ Module lte modem
+[module/lte]
+type = custom/script
+
+exec = /home/seamus/.config/polybar/scripts/modem/lte-mon.py
+interval = 5
+
+format = <label>
+format-underline = ${colors.blue}
 
 label-padding = 1
 ;}}}

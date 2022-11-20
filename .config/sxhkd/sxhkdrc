@@ -52,10 +52,6 @@ super + shift + {s, m, c}
 super + shift + {a, n, b}
   bspc node -l {above, normal, below}
 
-# focus last node/desktop
-super + {grave,Tab}
-  bspc {node,desktop} -f last
-
 # swap the current node with the biggest
 super + m
   bspc node -s biggest.local
@@ -92,9 +88,13 @@ super + ctrl + space
 super + {_,shift + }{1,2,3,4,5,6,q,w,e,r,t,y}
   bspc {desktop -f,node -d} {I,II,III,IV,V,VI,Q,W,E,R,T,Y}
 
+# focus on desktop Full
+super + u
+  bspc desktop -f Full
+
 # span window to both monitors
-alt + shift + f
-  bspc node -d Both; bspc monitor -f Both
+super + shift + u
+  bspc node -d Full; bspc monitor -f Full
 
 # focus virtual desktop
 alt + shift + b
@@ -108,6 +108,14 @@ alt + shift + b
 super + Return
   alacritty
 
+# switch between local/remote windows
+super + grave
+  MON=$(bspc query -M -m focused); bspc desktop -f I; bspc desktop -f Q; bspc monitor -f ${MON}; \
+  xdotool search --onlyvisible --class local-L windowunmap || xdotool search --class local-L windowmap ; \
+  xdotool search --onlyvisible --class local-R windowunmap || xdotool search --class local-R windowmap ; \
+  xdotool search --onlyvisible --class remote-L windowunmap || xdotool search --class remote-L windowmap ; \
+  xdotool search --onlyvisible --class remote-R windowunmap || xdotool search --class remote-R windowmap ;
+
 # pavucontrol
 alt + F1
   xdotool search --onlyvisible --class Pavucontrol windowunmap || xdotool search --classname Pavucontrol windowmap || pavucontrol
@@ -118,7 +126,7 @@ alt + F2
 
 # scratchpad
 alt + F3
-  xdotool search --onlyvisible --classname scratchpad windowunmap || xdotool search --classname scratchpad windowmap || alacritty --class scratchpad -e tmux -- new-session -s CON
+  xdotool search --onlyvisible --classname scratchpad windowunmap || xdotool search --classname scratchpad windowmap || (tmux has-session -t CON && alacritty --class scratchpad -e tmux -- attach-session -t CON || alacritty --class scratchpad -e tmux -- new-session -s CON)
 
 # spice client
 alt + F4
@@ -133,6 +141,10 @@ Scroll_Lock
 # export FILE="$HOME/pictures/shots/$(date +%Y%m%d-%T).png"; maim -l -c 1,0.32,0,0.3 --hidecursor -s $FILE; xclip -selection clipboard -t image/png $FILE; dunstify 'Screenshot copied to clipboard'
 super + @Print
   flameshot gui
+
+# Color picker
+alt + @Print
+  colorpicker --short --one-shot --preview | xsel -b
 
 # Screenshot and upload
 # export FILE="$HOME/pictures/shots/$(date +%Y%m%d-%T).png"; maim -l -c 1,0.32,0,0.3 --hidecursor -s $FILE; curl -s -X POST -F pewpew=@$FILE https://pic.taximaxim.ru/pic2.php | xargs xdg-open
