@@ -40,7 +40,7 @@ application/wps-office.pot=libreoffice-impress.desktop
 application/vnd.mspowerpoint=libreoffice-impress.desktop
 application/wps-office.pptx=libreoffice-impress.desktop
 application/wps-office.potx=libreoffice-impress.desktop
-image/jpeg=deepin-image-viewer.desktop
+image/jpeg=com.interversehq.qView.desktop
 image/bmp=deepin-image-viewer.desktop
 image/png=deepin-image-viewer.desktop
 image/tiff=deepin-image-viewer.desktop
@@ -61,7 +61,7 @@ text/html=google-chrome.desktop
 text/xml=chromium.desktop
 text/xhtml_xml=chromium.desktop
 text/xhtml+xml=chromium.desktop
-x-scheme-handler/tg=telegramdesktop.desktop
+x-scheme-handler/tg=userapp-Telegram Desktop-ON94V1.desktop
 video/x-msvideo=mpv.desktop
 x-scheme-handler/about=google-chrome.desktop
 x-scheme-handler/unknown=google-chrome.desktop
@@ -86,5 +86,7 @@ text/plain=nvim-qt.desktop;
 video/x-msvideo=userapp-mpv-ZBMKU0.desktop;
 text/vnd.trolltech.linguist=mpv.desktop;
 image/png=sxiv.desktop;deepin-image-viewer.desktop;
+image/jpeg=com.interversehq.qView.desktop;
+x-scheme-handler/tg=userapp-Telegram Desktop-ON94V1.desktop;
 
 [Removed Associations]

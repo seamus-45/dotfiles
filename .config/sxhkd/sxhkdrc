@@ -3,7 +3,7 @@
 
 # quit session
 super + alt + BackSpace
-  bspc quit
+  $HOME/.config/rofi/scripts/powermenu.sh
 
 # reload SXHKD configuration file
 super + Escape
@@ -107,6 +107,10 @@ alt + shift + b
 # terminal
 super + Return
   alacritty
+  #
+# remote tmux
+super + shift + Return
+  start-remote-tmux.sh
 
 # switch between local/remote windows
 super + grave
@@ -122,7 +126,7 @@ alt + F1
 
 # run dialog
 alt + F2
-  rofi -show run
+  rofi -show-icons -show run
 
 # scratchpad
 alt + F3
@@ -166,16 +170,8 @@ super + shift + period
 super + shift + comma
   dunstify -t 10000 "$(xclip -selection primary -o | trans :en -brief)"
 
-#{{{ Rofi clipboard manager
-super + minus
-  rofi -modi " clipboard:roficlip.py --show, persistent:roficlip.py --show --persistent, actions:roficlip.py --show --actions" -show ' clipboard'
-
-super + equal
-  rofi -modi " clipboard:roficlip.py --show, persistent:roficlip.py --show --persistent, actions:roficlip.py --show --actions" -show ' persistent'
-
 super + backslash
-  rofi -modi " clipboard:roficlip.py --show, persistent:roficlip.py --show --persistent, actions:roficlip.py --show --actions" -show ' actions'
-#}}}
+  rofi -show '' -modes ":roficlip.py --show,:roficlip.py --show --persistent,:roficlip.py --show --actions"
 
 #{{{ MPD control
 XF86AudioPlay

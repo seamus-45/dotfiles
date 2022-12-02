@@ -29,7 +29,6 @@ sxhkd &
 imwheel -k -b 000089
 
 # compositor
-picom --experimental-backends &
 #picom  &
 
 # polkit (for gui apps with admin rights)
