@@ -29,7 +29,7 @@ sxhkd &
 imwheel -k -b 000089
 
 # compositor
-#picom  &
+picom  &
 
 # polkit (for gui apps with admin rights)
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &

@@ -1,6 +1,7 @@
 settings:
   ring_size: 20
   newline_char: ''
+  notify: True
   notify_timeout: 2
   show_comments_first: True
 

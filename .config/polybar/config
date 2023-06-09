@@ -426,7 +426,7 @@ format = <label>
 label-padding-left = 1
 ;}}}
 
-;{{{ Module huawei
+;{{{ Module luci
 [module/luci]
 type = custom/script
 

@@ -2,6 +2,8 @@
 # -*- coding: utf-8 -*- # PEP 263
 
 import requests
+import socket
+import sys
 from binascii import unhexlify
 import luci
 
@@ -54,7 +56,19 @@ def sms_decode(sms):
     return sms
 
 
+def check_connection():
+    try:
+        socket.create_connection((luci.host, 80))
+        return True
+    except (OSError, TimeoutError):
+        print('connection error')
+        return False
+
+
 if __name__ == '__main__':
+    # check connection
+    if not check_connection():
+        sys.exit(1)
     # setup session and authenticate
     s = requests.Session()
     s.post(LOGIN_URL, data={'luci_username': luci.username, 'luci_password': luci.password})
