@@ -1,8 +1,8 @@
-gtk-theme-name="WhiteSur-dark"
-gtk-icon-theme-name="Tela-circle-blue-dark"
+gtk-theme-name="Sweet-Dark"
+gtk-icon-theme-name="BeautyLine"
 gtk-sound-theme-name="Yaru"
 gtk-font-name="Droid Sans 10"
-gtk-cursor-theme-name="WhiteSur-cursors"
+gtk-cursor-theme-name="Sweet-cursors"
 gtk-cursor-theme-size=24
 gtk-toolbar-style=GTK_TOOLBAR_BOTH_HORIZ
 gtk-toolbar-icon-size=GTK_ICON_SIZE_LARGE_TOOLBAR

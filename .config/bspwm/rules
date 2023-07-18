@@ -2,22 +2,24 @@
 # Rules: (class_name|*)[:instance_name|*]
 # Note, xprop report is instance:class
 bspc rule -a 'Simple Viewer GL' state=fullscreen
-bspc rule -a Chromium-browser-chromium desktop=III
 bspc rule -a Dunst sticky=on state=floating
 bspc rule -a Gimp desktop=VI
 bspc rule -a Gpick state=floating
+bspc rule -a Google-chrome desktop=III
 bspc rule -a Mumble state=floating
 bspc rule -a Pavucontrol state=floating
 bspc rule -a Peek state=floating
+bspc rule -a Pick-colour-picker state=floating
 bspc rule -a Pinentry state=floating
 bspc rule -a Qpaeq state=floating
-bspc rule -a qView state=fullscreen
+#bspc rule -a qView state=fullscreen
+bspc rule -a Nm-connection-editor state=floating
 bspc rule -a Pamac-manager state=floating
 bspc rule -a Rofi state=floating sticky=on manage=off
 bspc rule -a SimpleScreenRecorder state=floating
 bspc rule -a Skype state=floating
 bspc rule -a Spicy state=floating
-bspc rule -a Steam state=floating
+bspc rule -a Steam state=tiled desktop=IV
 bspc rule -a Sxiv state=fullscreen
 bspc rule -a TelegramDesktop desktop=W locked=on
 bspc rule -a TechnogramDesktop desktop=E locked=on
@@ -38,9 +40,12 @@ bspc rule -a mpv state=floating
 bspc rule -a mpv:pip desktop=III state=floating border=off marked=on focus=off sticky=on
 bspc rule -a openshot state=floating
 bspc rule -a pulsemixer sticky=on state=floating
-bspc rule -a *:scratchpad sticky=on state=floating rectangle=1902x300+6+40
+bspc rule -a *:scratchpad sticky=on state=floating rectangle=1702x300+6+40
 bspc rule -a system-config-printer.py state=floating
-bspc rule -a *:tmux-L desktop=I locked=on
-bspc rule -a *:tmux-R desktop=Q locked=on
+bspc rule -a *:local-L desktop=I locked=on
+bspc rule -a *:local-R desktop=Q locked=on
+bspc rule -a *:remote-L desktop=I locked=on
+bspc rule -a *:remote-R desktop=Q locked=on
 bspc rule -a transmission desktop=VI follow=on state=floating center=on
 bspc rule -a xfreerdp follow=on desktop=IV state=floating
+bspc rule -a zoom desktop=IV state=floating

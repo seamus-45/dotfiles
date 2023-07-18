@@ -16,10 +16,15 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
   unset f
 fi
 
-xrdb -load ~/.Xresources
+xrdb -merge ~/.Xresources
+
+xrandr --dpi 110
 
 # fonts
 xset +fp ~/.fonts
 xset fp rehash
 
-exec dbus-launch --exit-with-session bspwm
+exec bspwm
+
+# not need on systemd?
+#exec dbus-launch --exit-with-session bspwm

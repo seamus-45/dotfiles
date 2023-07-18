@@ -21,7 +21,6 @@ set vicmd=nvim
 " This probably shouldn't be an option.
 
 set trash
-set trashdir="~/.local/share/Trash"
 
 " This is how many directories to store in the directory history.
 
@@ -104,10 +103,9 @@ set statusline="  %t%= %A %10u:%-7g %15s %20d  "
 " :mark mark /full/directory/path [filename]
 
 mark h ~/
-mark b ~/bin
+mark b ~/bin/
 mark d ~/downloads
-mark i ~/downloads/iso
-mark s ~/storage
+mark t ~/downloads/transmission
 mark l /var/log
 
 " ------------------------------------------------------------------------------
@@ -128,7 +126,6 @@ command! df df -h %m 2> /dev/null
 command! run !! ./%f
 command! mkcd :mkdir %a | cd %a
 command! reload :write | restart
-command! du du -csh %f %m
 
 " ------------------------------------------------------------------------------
 
@@ -215,10 +212,10 @@ fileviewer *.[1-8] man ./%c | col -b
 
 " Images
 filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
-        \ {View in sxiv}
-        \ sxiv,
         \ {View in qView}
         \ qview %c,
+        \ {View in sxiv}
+        \ sxiv,
 fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
          \ convert -identify %f -verbose /dev/null
 
@@ -336,8 +333,11 @@ nnoremap F :file<cr>
 " Open directory stack
 nnoremap gd :dirs<cr>
 
+" Calculate size with du
+nnoremap du :!du -csh %f ; read<cr>
+
 " Open file in the background using its default program
-nnoremap gb :file &<cr>
+nnoremap gb :file &<cr>l
 
 " Yank current directory path into the clipboard
 nnoremap yd :!echo %d | xclip %i<cr>
