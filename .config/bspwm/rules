@@ -6,6 +6,7 @@ bspc rule -a Dunst sticky=on state=floating
 bspc rule -a Gimp desktop=VI
 bspc rule -a Gpick state=floating
 bspc rule -a Google-chrome desktop=III
+bspc rule -a *:crx_eikjhbkpemdappjfcmdeeeamdpkgabmk desktop=R
 bspc rule -a Mumble state=floating
 bspc rule -a Pavucontrol state=floating
 bspc rule -a Peek state=floating
@@ -47,5 +48,5 @@ bspc rule -a *:local-R desktop=Q locked=on
 bspc rule -a *:remote-L desktop=I locked=on
 bspc rule -a *:remote-R desktop=Q locked=on
 bspc rule -a transmission desktop=VI follow=on state=floating center=on
-bspc rule -a xfreerdp follow=on desktop=IV state=floating
-bspc rule -a zoom desktop=IV state=floating
+bspc rule -a xfreerdp follow=on desktop=IV state=pseudo_tiled
+bspc rule -a zoom desktop=IV state=pseudo_tiled

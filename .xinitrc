@@ -24,6 +24,13 @@ xrandr --dpi 110
 xset +fp ~/.fonts
 xset fp rehash
 
+# standby
+xset dpms 900 900 900
+xset +dpms
+
+#xset m 1/3 4
+xinput --set-prop 12 'libinput Accel Profile Enabled' 0, 1
+
 exec bspwm
 
 # not need on systemd?
