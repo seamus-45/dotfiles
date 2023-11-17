@@ -2,8 +2,8 @@
 if [ $# -lt 2 ];
 then
     echo -e "Find YAML files under PATH and print lines between PATTERN and next blank line\n"
-    echo "Usage: $(basename $0) PATH PATTERN"
+    echo "Usage: $(basename $0) PATTERN PATH"
     exit 0
 fi
 
-find $1 -regex '.*\.ya?ml' -exec sed -n "/$2/,/^$/p" {} \;
+find $2 -regex '.*\.ya?ml' -exec sed -n "/$1/,/^$/p" {} \;
