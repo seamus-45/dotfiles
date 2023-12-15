@@ -107,15 +107,10 @@ monitor = HDMI-0
 
 modules-left = bspwm luci
 ;modules-center = xwindow
-modules-right = xkeyboard email temperature cpu memory date vpn powermenu
+modules-right = tray xkeyboard email temperature cpu memory date vpn powermenu
 
 cursor-click = pointer
 cursor-scroll = resize
-
-tray-position = right
-tray-maxsize = 16
-tray-padding = 4
-tray-backgroud=${colors.background}
 ;}}}
 
 ;{{{ Bar right
@@ -371,6 +366,14 @@ format-prefix-padding = 1
 
 label = %date% %time%
 label-padding-right = 1
+;}}}
+
+;{{{ Module tray
+[module/tray]
+type = internal/tray
+tray-size = 70%
+tray-foreground = white
+tray-spacing = 8px
 ;}}}
 
 ;{{{ Module pulseaudio
