@@ -35,7 +35,7 @@ while getopts "hvn:f:t:w:c:" opt; do
         w) w=$OPTARG ;;
         c) cmd=$OPTARG ;;
         *) usage ; exit 1 ;;
-        esac
+    esac
 done
 shift $((OPTIND-1))
 [ "${1:-}" = "--" ] && shift
