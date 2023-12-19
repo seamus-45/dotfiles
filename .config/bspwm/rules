@@ -6,7 +6,10 @@ bspc rule -a Dunst sticky=on state=floating
 bspc rule -a Gimp desktop=VI
 bspc rule -a Gpick state=floating
 bspc rule -a Google-chrome desktop=III
+# Soundcloud
 bspc rule -a *:crx_eikjhbkpemdappjfcmdeeeamdpkgabmk desktop=R
+# Bitwarden
+bspc rule -a *:crx_nngceckbapebfimnlniiiahkandclblb state=floating
 bspc rule -a Mumble state=floating
 bspc rule -a Pavucontrol state=floating
 bspc rule -a Peek state=floating

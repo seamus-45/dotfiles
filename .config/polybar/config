@@ -44,6 +44,8 @@ red = #f00
 purple = #9400d3
 blue = #00bfff
 darkblue = #104e8b
+magenta = #d510e3
+darkmagenta = #6c0773
 yellow = #ffd700
 green = #008b00
 green1 = #90ee90
@@ -107,7 +109,7 @@ monitor = HDMI-0
 
 modules-left = bspwm luci
 ;modules-center = xwindow
-modules-right = tray xkeyboard email temperature cpu memory date vpn powermenu
+modules-right = tray vpn xkeyboard email temperature cpu memory date powermenu
 
 cursor-click = pointer
 cursor-scroll = resize
@@ -121,7 +123,7 @@ monitor = DP-4
 
 modules-left = bspwm
 modules-center = mpd pulseaudio
-modules-right = xkeyboard temperature cpu memory date vpn powermenu
+modules-right = vpn xkeyboard temperature cpu memory date powermenu
 
 cursor-click = pointer
 cursor-scroll = resize
@@ -143,36 +145,36 @@ label-monitor-padding = 1
 
 label-monocle = 
 label-monocle-padding-left = 1
-label-monocle-foreground = ${colors.blue}
+label-monocle-foreground = ${colors.magenta}
 label-tiled = 
 label-tiled-padding-left = 1
-label-tiled-foreground = ${colors.blue}
+label-tiled-foreground = ${colors.magenta}
 label-fullscreen = 
 label-fullscreen-padding-left = 1
-label-fullscreen-foreground = ${colors.blue}
+label-fullscreen-foreground = ${colors.magenta}
 label-floating = 
 label-floating-padding-left = 1
-label-floating-foreground = ${colors.blue}
+label-floating-foreground = ${colors.magenta}
 label-pseudotiled = 
 label-pseudotiled-padding-left = 1
-label-pseudotiled-foreground = ${colors.blue}
+label-pseudotiled-foreground = ${colors.magenta}
 label-locked = 
 label-locked-padding-left = 1
-label-locked-foreground = ${colors.blue}
+label-locked-foreground = ${colors.magenta}
 label-sticky = 
 label-sticky-padding-left = 1
-label-sticky-foreground = ${colors.blue}
+label-sticky-foreground = ${colors.magenta}
 label-private = 
 label-private-padding-left = 1
-label-private-foreground = ${colors.blue}
+label-private-foreground = ${colors.magenta}
 
 label-focused = %name%
-label-focused-background = ${colors.darkblue}
-label-focused-underline= ${colors.blue}
+label-focused-background = ${colors.darkmagenta}
+label-focused-underline= ${colors.magenta}
 label-focused-padding = 1
 label-occupied = %name%
 label-occupied-foreground = #ccc
-label-ocuppied-underline= ${colors.blue}
+label-ocuppied-underline= ${colors.magenta}
 label-occupied-padding = 1
 label-urgent = %name%
 label-urgent-underline= ${colors.orange}
@@ -374,6 +376,7 @@ type = internal/tray
 tray-size = 70%
 tray-foreground = white
 tray-spacing = 8px
+format-margin = 1
 ;}}}
 
 ;{{{ Module pulseaudio

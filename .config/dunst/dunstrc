@@ -64,7 +64,7 @@ horizontal_padding = 8
 frame_width = 3
 
 # Defines color of the frame around the notification window.
-frame_color = "#00000044"
+frame_color = "#00000077"
 
 # Define a color for the separator.
 # possible values are:
@@ -237,14 +237,14 @@ per_monitor_dpi = false
 [urgency_low]
 # IMPORTANT: colors have to be defined in quotation marks.
 # Otherwise the "#" and following would be interpreted as a comment.
-background = "#00000044"
+background = "#00000077"
 foreground = "#aaaaaa"
 timeout = 3s
 icon = /home/seamus/.icons/Numix/64x64/status/info.svg
 
 [urgency_normal]
-background = "#00000044"
-foreground = "#ffffff"
+background = "#00000077"
+foreground = "#cdd3e0"
 timeout = 5s
 icon = /home/seamus/.icons/Numix/64x64/status/info.svg
 
