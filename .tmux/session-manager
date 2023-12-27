@@ -1,0 +1,11 @@
+#!/bin/bash
+
+FIND_DEFAULT_COMMAND="tmux list-sessions -F '#S'"
+
+SELECT=$(tmux list-sessions -F '#S' \
+    | fzf --reverse --cycle \
+    --bind "ctrl-x:execute(tmux kill-session -t {})+reload(${FIND_DEFAULT_COMMAND})" \
+    --bind "ctrl-n:execute(bash -c 'read -p \"New session name: \" name; tmux new -d -s \"\$name\"')+reload(${FIND_DEFAULT_COMMAND})" \
+    --header 'ctrl-n: new session | ctrl-x: kill session')
+
+[ "${SELECT}" == "" ] && tmux switch-client -t $(tmux display-message -p '#S') || tmux switch-client -t ${SELECT}
