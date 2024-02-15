@@ -23,7 +23,7 @@ bspc rule -a Rofi state=floating sticky=on manage=off
 bspc rule -a SimpleScreenRecorder state=floating
 bspc rule -a Skype state=floating
 bspc rule -a Spicy state=floating
-bspc rule -a Steam state=tiled desktop=IV
+bspc rule -a steam state=floating desktop=IV
 bspc rule -a Sxiv state=fullscreen
 bspc rule -a TelegramDesktop desktop=W locked=on
 bspc rule -a TechnogramDesktop desktop=E locked=on

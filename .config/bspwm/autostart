@@ -77,6 +77,9 @@ nm-applet &
 # pulseaudio applet
 pasystray &
 
+# kesl
+/opt/kaspersky/kesl/libexec/kesl-gui-launcher --tray-only &
+
 # start messengers
 ~/bin/Telegram &
 ~/bin/Technogram &
