@@ -1,7 +1,10 @@
 # vim:set ft=sh:
 
 # fix bug with java apps
-wmname LG3D
+#wmname LG3D
+
+# set wmname to bspwm
+wmname bspwm
 
 # appearance
 xsetroot -cursor_name left_ptr &
@@ -48,13 +51,15 @@ pkill mpd >/dev/null; mpd
 alacritty --class=mpc -e ncmpcpp &
 
 # restore tmux sessions
-tmux has-session -t local-L && alacritty --class=local-L -e tmux -- attach-session -t local-L || alacritty --class=local-L -e tmux -- new-session -s local-L -t local &
-tmux has-session -t local-R &&  alacritty --class=local-R -e tmux -- attach-session -t local-R || alacritty --class=local-R -e tmux -- new-session -s local-R -t local &
 [ -d /sys/class/net/vpn0 ] && alacritty --class=remote-L -e ssh -t -- fedotov_sv@seamus.core tmux attach-session -t remote-L || alacritty --class=remote-L &
 [ -d /sys/class/net/vpn0 ] && alacritty --class=remote-R -e ssh -t -- fedotov_sv@seamus.core tmux attach-session -t remote-R || alacritty --class=remote-R &
-sleep 1s
-xdotool search --class remote-L windowunmap
-xdotool search --class remote-R windowunmap
+tmux has-session -t local-L && alacritty --class=local-L -e tmux -- attach-session -t local-L || alacritty --class=local-L -e tmux -- new-session -s local-L -t local &
+tmux has-session -t local-R &&  alacritty --class=local-R -e tmux -- attach-session -t local-R || alacritty --class=local-R -e tmux -- new-session -s local-R -t local &
+# hide remote sessions
+while ! xdotool search --class remote-L windowunmap; do wsleep; done
+while ! xdotool search --class remote-R windowunmap; do wsleep; done
+#xdotool search --class remote-L windowunmap
+#xdotool search --class remote-R windowunmap
 
 # notify daemon
 dunst &
@@ -78,7 +83,7 @@ nm-applet &
 pasystray &
 
 # kesl
-/opt/kaspersky/kesl/libexec/kesl-gui-launcher --tray-only &
+#/opt/kaspersky/kesl/libexec/kesl-gui-launcher --tray-only &
 
 # start messengers
 ~/bin/Telegram &

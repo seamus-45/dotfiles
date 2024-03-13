@@ -52,4 +52,5 @@ bspc rule -a *:remote-L desktop=I locked=on
 bspc rule -a *:remote-R desktop=Q locked=on
 bspc rule -a transmission desktop=VI follow=on state=floating center=on
 bspc rule -a xfreerdp follow=on desktop=IV state=pseudo_tiled
-bspc rule -a zoom desktop=IV state=pseudo_tiled
+bspc rule -a zoom desktop=IV
+bspc rule -a zoom:*:zoom_linux_float_video_window desktop=IV state=pseudo_tiled rectangle=1698x1386+0+0
