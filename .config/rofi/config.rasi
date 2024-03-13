@@ -1,0 +1,50 @@
+/* vim: set noexpandtab sw=4 ts=4: */
+/* Main config */
+configuration {
+	modes: [run,drun,filebrowser];
+	m: -1;
+	font: "JetBrains Mono Nerd Font 12";
+	show-icons: false;
+	terminal: "alacritty";
+	ssh-client: "ssh";
+	ssh-command: "tmux new-window -n {host} {ssh-client} {host}";
+	disable-history: false;
+/*	ignored-prefixes: "";*/
+/*	sort: false;*/
+/*	sorting-method: "normal";*/
+	case-sensitive: false;
+	cycle: true;
+	sidebar-mode: true;
+/*	hover-select: true;*/
+/*	eh: 1;*/
+/*	auto-select: false;*/
+	parse-hosts: true;
+	parse-known-hosts: true;
+	scroll-method: 1;
+/*	window-thumbnail: false;*/
+/*	drun-use-desktop-cache: false;*/
+/*	drun-reload-desktop-cache: false;*/
+/*	steal-focus: false;*/
+/*	application-fallback-icon: ;*/
+	display-run:			"";
+	display-drun:			"";
+	display-ssh:			"";
+	display-filebrowser:	"";
+	display-window:			"";
+	drun-display-format:        "{name}";
+	window-format:              "{w} · {c} · {t}";
+	run,drun {
+		fallback-icon: "application-x-addon";
+	}
+	timeout {
+		action: "kb-cancel";
+		delay:  0;
+	}
+	filebrowser {
+		directories-first: true;
+		sorting-method:    "name";
+	}
+}
+
+@import	"keys"
+@theme	"themes/t1s5.rasi"
