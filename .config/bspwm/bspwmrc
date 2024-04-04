@@ -17,6 +17,7 @@ bspc monitor DP-4 -d Q W E R T Y
 
 # desktop setup
 bspc desktop I -l monocle
+bspc desktop IV -l monocle
 bspc desktop Q -l monocle
 bspc desktop W -l monocle
 bspc desktop E -l monocle

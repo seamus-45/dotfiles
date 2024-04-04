@@ -55,11 +55,10 @@ alacritty --class=mpc -e ncmpcpp &
 [ -d /sys/class/net/vpn0 ] && alacritty --class=remote-R -e ssh -t -- fedotov_sv@seamus.core tmux attach-session -t remote-R || alacritty --class=remote-R &
 tmux has-session -t local-L && alacritty --class=local-L -e tmux -- attach-session -t local-L || alacritty --class=local-L -e tmux -- new-session -s local-L -t local &
 tmux has-session -t local-R &&  alacritty --class=local-R -e tmux -- attach-session -t local-R || alacritty --class=local-R -e tmux -- new-session -s local-R -t local &
-# hide remote sessions
-while ! xdotool search --class remote-L windowunmap; do wsleep; done
-while ! xdotool search --class remote-R windowunmap; do wsleep; done
-#xdotool search --class remote-L windowunmap
-#xdotool search --class remote-R windowunmap
+
+# hide remote windows
+(sleep 10 && xdotool search --class remote-L windowunmap) &
+(sleep 10 && xdotool search --class remote-R windowunmap) &
 
 # notify daemon
 dunst &
