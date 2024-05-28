@@ -53,7 +53,7 @@ audio/mp4=mpv.desktop
 application/x-shockwave-flash=mpv.desktop
 application/pdf=org.gnome.Evince.desktop
 application/x-bittorrent=transmission-gtk.desktop
-x-scheme-handler/tech=technogramdesktop.desktop
+x-scheme-handler/tech=userapp-Technogram Desktop-SY4NM2.desktop
 x-scheme-handler/http=google-chrome.desktop
 x-scheme-handler/https=google-chrome.desktop
 text/plain=nvim-qt.desktop
@@ -88,5 +88,6 @@ text/vnd.trolltech.linguist=mpv.desktop;
 image/png=sxiv.desktop;deepin-image-viewer.desktop;
 image/jpeg=com.interversehq.qView.desktop;
 x-scheme-handler/tg=userapp-Telegram Desktop-ON94V1.desktop;
+x-scheme-handler/tech=userapp-Technogram Desktop-SY4NM2.desktop;
 
 [Removed Associations]

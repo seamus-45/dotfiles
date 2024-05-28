@@ -34,6 +34,11 @@ imwheel -k -b 000089
 # compositor
 picom  &
 
+# keyring
+/usr/bin/systemctl --user import-environment DISPLAY XAUTHORITY
+/usr/bin/dbus-update-activation-environment DISPLAY XAUTHORITY
+/usr/bin/gnome-keyring-daemon --start --components=secrets &
+
 # polkit (for gui apps with admin rights)
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
@@ -42,7 +47,7 @@ picom  &
 redshift-gtk &
 
 # setup ssh agent
-pkill ssh-agent; eval `ssh-agent`
+#pkill ssh-agent; eval `ssh-agent`
 
 # music daemon
 pkill mpd >/dev/null; mpd
@@ -57,8 +62,8 @@ tmux has-session -t local-L && alacritty --class=local-L -e tmux -- attach-sessi
 tmux has-session -t local-R &&  alacritty --class=local-R -e tmux -- attach-session -t local-R || alacritty --class=local-R -e tmux -- new-session -s local-R -t local &
 
 # hide remote windows
-(sleep 10 && xdotool search --class remote-L windowunmap) &
-(sleep 10 && xdotool search --class remote-R windowunmap) &
+(sleep 2 && xdotool search --class remote-L windowunmap) &
+(sleep 2 && xdotool search --class remote-R windowunmap) &
 
 # notify daemon
 dunst &

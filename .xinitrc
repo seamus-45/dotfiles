@@ -31,9 +31,8 @@ xset +dpms
 #xset m 1/3 4
 xinput --set-prop 12 'libinput Accel Profile Enabled' 0, 1
 
-# Kvantum engine
-QT_STYLE_OVERRIDE=kvantum
-export QT_STYLE_OVERRIDE
+SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"
+export SSH_AUTH_SOCK
 
 exec bspwm
 

@@ -107,7 +107,7 @@ inherit = bar/common
 
 monitor = HDMI-0
 
-modules-left = bspwm luci
+modules-left = bspwm ros
 ;modules-center = xwindow
 modules-right = tray vpn xkeyboard email temperature cpu memory date powermenu
 
@@ -438,6 +438,21 @@ type = custom/script
 
 exec = /home/seamus/.config/polybar/scripts/luci/status.py
 interval = 3
+click-left = /usr/bin/xdg-open "http://192.168.5.1/cgi-bin/luci/admin/services/modem/readsms"
+
+format = <label>
+;format-underline = ${colors.blue}
+
+label-padding = 1
+;}}}
+
+;{{{ Module luci
+[module/ros]
+type = custom/script
+
+exec = /home/seamus/.config/polybar/scripts/ros/status.py
+interval = 2
+click-left = /usr/bin/xdg-open "http://192.168.88.1/webfig/#Tools:SMS.Inbox"
 
 format = <label>
 ;format-underline = ${colors.blue}
