@@ -41,6 +41,9 @@ if __name__ == '__main__':
     name = r['current-operator']
     # cqi lvl - 0..15 (quality)
     # 100/15 = 6.66
+    # sometime key is not exist
+    if 'cqi' not in r:
+        r['cqi'] = 0
     lvl = round(int(r['cqi']) * 6.66)
     rssi = r['rssi']
     rsrp = r['rsrp']
