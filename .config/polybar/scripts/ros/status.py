@@ -38,6 +38,12 @@ if __name__ == '__main__':
 
     # get lte modem stats
     r = router.talk('/interface/lte/info\n=number=0\n=once')[0]
+
+    # check registration
+    if r['functionality'] == 'minimal':
+        print('modem is suspended')
+        sys.exit(1)
+
     name = r['current-operator']
     # cqi lvl - 0..15 (quality)
     # 100/15 = 6.66

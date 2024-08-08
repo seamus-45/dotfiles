@@ -11,7 +11,7 @@ bspc rule -a *:crx_eikjhbkpemdappjfcmdeeeamdpkgabmk desktop=R
 # Bitwarden
 bspc rule -a *:crx_nngceckbapebfimnlniiiahkandclblb state=floating
 bspc rule -a Mumble state=floating
-bspc rule -a Pavucontrol state=floating
+bspc rule -a pavucontrol state=floating
 bspc rule -a Peek state=floating
 bspc rule -a Pick-colour-picker state=floating
 bspc rule -a Pinentry state=floating
@@ -54,4 +54,3 @@ bspc rule -a *:remote-R desktop=Q locked=on
 bspc rule -a transmission desktop=VI follow=on state=floating center=on
 bspc rule -a xfreerdp follow=on desktop=IV state=pseudo_tiled
 bspc rule -a zoom desktop=IV
-bspc rule -a zoom:*:zoom_linux_float_video_window desktop=IV state=pseudo_tiled rectangle=1698x1386+0+0

@@ -69,6 +69,7 @@ x-scheme-handler/mailto=google-chrome.desktop
 x-scheme-handler/webcal=google-chrome.desktop
 x-scheme-handler/postman=Postman.desktop
 text/vnd.trolltech.linguist=mpv.desktop
+x-scheme-handler/tonsite=org.telegram.desktop._ed74551145c0fdad9bd339c41f49b3be.desktop
 
 [Added Associations]
 x-scheme-handler/http=chromium.desktop;
@@ -89,5 +90,7 @@ image/png=sxiv.desktop;deepin-image-viewer.desktop;
 image/jpeg=com.interversehq.qView.desktop;
 x-scheme-handler/tg=userapp-Telegram Desktop-ON94V1.desktop;
 x-scheme-handler/tech=userapp-Technogram Desktop-SY4NM2.desktop;
+application/x-mimearchive=google-chrome.desktop;
+x-scheme-handler/tonsite=org.telegram.desktop._ed74551145c0fdad9bd339c41f49b3be.desktop;
 
 [Removed Associations]

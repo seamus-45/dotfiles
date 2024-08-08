@@ -59,13 +59,13 @@ TERM = "xterm-256color"
 size = 12.0
 
 [font.bold]
-family = "Droid Sans Mono Slashed for Powerline"
+family = "DroidSansM Nerd Font"
 
 [font.italic]
-family = "Droid Sans Mono Slashed for Powerline"
+family = "DroidSansM Nerd Font"
 
 [font.normal]
-family = "Droid Sans Mono Slashed for Powerline"
+family = "DroidSansM Nerd Font"
 
 [hints]
 alphabet = "jfkdls;ahgurieowpq"
