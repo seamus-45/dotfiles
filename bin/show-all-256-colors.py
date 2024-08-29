@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python2
 
 def hrun(start, width, padding=0):
     return [None] * padding + range(start, start+width) + [None] * padding

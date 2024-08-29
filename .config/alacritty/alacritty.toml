@@ -94,3 +94,8 @@ dynamic_title = true
 opacity = 0.8
 startup_mode = "Windowed"
 title = "Alacritty"
+
+[keyboard]
+bindings = [
+{ key = "Enter", mods = "Control", chars = "\u001b[[CE" },
+]
