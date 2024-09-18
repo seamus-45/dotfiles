@@ -94,5 +94,3 @@ pasystray &
 ~/bin/Technogram &
 
 spoof-dpi -enable-doh -dns-addr 1.1.1.1 -window-size 0 &
-
-google-chrome-stable --proxy-server="http://127.0.0.1:8080" &
