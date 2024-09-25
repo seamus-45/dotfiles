@@ -69,7 +69,7 @@ super + shift + alt {h,j,k,l}
   bspc node -n {west,south,north,east}
 
 # equal all nodes on desktop
-super + shift + e
+super + shift + =
   bspc node @/ -B
 
 # rotate the tree of the selected desktop
