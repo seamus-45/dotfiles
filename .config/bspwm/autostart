@@ -56,8 +56,8 @@ pkill mpd >/dev/null; mpd
 alacritty --class=mpc -e ncmpcpp &
 
 # restore tmux sessions
-[ -d /sys/class/net/vpn0 ] && alacritty --class=remote-L -e ssh -t -- fedotov_sv@seamus.core tmux attach-session -t remote-L || alacritty --class=remote-L &
-[ -d /sys/class/net/vpn0 ] && alacritty --class=remote-R -e ssh -t -- fedotov_sv@seamus.core tmux attach-session -t remote-R || alacritty --class=remote-R &
+[ -d /sys/class/net/vpn0 ] && ( alacritty --class=remote-L -e ssh -t -- fedotov_sv@seamus-lxc.core tmux attach-session -t lxc-L &) || alacritty --class=remote-L &
+[ -d /sys/class/net/vpn0 ] && ( alacritty --class=remote-R -e ssh -t -- fedotov_sv@seamus-lxc.core tmux attach-session -t lxc-R &) || alacritty --class=remote-R &
 tmux has-session -t local-L && alacritty --class=local-L -e tmux -- attach-session -t local-L || alacritty --class=local-L -e tmux -- new-session -s local-L -t local &
 tmux has-session -t local-R &&  alacritty --class=local-R -e tmux -- attach-session -t local-R || alacritty --class=local-R -e tmux -- new-session -s local-R -t local &
 
@@ -93,4 +93,4 @@ pasystray &
 ~/bin/Telegram &
 ~/bin/Technogram &
 
-spoof-dpi -enable-doh -dns-addr 1.1.1.1 -window-size 0 &
+#spoofdpi -enable-doh -dns-addr 1.1.1.1 -window-size 0 &
